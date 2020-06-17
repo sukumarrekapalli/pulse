@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   https: false,
   //apiUrl: "http://115.124.109.123:1800"
-  // apiUrl: "http://pulsedb/"
-  apiUrl: "http://localhost:8080/"
+  apiUrl: "http://pulsedb/"
+  // apiUrl: "http://localhost:8080/"
   //apiUrl: "http://pulsedb.simplifytechnology.in"
   //apiUrl: "http://pulsedb.utopiansunrise.in"
 };

@@ -1,0 +1,179 @@
+<div class="dbk">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="dbk-box">
+                <div class="dbkb-head">
+                    <h6 class="dbkb-title">EXECUTIVE SUMMARY</h6>
+                </div>
+                <div class="dbkb-body">
+                    <p  [innerHTML]="project?.cva.executiveSummary" style="text-align: left"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 border-right dotted">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'star-half-alt']"></fa-icon>OPINION INDEX</h6>
+                        </div>
+                        <div class="dbkb-body">
+                            <div class="orater" title="{{project?.cva.opinion_index}}">
+                                <div class="ratediv">
+                                    <div class="rates" style="font-size: 25px;height:unset;">
+                                        22%
+                                    </div>
+                                </div>
+                                <div class="ratelbl"><span>Values Dysfunction</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" >
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'signal']"></fa-icon>OTHER STATS</h6>
+                        </div>
+                        <div class="dbkb-body">
+
+                            <div class="row white">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="ceo_approval">
+                                        <span style="float: left;font-size: 48px;">2</span>
+                                        <p class="angular-with-newlines ptag" style="margin-top: 19px;margin-left: 30px;font-size: 12px;">Common values between Current and Personal Values</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row white">
+                                <div class="col-lg-12 col-md-12" >
+                                    <div class="ceo_approval">
+                                        <span style="float: left;font-size: 48px;">1</span>
+                                        <p class="angular-with-newlines ptag" style="margin-top: 19px;margin-left: 30px;font-size: 12px;">Common values between Current and Desired Values.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row white">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="ceo_approval">
+                                        <span style="float: left;font-size: 48px;">2</span>
+                                        <p class="angular-with-newlines ptag" style="margin-top: 24px;margin-left: 30px;font-size: 12px;">Potentially limiting values</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row bmargin">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                             <!-- <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA</h6> -->
+                            <h6 class="dbkb-title" style="height: 15px;"> </h6>
+                        </div>
+                        <div class="dbkb-body">
+                           <div class=" row">
+                                <div class="col-4 ">
+                                    <div class="participantnumber" >
+                                       <!-- {{project?.participants?.length}} -->
+                                       4375
+                                    </div>
+                                    <div class="rc-label participanttext">No. of Participants</div>
+                                </div>
+                                <div class="col-4 ">
+                                    <div class="participantnumber">
+                                      <!-- {{responsedata_per}}% -->
+                                      16%
+                                    </div>
+                                    <div class="rc-label participanttext">% of responses</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="participantnumber">
+                                       <!-- {{branchno.length}} -->
+                                       959 
+                                    </div>
+                                    <div class="rc-label participanttext">No. of Branches</div>
+                                </div>
+                                <div style="display: none;" class="rc" *ngFor="let rc of rcs" [ngClass]="{'red': project?.cva[rc.prop] < 3, 'yellow':  project?.cva[rc.prop] > 3 && project?.cva[rc.prop] < 6, 'green':  project?.cva[rc.prop] >= 6}" (click)="ivopChange(rc.opvalue);" >
+                                    <div class="rc-val">
+                                        <div class="rc-num">{{project?.cva[rc.prop]}}</div>
+                                        <div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div>
+                                    </div>
+                                    <div class="rc-case" >
+                                        <div class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></div>
+                                        <div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>
+                                    </div>
+                                    <div class="rc-label">{{rc.label}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'user-check']" style="padding-left: 15px;"></fa-icon>COMPANY INSIGHTS</h6>
+                        </div>
+                        <div class="col-12 cvarp">
+                            <div class="col-3 opdiv">
+                                <div class="row op1" [ngClass]="{'opactive': ivop == 'op1'}" (click)="ivopChange('op1');"><div [hidden]="ivop !== 'op1'" class= "arrow-right"></div><div class="txtd">Personal Values</div></div>
+                                <div class="row op2" [ngClass]="{'opactive': ivop == 'op2'}" (click)="ivopChange('op2');"><div [hidden]="ivop !== 'op2'" class= "arrow-right"></div><div class="txtd">Current Organizational Values</div></div>
+                                <div class="row op3" [ngClass]="{'opactive': ivop == 'op3'}" (click)="ivopChange('op3');"><div [hidden]="ivop !== 'op3'" class= "arrow-right"></div><div class="txtd">Desired Organizational Values</div></div>
+
+                            </div>
+                            <div class="col-9 dbkd-h">
+                                <div  class="dbkd-hb">
+                                    <div class="dbkb-body">
+                                        <div class="ivl" [hidden]="currentView === 'lsp'">
+                                            <div class="ivl-head">
+                                                <font class="float-left">Level of Consciousness</font>
+                                                <font class="float-right">Stages of Development</font>
+                                            </div>
+                                            <div class="ivl-body">
+                                                <div class="ivl-row" *ngFor="let ivl of ivls">
+                                                   <div class="ivl-lcell">{{ivl.label}}</div>
+                                                   <div class="ivl-mcell">
+                                                    <div class="ivl-bubble" *ngFor="let bubble of ivl.bubbles" [ngClass]="{'lv': bubble.state === 'LV'}"><div class="speech-bubble">{{bubble.label}}</div></div>
+                                                </div>
+                                                <div class="ivl-rcell">{{ivl.dlabel}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="ivl-footer">
+                                            <div class="ivl-bubble" style="float:left; margin:3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float: left; margin-right: 30px; ">Positive Value</div>
+                                            <div class="ivl-bubble lv" style="float:left; margin: 3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float:left; margin-right: 30px; ">Limiting Value</div>
+                                        </div>
+                                    </div>
+                                    <div class="cvl" [hidden]="currentView !== 'lsp'">
+                                        <div class="cvl-item" *ngFor="let cvl of cvls">
+                                           <div class="cvl-case">
+                                            <div class="speech-bubble">{{cvl.count}}</div>
+                                            <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                            <div class="cvl-footer">
+                                                <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inpg-fnote float-right col-12 text-right" style="font-size: 12px;color: black;">
+                        Adapted from BVC reports.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

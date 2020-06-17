@@ -1,0 +1,47 @@
+.orgs { width: 100%; height: auto; display:inline-table; padding: 20px 10% 80px 10%; text-align: center; }
+.orgs .orgrow { width: auto; margin: auto;  }
+.orgs .orgrow .orgitem { 
+    text-align:center;
+}
+.orgs .orgrow .orgitem.p-br {
+    
+}
+.orgs .orgrow .orgitem .orgcard {
+    height: 160px;
+    max-width: 160px; margin: auto; display: block; align-content: center;
+    background:#ccc;
+    position:relative; 
+    transition: all 500ms ease;
+    cursor: pointer;
+} 
+.orgs .orgrow .orgitem .orgcard:hover {
+    background: #ddd; 
+}
+.orgs .orgrow .orgitem.p-br .orgcard {
+    height: 120px; margin-top: 20px;
+}
+
+.orgs .orgrow .orgitem .orgcard .orgImage {
+    clear:both; height: 112px; width: 100%; display: block; padding: 20px 0px;
+}
+.orgs .orgrow .orgitem .orgcard .orgImage img { height: 80px }
+.orgs .orgrow .orgitem .orgcard .orgImage .orgplus { width: 40px; height: 40px; border-radius: 20px; background:#dedede; color:#fff; text-align: center; line-height: 40px; font-size:36px; font-weight: 700; margin:auto;  }
+
+.orgs .orgrow .orgitem .orgcard:hover .orgImage .orgplus { background:#efefef; }
+.orgs .orgrow .orgitem .orgcard .orgTitle {
+    clear:both; height: 40px; width: 100%; display: block; color:#666; font-size: 16px; font-weight: 700;  margin-top:5px; 
+}
+
+.orgs .orgrow .orgitem .orgcard:hover .orgTitle { color:#333; }
+
+.orgs .orgrow .orgitem.p-br .orgcard .orgImage {
+    height: 72px;
+}
+.orgs .orgrow .orgitem .progress { 
+    height: 3px !important; 
+}
+.orgs .orgrow .orgitem .progress .progress-bar { 
+    background-color: #686c6f !important;
+}
+.imgSize{height: 60px;width: 60px;}
+.pback { position: absolute; float: right; top: 20px; right: 30px; font-size: 30px; }

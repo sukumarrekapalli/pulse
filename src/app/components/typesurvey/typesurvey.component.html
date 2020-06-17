@@ -1,0 +1,189 @@
+<block-ui></block-ui>
+<div class="sv" [ngClass]="{'ins': surveyView !== 'survey'}">
+    <div class="svhead row w-75 text-center width-100 padding-0" >
+        <div  class="dlp-ologo col-2  pr-0">
+           <!-- <img  class="main-log" *ngIf="survey?.user_source === 'VI'" src="assets/images/mna-login-banner.jpg" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" />
+            <img  class="main-log" *ngIf="survey?.user_source !== 'VI'" src="assets/images/culturelytics_logo.jpg" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /> -->
+        </div>
+        <div class="row col-8 pr-0">
+            <div class="col-lg-12 col-md-12 page-heading ">
+                <h2  class=" pt-3  fontsize">TIPE Assessment <small><em>“A unique you”</em></small></h2>
+                <!-- <h2 *ngIf="survey?.user_source !== 'VI'"  class=" pt-3 fontsize">Decode your Culture</h2> -->
+            </div>
+        </div>
+        <div [hidden]="surveyView !== 'survey' || survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null" class="dlp-ologo col-2 text-right"><img src="{{survey?.projectLogo}}"  class="main-log" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+    </div>  
+<div class="svbody  qdiv-height">
+    <div class="svins cscroll" [hidden]="surveyView !== 'intro' && surveyView !== ''">
+        <!--<div class="svins-title"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>{{survey?.projectTitle}}</div>-->
+        <div class="svins-lp">
+            <div class="svins-title dlp-ologo" >
+                <img  *ngIf="survey?.user_source === 'VI'" src="assets/images/mna-login-banner.jpg" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" />
+                <img *ngIf="survey?.user_source !== 'VI'" src="assets/images/culturelytics_logo.jpg" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" />
+            </div>
+            <div class="svins-body cscroll">
+               <div class="svins-inshead">
+                  <!--   <h5>Instructions</h5>
+                    <p>Complete the questionnaire based on whether the following statements apply to you.</p>
+                    <p>There are no right or wrong responses — this exercise simply provides insights into your preferred style of operation.</p> -->
+                	<ol class="pt-3">
+                		<li class=" list-group-item border-0 "><h4 class="text-danger">TIPE Assessment <small><em>“A unique you”</em></small></h4></li>
+                		<li class=" border-0 h5" style="font-size: 15px;">Complete the questionnaire based on whether the following statements apply to you.</li>
+                		<li class=" border-0 h5" style="font-size: 15px;">There are no right or wrong responses — this exercise simply provides insights into your preferred working style of operation.</li>
+                        <li class=" border-0 h5" style="font-size: 15px;">Please select at least 15 sentences that most resonate with you.</li>
+                	</ol>
+                </div>
+                <div class="important-note">
+                    <p><strong>Important Note: </strong> Please do not press back button while taking the survey.</p>
+                </div>
+            </div>
+            <div class="svins-footer pt-4 text-right"><button class="btn s-btn" (click)="startSurvey()" title="Next">Next>> </button></div>
+        </div>
+        <div class="svins-rp"><div class="svins-title dlp-ologo" style="text-align: right;" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div><div class="svins-rpbdy"><img src="assets/images/datalake/datalake_com_ins.png" /></div></div>
+    </div>
+ 
+    <div class="svins thanks h-75" [hidden]="surveyView !== 'thanks'">
+        <div class="bg-transparent cscroll svins-lp">
+            
+            <div class="svins-title dlp-ologo text-right" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" class="ml-2 mt-2" /></div>
+             <div class="svins-rpbdy"><img class="img-fluid w-100" src="assets/images/com_assess_result_pg.png" /></div>
+        </div>
+        <div class="bg-white shadow svins-rp">
+            <div class="svins-body cscroll border-bottom-0">
+                <div class="svins-thankshead p-4 h3" style="border-bottom: 2px solid red;">THANK YOU!</div>
+                <div class="svins-ins msg">
+                    <div class="s-cl bold">You have completed the Assessment.</div>
+                </div>
+                
+                <!--  <div class="svins-ins icons">
+                    <img src="assets/images/survey_thanks_icons.png" style="width:100%">
+                </div>
+                 <div class="svins-ins pt-5">
+                    <a class="link s-link" title="http://www.e2epeoplepractices.com/register.php" href="http://www.e2epeoplepractices.com/register.php">www.e2epeoplepractices.com/register.php</a>
+                </div> -->
+                <div class="svins-ins pt-5" [hidden]="surveyView !== 'thanks'">
+                    Click here to get your result on mail... <button class="btn s-btn" >Send</button>
+                </div>
+                <div class="svins-ins pt-5" [hidden]="surveyView !== 'thanks'">
+                    If You are interested to know more about <span class="text-danger small-caps">value adjustment factor</span>. <button class="btn s-btn">Click Here...</button> 
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="svins thanks h-75 width-100" [hidden]="surveyView !== 'athanks'">
+        <div class="svins-lp" style="background: none">
+            <div class="svins-title dlp-ologo text-right" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+            <div class="svins-rpbdy"><img class="img-fluid" src="assets/images/com_assess_result_pg.png" /></div>
+        </div>
+        <div class="svins-rp cscroll bg-white shadow">
+            <div class="svins-body cscroll border-bottom-0">
+                <div class="svins-thankshead h3 p-4" style="border-bottom: 2px solid #f5383c;">THANK YOU!</div>
+                <div class="svins-ins msg">
+                    <div class="s-cl bold" [hidden]="surveyView !== 'thanks'">You have completed the Assessment.</div>
+                    <div class="p-cl bold pt-5" [hidden]="surveyView !== 'athanks'">You have already completed this Assessment.</div>
+                    <!-- ELSA is a first of it's kind learning platform providing tailored analytical dashboards for your learning. -->
+                </div>
+                <!-- <div class="svins-ins icons">
+                    <img src="assets/images/survey_thanks_icons.png" style="width:100%">
+                </div>
+                <div class="svins-ins">
+                    Learning has a new way!
+                </div>
+                <div class="svins-ins">
+                    <a class="link s-link" title="http://www.e2epeoplepractices.com/register.php" href="http://www.e2epeoplepractices.com/register.php">http://www.e2epeoplepractices.com/register.php</a>
+                </div> -->
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="svins thanks cscroll" [hidden]="surveyView !== 'error' && surveyView !== 'aerror'">
+        <div class="svins-lp cscroll">
+            <div class="svins-body cscroll">
+                <div class="svins-thankshead">SORRY!</div>
+                <div class="svins-ins msg">
+                    <div class="alert alert-danger" [hidden]="surveyView !== 'error'">
+                        Assessment is not found or has expired. contact support team.
+                    </div>
+                    <div class="alert alert-danger" [hidden]="surveyView !== 'aerror'">
+                        Unfortunately your assessment is not submitted. Try again later.
+                    </div>
+                    ELSA is a first of it's kind learning platform providing tailored analytical dashboards for your learning.
+                </div>
+                <div class="svins-ins icons">
+                    <img src="assets/images/survey_thanks_icons.png" style="width:100%">
+                </div>
+                <div class="svins-ins">
+                    Learning has a new way!
+                </div>
+                <div class="svins-ins">
+                    <a class="link s-link" title="http://www.e2epeoplepractices.com/register.php" href="http://www.e2epeoplepractices.com/register.php">http://www.e2epeoplepractices.com/register.php</a>
+                </div>
+            </div>
+        </div>             
+        <div class="svins-rp">
+            <div class="svins-title dlp-ologo" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+            <div class="svins-rpbdy"><img src="assets/images/survey_thanks.png" /></div>
+        </div>
+    </div>
+
+    <div class="svq" [hidden]="surveyView !== 'survey'">
+        <div class="sv-index" style="display: none;">
+            <div class="svi-label s-cl">
+                Question
+            </div>
+            <div class="svi-items" >
+                <div class="svind-item" *ngFor="let question of survey?.questions;  let i = index;" [style.width.%]="(100 / survey?.questions.length)">
+                   <div class="svii-bar" [ngClass]="{'full': userAnswers[i] !== undefined && userAnswers[i].answered === true, 'current': currentQuestionIndex === i}"></div>
+                   <div class="svii-num s full" *ngIf="i === 0" >S</div>
+                   <div class="svii-num" [ngClass]="{'full': userAnswers[i] !== undefined && userAnswers[i].answered === true, 'current': currentQuestionIndex === i}">{{i+1}}</div>
+               </div>
+           </div>
+       </div>
+
+
+
+      <div class="row svq-body cscroll svona dlake w-50 width-100" style="top:0%;">
+        <div  *ngFor="let currentQuestion of survey?.questions;  let j = index;"  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left row bg-white border mb-1 pr-2">
+            <div class="svq-optmask" *ngIf="userAnswers[currentQuestionIndex]?.answers.length >= 1"></div>
+            
+            <div class="custom-radio custom-control-inline col-12 pl-0 pr-0 pt-2 pb-2" *ngFor="let opt of currentQuestion?.options;  let i = index;" [ngClass]="{'active': opt.selected === true }" (click)="caToggleOption(opt,j)" >
+                <div class="svona-qtitle col-10 col-lg-10 col-md-10 pl-5 padding-left-0" [innerHTML]="currentQuestion?.questionText"></div>
+                <div class="radiobtn_color">
+                    <input type="radio" class="custom-control-input" id="{{j}}" name="{{j}}" *ngIf="opt.selected === true" checked [ngClass]="{'selected': opt.selected === true }"  title="{{opt.label}}">
+                    <input type="radio" class="custom-control-input" id="{{j}}" name="No" *ngIf="opt.selected === false" [ngClass]="{'selected': opt.selected === true }" (click)="caToggleOption(opt,j)" title="{{opt.label}}">
+                    <label [ngClass]="{'text_active': opt.selected === true }" class="custom-control-label text_inactive" for="{{j}}">Yes </label>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+</div>
+<div class="svfoot">
+    <div class="svf-btns" [hidden]="surveyView !== 'survey'">
+        <span class="com-assessment-instructions">
+            <div class="com-assessment-instructions-box ins-box" *ngIf="infoInstruction === true">
+                <ol class="">
+                    <h4 class="text-danger">TIPE Assessment <small><em>“A unique you”</em></small></h4>
+                    <li class=" border-0 h5" style="font-size: 15px;">Complete the questionnaire based on whether the following statements apply to you.</li>
+                    <li class=" border-0 h5" style="font-size: 15px;">There are no right or wrong responses — this exercise simply provides insights into your preferred working style of operation.</li>
+                    <li class=" border-0 h5" style="font-size: 15px;">Please select a minimum of 15 statements that most apply to you.</li>
+                </ol>
+                <div class="important-note">
+                    <p><strong>Important Note: </strong> Please do not press back button while taking the survey.</p>
+                </div>
+            </div>
+            <fa-icon (mouseenter)="showInstructions(true)" (mouseleave)="showInstructions(false)" title="Instructions" [icon]="['fas', 'info-circle']"></fa-icon>
+        </span>
+        <button [ngClass]="{'finishopacity': this.userAnswers?.answered !== true }" class="btn s-btn" (click)="finishSurvey()"  >Finish<fa-icon [icon]="['fas', 'angle-double-right']"></fa-icon></button>
+        <p class="btn ml-2">Selected option count is: <b class="opt-counter opt-counter">{{this.uans.length}}</b></p> 
+     </div>
+     <!-- <div class="svfootdiv">Copyright © {{currentYear}} Culturelytics Pvt. Ltd. </div> -->
+</div>
+<div class="svfoot">
+   
+     <div class="svfootdiv dis-none">Copyright © {{currentYear}} Culturelytics Pvt. Ltd. </div>
+     
+</div>
+</div>

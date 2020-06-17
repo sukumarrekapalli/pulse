@@ -1,0 +1,154 @@
+<div class="dbk CulGenome"  [hidden]="lspFlag === 2" >
+
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<div class="dbk-box">
+				<div class="dbkb-head" style="height: 22px;">
+					<p>A window into the culture of an organisation’s top leadership, based on our proprietary PULSE assessment, which identifies six key leadership competencies.</p>
+					<h6 class="dbkb-title float-left col-12">EXECUTIVE SUMMARY </h6>
+					<h6 class="dbkb-title float-right col-4 d-none text-right" *ngIf="project?.lsreport !== '' && currentView === 'ilsp'"><a class="s-link float-right" style="float:right;" href="/#/lsreport/{{project?.lsreport.id}}" target="_new">Leadership Report</a></h6>
+					<h6 class="dbkb-title float-right col-4 text-right" *ngIf="project?.lsreport !== '' && currentView !== 'ilsp'">
+						 &nbsp;</h6>
+				</div>
+				<div class="dbkb-body col-12 p-1">
+					<p style="text-align: left" >{{lsp?.executive_summary}}</p>
+				</div>
+			</div>
+		</div>
+	</div> 
+  
+	<div class="row"  style="margin-top: -20px; margin-bottom: 10px"> 
+		<div class="col-lg-12 col-md-12">
+			<ul class="nav nav-pills float-right">
+				<li class="nav-item">
+					<a class="nav-link btn btn-sm" [ngClass]="{'active': currentView === 'ilsp'}" (click)="switchView('ilsp')">Individual</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-sm" [ngClass]="{'active': currentView === 'lsp'}" (click)="switchView('lsp')">Combined</a>
+				</li>
+			</ul>
+		</div> 
+	</div> 
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 border-right dotted">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title  text-center"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>OVERALL RATING </h6>
+				</div>
+				<div *ngIf="currentView === 'ilsp'" class="dbkb-body orclass" title="{{lsp.competency_alignment}}" style=" height: 120px;">
+                   <div id="speedometer">
+					  <span class="barometer" style="background-image: url(assets/images/smilygroup.png);"></span>
+					  <span class="needle"></span>
+					  <span><p class="orvalues text-white bold">{{lsp.competency_alignment}}</p></span>
+					</div>
+                </div>
+                <div *ngIf="currentView === 'lsp'" class="dbkb-body orclass" title="{{lsp.competency_alignment}}" style=" height: 120px;">
+                   <div id="speedometer">
+					  <span class="barometer" style="background-image: url(assets/images/smilygroup.png);"></span>
+					  <span class="needleCombined"></span>
+					  <span><p class="orvalues text-white bold">{{lsp.competency_alignment}}</p></span>
+					</div>
+                </div>
+
+            </div>
+		</div>
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA
+
+					</h6>
+				</div>
+				<div class="dbkb-body">
+					<div class="rcs">
+						<div class="rc" *ngFor="let rc of rcs" [ngClass]="{'red': rc.prop < 2, 'yellow': rc.prop >= 2 && rc.prop < 4, 'green':  rc.prop >= 4}"  >
+							<div class="rc-val"><div class="rc-num">{{rc.prop}}</div><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div></div>
+							<div class="rc-case" >
+								<div class="rc-icon" ><fa-icon [icon]="['fas', rc.icon]" [style.color]="rc.color"></fa-icon></div>
+								<div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>
+								<!--div class="kprogress-bar {{rc.code}}" data-percent="0" [ngClass]="{'red': lsp[rc.prop] < 3, 'yellow':  lsp[rc.prop] > 3 && lsp[rc.prop] < 6, 'green':  lsp[rc.prop] >= 6}">
+									<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></span></div>
+								</div-->	
+							</div>
+							<div class="rc-label">{{rc.label}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-5 col-md-5">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'clipboard-check']"></fa-icon>COMPETENCIES</h6>
+				</div>
+				<div class="dbkb-body">
+					<div id="comp_chart" style="width: 100%; min-width: 260px; margin: auto; height: 260px; text-align: center; "></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-7 col-md-7 small-dvc">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'user-check']"></fa-icon>PERSONAL VALUES</h6>
+				</div>
+				<div class="dbkb-body">
+					<div class="ivl" [hidden]="currentView === 'lsp'">
+						<div class="ivl-head">
+							<font class="float-left">Level of Consciousness</font>
+							<font class="float-right">Stages of Development</font>
+						</div>
+						<div class="ivl-body">
+							<div class="ivl-row" *ngFor="let ivl of ivls">
+								<div class="ivl-lcell">{{ivl.label}}</div>
+								<div class="ivl-mcell">
+									<div class="ivl-bubble" *ngFor="let bubble of ivl.bubbles" [ngClass]="{'lv': bubble.state === 'LV'}"><div class="speech-bubble">{{bubble.label}}</div></div>
+								</div>
+								<div class="ivl-rcell">{{ivl.dlabel}}</div>
+							</div>
+						</div>
+						<div class="ivl-footer">
+							<div class="ivl-bubble" style="float:left; margin:3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float: left; margin-right: 30px; ">Positive Value</div>
+							<div class="ivl-bubble lv" style="float:left; margin: 3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float:left; margin-right: 30px; ">Limiting Value</div>
+						</div> 
+					</div>
+					<div class="cvl" [hidden]="currentView !== 'lsp'">
+						<div class="cvl-item" *ngFor="let cvl of cvls_static">
+							<div class="cvl-case">
+								<div class="speech-bubble">{{cvl.count}}</div>
+								<div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+								<div class="cvl-footer">
+									<div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="row" style="margin: 0px; margin-top: -10px; position: absolute; right: 20px" *ngIf="project?.lsreport !== '' && currentView === 'ilsp'" >
+		<a class="s-link float-right" style="float:right;" href="/#/lsreport/{{project?.lsreport.id}}" target="_new">Leadership Report</a>
+	</div> -->
+</div>
+<div class="dbk CulGenome" [hidden]="lspFlag !== 2"  [ngClass]="{'lpBlurDash': lspFlag !== '2'}" style="background-image: url('assets/images/lp_bg1.jpg')">
+
+	<div class="row lpBlurDashContent text-center">
+		<div class="col-lg-12 col-md-12"> 
+		<div class="row">
+			<div class="col-12 col-lg-12 col-md-12 col-sm-12">
+				<h3>Currently analysing the result</h3>
+			</div>
+		</div> 
+		<div class="row">
+			<div class="col-12 col-lg-12 col-md-12 col-sm-12">
+				<!-- <h6>To know more reach out to <a href="mailto:bala@mnagenome.com" target="_top">bala@mnagenome.com</a>  and <a href="mailto:smita@mnagenome.com" target="_top">smita@mnagenome.com</a></h6> -->
+			</div>
+		</div>
+		
+		</div>
+	</div>
+</div>

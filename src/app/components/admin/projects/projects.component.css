@@ -1,0 +1,78 @@
+.pcontainer {
+    width: 100%; height: 100%; display: block; position: relative; padding: 40px 0px;
+}
+.pcontainer .pdiv {
+    width: calc(100% - 100px); max-width: 1000px; height: 100%; margin: auto; overflow-y:auto; 
+    text-align: left; padding: 20px; position: relative;
+}
+
+.pdiv .prow {
+    width: 100%; padding: 10px; border-radius: 7px; height: auto; margin-bottom: 10px; display:inline-table; cursor: auto;
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+.pdiv .prow:hover {
+    /*
+    background: rgba(241,231,103,0.5);
+    background: -moz-linear-gradient(top, rgba(241,231,103,0.5) 0%, rgba(254,182,69,0.5) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(241,231,103,0.5)), color-stop(100%, rgba(254,182,69,0.5)));
+    background: -webkit-linear-gradient(top, rgba(241,231,103,0.5) 0%, rgba(254,182,69,0.5) 100%);
+    background: -o-linear-gradient(top, rgba(241,231,103,0.5) 0%, rgba(254,182,69,0.5) 100%);
+    background: -ms-linear-gradient(top, rgba(241,231,103,0.5) 0%, rgba(254,182,69,0.5) 100%);
+    background: linear-gradient(to bottom, rgba(241,231,103,0.5) 0%, rgba(254,182,69,0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=0 );
+    */
+}
+
+.pdiv .prow .plogo {
+    width: 60px; height: 60px; margin-right: 10px; display:inline-block; float: left; position: relative;
+}
+.pdiv .prow .plogo .plimg {
+    width: 100%; height: 100%; margin-right: 10px; display:flex; float: left; overflow: hidden; border-radius: 50%;
+    text-align: center; align-content: center; align-items: center; position: relative; border: solid 2px #efefef;
+    padding: 5px; background:#fff;
+    
+}
+.pdiv .prow .plogo .plimg img {
+    width: 100%; margin:auto; position: relative;
+    
+}
+.pdiv .prow .pcnt { 
+    width: calc(100% - 70px); height: auto; display: inline-table; float: left;
+}
+.pdiv .prow .pcnt .phead { 
+    width: 100%; height: 30px; text-align: left;
+}
+.pdiv .prow .pcnt .phead .ptitle { 
+    text-align: left; float: left; font-size: 20px; color:#007bff; font-weight: 400; display:inline-block;
+}
+.pdiv .prow .pcnt .phead .pdate { 
+    font-size: 12px; color:#ccc; margin-right: 5px; text-align: right; float: right; display:inline-block; width: 130px; color:#333; font-size: 11px;
+    margin-top: 5px;
+}
+.pdiv .prow .pcnt .phead .pdate .progress-bar { font-size: 10px; color:#333; } 
+.pdiv .prow .pcnt .phead .pdate .progress-bar.bg-success { color:#fff; } 
+.pdiv .prow .pcnt .phead .pdate .progress-bar span { padding: 5px 0px; } 
+
+.pdiv .prow .pcnt .pboxes { padding: 10px 0px; margin: 0px; }
+.pdiv .prow .pcnt .pboxes .pbox { border-left: dotted 1px #ccc; padding: 0px 10px; }
+.pdiv .prow .pcnt .pboxes .pbox:first-child { border-left: none; }
+
+.pdiv .prow .pcnt .pset { width: 100%; height: auto; display: table; margin-bottom: 10px;  }
+.pdiv .prow .pcnt .pset .psicon { width: 15px; height: 40px; margin-right: 10px; display:inline-block; float: left; position: relative; color:#333; font-size:12px; text-align: center }
+
+.pdiv .prow .pcnt .pset .psicon fa-icon { position: relative; bottom: 2px; } 
+.pdiv .prow .pcnt .pset .psbody { width: calc(100% - 25px); height: auto; display:inline-table; float: left; position: relative; }
+.pdiv .prow .pcnt .pset .psbody .pslbl { width: 100%; height: auto; display:inline-table; float: left; font-size:10px; color:#666; text-transform: uppercase }
+.pdiv .prow .pcnt .pset .psbody .psval { width: 100%; height: auto; min-height: 20px; display:inline-table; float: left; font-size:14px; color:#333; }
+.pdiv .pfoot { border-top: dotted 1px #ccc; padding-top: 10px; }
+.pdiv .pfoot .plinks { float: right; text-align: left; width: auto; display: inline-block; }
+.pdiv .pfoot .plinks .link { margin-left: 20px; }
+.pback { position: absolute; float: right; font-size: 30px; right: -30px; }

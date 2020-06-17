@@ -1,0 +1,151 @@
+.angular-with-newlines{
+	white-space: pre-wrap;
+}
+.dbk{
+    padding: 0px 30px;
+}
+.executive-summary-div {
+	margin-bottom: 10px;
+	white-space: pre-wrap;
+}
+.procon-item {
+	border-bottom: 1px dotted #ddd;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-div {
+	max-width: 19.666667%;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: pre-wrap;
+}
+
+.pros-div, .cons-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	padding: 10px;
+	height: 263px;
+}
+
+.pros-title, .cons-title {
+    margin-bottom: 10px;
+    text-align: left; color:#8b79dd;
+    font-weight: 700;
+}
+
+.content-div {
+	padding: 0px 15px;
+}
+
+
+.pplorgscore{
+    width: auto;
+    margin: auto; 
+    height: 120px;
+    display: inline-block;
+}
+.pplorgscore .orgscore1{
+    width: 65px;
+    margin: auto 5px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+}
+.pplorgscore .orgscore{
+    width: 90px;
+    margin: auto 5px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+}
+.orgscore .orgscore_lbl{
+    font-size: 10px;margin-bottom: 0px;
+}
+.pplorgscore .orgscore .orgscorediv{
+    width: 100%;
+    margin: auto 5px;
+    height: 120px;
+    cursor: pointer;
+     background: #fff;
+}
+.pplorgscore .orgscore .orgscore_startdiv{
+    width: 100%;
+    margin: auto 5px;
+    height: 120px;
+}
+.pos_text_bottom{
+    bottom: 0;
+    left: 35%;
+    margin-bottom: 0px;
+}
+
+.mood_index{
+    height: 200px;
+    padding: 23px 40px;
+    background-color: #e7e5e6;
+}
+.moodindex{
+    height: 200px;
+    background-color: #e7e5e6;
+}
+.mood_index .mi_circle {
+    border:2px solid #8d7dde;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.moodindex .mi_circle{
+    font-size: 4.5rem;
+    padding: 8% 11%;
+    color: #00000047;
+    margin: 11px 26px;
+    border: 3px solid #8d7dde;
+    border-radius: 50%;
+    background-color: white;
+}
+.moodindex_indicator{
+    float: left;
+    width: 19%;
+    padding: 2px;
+}
+.demographics_mi_parent{
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px 0px;
+}
+.demographics_mi{
+    float: left;
+    width: 19%;
+    padding: 2px;
+}
+
+
+.moodindex_indicator p{
+    margin-bottom: 1px;
+}
+.cardheader{
+    padding: .2rem 1rem;
+    background-color: #8b79dd;
+    color: #fff;
+}
+
+.ndlimg {
+  animation: rotation 8s infinite linear;
+  transform-origin: bottom right; 
+  transform: rotate(45deg);
+}
+
+/*@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(150deg);
+  }
+}
+*/
+
+
+
+

@@ -1,0 +1,337 @@
+.angular-with-newlines{
+    white-space: pre-wrap;
+}
+.executive-summary-div {
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+} 
+.procon-item {
+    border-bottom: 1px dotted #ddd;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-div {
+    max-width: 19.666667%;
+    padding-left: 5px;
+    padding-right: 5px;
+    white-space: pre-wrap;
+}
+
+.pros-div, .cons-div {
+    white-space: pre-wrap;
+    background-color: #fff;
+    padding: 10px;
+    height: 263px;
+}
+
+.pros-title, .cons-title {
+    margin-bottom: 10px;
+    text-align: left; color:#8b79dd;
+    font-weight: 700;
+}
+
+.content-div {
+    padding: 0px 15px;
+}
+
+.company-insights {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.thumbs-up-logo {
+    float: left;
+    border: 1px solid #000;
+    border-radius: 50%;
+    padding: 4px 8px 7px 8px;
+    font-size: 1.25rem;
+    margin-right: 8px;
+}
+
+.company-insights h5 {
+    padding-top: 5px;
+}
+
+.right_border{
+border-right: 1px dotted silver;
+}
+.rating-div {
+    white-space: pre-wrap;
+    background-color: #fff;
+    margin: 0 auto;
+    line-height: 50px;
+}
+.rating-div .rating_star_color{
+    color: #808080a3;
+}
+.progress-bar-div .knob{
+     height: 53px;
+    width: 53px;
+    background-color: white;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #d1d1d1;
+    padding: 7px;
+}
+.progress-bar-div .knob_text{
+    font-size: 10px;
+        padding: 4px 0px;
+}
+.progress-bar-div .knob_icon{
+    font-size: 24px;
+    color: #8a7adc;
+}
+.opinion_index{
+    background-color: #e7e5e6;
+}
+.circled{
+     display: inline-block;
+    width: 1.9em;
+    height: 1.9em;
+    padding-left: 0.1em;
+    border: 0.1em solid;
+    border-radius: 100%;
+    box-sizing: border-box; 
+    text-align: center;
+}
+.key_statistics_width{
+    width: calc(100% + 10px);
+    background-color: white;
+    text-align: center;
+}
+
+.key_statistics{
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.key_statistics_lable{
+    color: #9688e0;
+    margin-bottom: 5px;
+}
+.key_statistics_main{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.ceo_approval-ppk{
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px 7px;
+    font-size: 11px;
+}
+.ptag{
+    margin-bottom: 14px !important;
+}
+.fri_recommend{
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px 7px;
+    font-size: 11px;
+}
+
+%flex-display {
+    display: flex;
+}
+.star-rating {
+    @extend %flex-display;
+    align-items: center;
+    font-size: 1em;
+    justify-content: center;
+}
+.back-stars {
+    @extend %flex-display;
+    color: silver;
+    position: relative;
+    text-shadow: 4px 4px 10px silver;
+    width: 50%;
+    margin:0 auto;
+}
+.front-stars {
+    @extend %flex-display;
+    color: #FFBC0B;
+    overflow: hidden;
+    position: absolute;
+    text-shadow: 2px 2px 5px silver;
+    top: 0;
+    width: 85%;
+}
+.right_margin{
+        margin-right: 4px
+}
+.ovral_rating{
+    font-size: 10px;
+    color: #f5383c;
+}
+.rtng_criteria{
+    font-size: 10px;
+    color: silver;
+}
+
+.dbk .rcs .rc .rc-val .rc-num, .dbk .rcs .rc .rc-val .rc-tail {
+    display: block;
+    transition: all 500ms ease;
+}
+#speedometer {
+  display: inline-block;
+  position: relative;
+}
+
+#speedometer .barometer {
+  /*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+     background-color: #e5dede;
+    width: 110px;
+    height: 110px;
+    margin-bottom: -10px;
+    display: inline-block;
+    border-radius: 51%;
+}
+.orvalues{
+    position: absolute;
+    bottom: -21px;
+    left: 41px;
+    background-color: darkgray;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 4px 0px;
+}
+#speedometer .needle {
+  background-image: url("../../../assets/images/GBP.svg");
+  background-repeat: no-repeat;
+  z-index: 999999;
+    width: 110px;
+    height: 110px;
+    display: inline-block;
+    left: 0px;
+    top: 17px;
+  position: absolute;
+  bottom: 5px;
+  animation:
+  change2 2s linear,
+    loop2 1s linear 2s infinite alternate;
+  transform-origin:50% calc(56% - 8px) ;
+}
+@keyframes change2 {
+  0% {
+    transform:rotate(-45deg);
+  }
+  50% {
+    transform:rotate(0deg);
+  }
+  70% {
+    transform:rotate(10deg);
+  }
+  100% {
+    transform:rotate(20deg);
+  }
+}
+@keyframes loop2 {
+  0% {
+    transform:rotate(15deg);
+  }
+  100% {
+    transform:rotate(20deg);
+  }
+}
+@media screen and  (min-width: 360px) and (max-width: 420px) {
+    .dbk {
+        overflow-y: auto !important;
+    }
+
+    .dbk .orater .ratelbl {
+        font-size: 3.9vw;
+    }
+
+    .inner-dash-right-panel {
+        margin-top: 15px;
+    }
+
+    .dbk .inner-dash-right-panel .dbk-box .dbkb-body {
+        height: 260px;
+    }
+
+    .pros-col {
+        margin-bottom: 15px;
+    }
+
+    .pros-div, .cons-div {
+        height: 200px;
+    }
+
+    .rcs .rc:nth-child(4) {
+        margin-left: 55px;
+    }
+    .pros-div{
+        margin-bottom: 15px;
+    }
+}
+@media screen and  (min-width: 320px) and (max-width: 420px) {
+    .dbk {
+        overflow-y: auto !important;
+    }
+    
+    .pros-div{
+        margin-bottom: 15px;
+    }
+
+    .dbk .orater .ratelbl {
+        font-size: 3.9vw;
+    }
+
+    .inner-dash-right-panel {
+        margin-top: 15px;
+    }
+
+    .dbk .inner-dash-right-panel .dbk-box .dbkb-body {
+        height: 260px;
+    }
+
+    .pros-col {
+        margin-bottom: 15px;
+    }
+
+    .pros-div, .cons-div {
+        height: 200px;
+    }
+    .dbk .rcs .rc {
+        width: 29% !important;
+    }
+    .rcs .rc:nth-child(4) {
+        margin-left: 55px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .dbk .rcs .rc{
+        width: 85px;
+    }
+    .mbl-ipad{
+        margin-top: 40px
+    }
+
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .dbk .rcs .rc{
+        width: 85px;
+    }
+    .mbl-ipad{
+        margin-top: 40px;
+    }
+  
+}
+
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .dbk .rcs .rc{
+        width: 80px;
+    }
+
+}

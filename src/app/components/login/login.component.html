@@ -1,0 +1,32 @@
+<block-ui></block-ui>
+<div class="loginmain">
+    <div class="login-reg-panel">
+        <div class="row login_mdl">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="height: 100%;">
+                <div class="pulselogo">
+                    <img src="assets/images/pulse-logo.png" class="pulseimg">
+                </div>
+                <div class="login_formdiv">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <input type="text" formControlName="username"  placeholder="Username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        </div>
+                        <div class="form-group">
+                            <p><a href="">Forgot password?</a></p>
+                            <button [disabled]="loading" class="btn p-btn" style="background-color: #8b79dd;width: 100px;">LOGIN</button>
+                            <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            
+                        </div>
+                        <div *ngIf="error" class="alert alert-danger" style="margin-top: -10px;">{{error}}</div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="height: 100%;background-color: #fefefe;">
+                <img src="assets/images/mna_logo1.jpg" style="height: 100%;">
+            </div>
+        </div>
+    </div>
+</div>

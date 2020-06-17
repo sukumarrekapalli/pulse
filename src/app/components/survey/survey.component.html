@@ -1,0 +1,541 @@
+<block-ui></block-ui>
+<div class="sv" [ngClass]="{'ins': surveyView !== 'survey'}">
+    <div class="svhead">
+        <div [hidden]="surveyView !== 'survey' || survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null" class="dlp-ologo"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+<!--        <h3 [hidden]="surveyView === 'survey'">&nbsp;</h3>
+        <h3 [hidden]="surveyView !== 'survey'"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>{{currentQuestion?.projectTitle}}</h3>-->
+    </div>
+    <div class="svbody">
+        <div class="svins cscroll" [hidden]="surveyView !== 'intro' && surveyView !== ''">
+            <!--<div class="svins-title"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>{{survey?.projectTitle}}</div>-->
+            <div class="svins-lp">
+                <div class="svins-title dlp-ologo" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+                <div class="svins-body cscroll">
+                    <div class="svins-ins" *ngIf="survey !== undefined && survey?.instructions !== undefined">
+                        <ol>
+                            <li *ngFor="let ins of survey?.instructions">{{ins}}</li>
+                        </ol>
+                    </div>
+                    <div class="svins-inshead">{{survey?.welcomeNote}}</div>
+                </div>
+                <div class="svins-footer"><button class="btn s-btn" (click)="startSurvey()" title="Continue">Continue</button></div>
+            </div>
+            <div class="svins-rp"><div class="svins-rpbdy"><img src="assets/images/survey_ins_bg_2.png" /></div></div>
+        </div>
+
+        <div class="svins thanks" [hidden]="surveyView !== 'thanks' && surveyView !== 'athanks'">
+            <div class="svins-lp cscroll">
+                <div class="svins-body cscroll">
+                    <div class="svins-thankshead">THANK YOU!</div>
+                    <div class="svins-ins msg">
+                        <div class="s-cl bold" [hidden]="surveyView !== 'thanks'">You have completed the Assessment.</div>
+                        <div class="p-cl bold" [hidden]="surveyView !== 'athanks'">You have already completed this Assessment.</div>
+                        ELSA is a first of it's kind learning platform providing tailored analytical dashboards for your learning.
+                    </div>
+                    <div class="svins-ins icons">
+                        <img src="assets/images/survey_thanks_icons.png" style="width:100%">
+                    </div>
+                    <div class="svins-ins">
+                        Learning has a new way!
+                    </div>
+                    <div class="svins-ins">
+                        <a class="link s-link" title="http://www.e2epeoplepractices.com/register.php" href="http://www.e2epeoplepractices.com/register.php">http://www.e2epeoplepractices.com/register.php</a>
+                    </div>
+                </div>
+            </div>
+            <div class="svins-rp">
+                <div class="svins-title dlp-ologo" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+                <div class="svins-rpbdy"><img src="assets/images/survey_thanks.png" /></div>
+            </div>
+        </div>
+
+
+        <div class="svins thanks cscroll" [hidden]="surveyView !== 'error' && surveyView !== 'aerror'">
+            <div class="svins-lp cscroll">
+                <div class="svins-body cscroll">
+                    <div class="svins-thankshead">SORRY!</div>
+                    <div class="svins-ins msg">
+                        <div class="alert alert-danger" [hidden]="surveyView !== 'error'">
+                            Assessment is not found or has expired. contact support team.
+                        </div>
+                        <div class="alert alert-danger" [hidden]="surveyView !== 'aerror'">
+                            Unfortunately your assessment is not submitted. Try again later.
+                        </div>
+                        ELSA is a first of it's kind learning platform providing tailored analytical dashboards for your learning.
+                    </div>
+                    <div class="svins-ins icons">
+                        <img src="assets/images/survey_thanks_icons.png" style="width:100%">
+                    </div>
+                    <div class="svins-ins">
+                        Learning has a new way!
+                    </div>
+                    <div class="svins-ins">
+                        <a class="link s-link" title="http://www.e2epeoplepractices.com/register.php" href="http://www.e2epeoplepractices.com/register.php">http://www.e2epeoplepractices.com/register.php</a>
+                    </div>
+                </div>
+            </div>
+            <div class="svins-rp">
+                <div class="svins-title dlp-ologo" [hidden]="survey?.projectLogo === undefined || survey?.projectLogo === '' || survey?.projectLogo === null"><img src="{{survey?.projectLogo}}" alt="{{survey?.projectTitle}}" title="{{survey?.projectTitle}}" /></div>
+                <div class="svins-rpbdy"><img src="assets/images/survey_thanks.png" /></div>
+            </div>
+        </div>
+
+        <div class="svq" [hidden]="surveyView !== 'survey'">
+            <div class="sv-index">
+                <div class="svi-label s-cl">
+                    Question
+                </div>
+                <div class="svi-items">
+                    <div class="svind-item" *ngFor="let question of survey?.questions;  let i = index;" [style.width.%]="(100 / survey?.questions.length)">
+                         <div class="svii-bar" [ngClass]="{'full': userAnswers[i] !== undefined && userAnswers[i].answered === true, 'current': currentQuestionIndex === i}"></div>
+                        <div class="svii-num s full" *ngIf="i === 0" >S</div>
+                        <div class="svii-num" [ngClass]="{'full': userAnswers[i] !== undefined && userAnswers[i].answered === true, 'current': currentQuestionIndex === i}">{{i+1}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svq-body cscroll svcva" [hidden]="currentQuestion?.questionType !== 'cva'">
+                <div class="svq-lp">
+                    <div class="svq-qbox">
+                        <div class="svq-icon" [hidden]="currentQuestion?.questionIcon === undefined || currentQuestion?.questionIcon === ''"><img src="{{currentQuestion?.questionIcon}}" /></div>
+                        <div class="svq-qtitle" [innerHTML]="currentQuestion?.questionText"></div>
+                        <div class="svq-qtitle blnk"><p [innerHTML]="currentQuestion?.questionInstruction"></p></div>
+                    </div>
+                    <div class="svq-obox">
+                        <div class="svq-uops  cscroll">
+                            <div class="row">
+                                <div class="svq-optcase col-6" *ngFor="let opt of userAnswers[currentQuestionIndex]?.answers;  let i = index;" >
+                                     <div class="svq-opt" title="{{opt.label}}">
+                                        <fa-icon [icon]="['fas', 'check-circle']" *ngIf="opt.selected === true"></fa-icon>
+                                        <div class="svq-optlbl">{{opt.label}}</div>
+                                        <fa-icon class="svg-uoptclose" (click)="cvaToggleOption(opt)" [icon]="['fas', 'times']" title="Remove Option"></fa-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="svq-ofoot">
+                            <div class="svq-uopscount">Total Chosen: {{userAnswers[currentQuestionIndex]?.answers.length}} / 10 Required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="svq-rp">
+                    <div class="svq-opthead">{{currentQuestion?.optionsInstruction}}</div>
+                    <div class="svq-optbox">
+                        <div class="row cscroll">
+                            <div class="svq-optcase col-12 col-lg-2 col-md-6 col-sm-6 col-xs-12" *ngFor="let opt of currentQuestion?.options;  let i = index;" >
+                                 <div class="svq-optmask" *ngIf="userAnswers[currentQuestionIndex]?.answers.length >= 10"></div>
+                                 <div class="svq-opt" [ngClass]="{'selected': opt.selected === true }" (click)="cvaToggleOption(opt)" title="{{opt.label}}">
+                                     <fa-icon [icon]="['far', 'circle']" *ngIf="opt.selected === false"></fa-icon>
+                                     <fa-icon [icon]="['fas', 'check-circle']" *ngIf="opt.selected === true"></fa-icon>
+                                     <div class="svq-optlbl">{{opt.label}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svq-body cscroll svona" [hidden]="currentQuestion?.questionType !== 'ona'">
+                <div class="svona-qdiv">
+                    <div class="svona-qicon" [hidden]="currentQuestion?.questionIcon === undefined || currentQuestion?.questionIcon === ''"><img src="{{currentQuestion?.questionIcon}}" /></div>
+                    <div class="svona-qtitle" [innerHTML]="currentQuestion?.questionText"></div>
+                </div>
+                <div class="svona-qbody">
+                    <div class="svona-lp cscroll">
+                        <div class="svona-lpcase">
+                            <div class="svona-lpins">{{currentQuestion?.questionInstruction}}</div>
+                            <div class="svona-lpins1">{{currentQuestion?.optionsInstruction}}</div>
+                            <div class="svona-upnls">
+                                <div class="svona-upnl">
+                                    <div class="ng-autocomplete">
+                                        <ng-autocomplete #auto [data]="onaEmp.data" [(ngModel)]="onaEmp.obj" initialValue="{{onaEmp.name}}" placeHolder="Type to search.." [searchKeyword]="onaEmp.keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"></ng-autocomplete>
+
+                                        <ng-template #itemTemplate let-item>
+                                        <a [innerHTML]="item.empName" class="svona-empbtn"></a>
+                                        </ng-template>
+
+                                        <ng-template #notFoundTemplate let-notFound>
+                                        <div [innerHTML]="notFound"></div>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                                <div class="svona-upnl ratepnl">
+                                    <div class="ratingstars">
+                                        <!-- <div class="ratinglabel">Provide rating</div>
+                                        <div class="svona-rater"><ng5-slider [(value)]="onaEmp.ratestar" [options]="onaEmp.onaSliderOptions" (userChange)="onaSetRating(onaEmp.ratestar)"></ng5-slider></div> -->
+                                        <div class="svona-rates">
+                                            <!-- <div class="svona-ratesd bk"><div class="svona-ratesdcase"><div class="svona-ratestar" *ngFor="let number of [0,1,2,3,4]"><fa-icon [icon]="['far', 'star']" ></fa-icon></div></div></div>
+                                            <div class="svona-ratesd fr" [style.width.%]="onaEmp.rating * 20"><div class="svona-ratesdcase"><div class="svona-ratestar" *ngFor="let number of [0,1,2,3,4]" ><fa-icon [icon]="['fas', 'star']" ></fa-icon></div></div></div> -->
+                                        </div>
+<!--                                        <div class="ratinglabel val" *ngIf="onaEmp.rating !== '' && onaEmp.rating > 0">{{onaEmp.rating}}</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="svona-upbtn">
+
+                                <button class="btn p-btn" (click)="onaAddEmp()" [disabled]="onaEmp.name === '' || userAnswers[currentQuestionIndex]?.answers.length === 3">Add</button>
+                                <div class="alert alert-danger alert-dismissible fade" role="alert" [hidden]="onaEmp.error !== true">
+                                    Select employee from list.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="svona-rp">
+                        <div class="svq-optbox cscroll">
+                            <div class="row">
+                                <div class="svq-optcase" *ngFor="let opt of userAnswers[currentQuestionIndex]?.answers;  let i = index;" >
+                                     <div class="svq-opt" title="{{opt.empName}}">
+                                        <fa-icon [icon]="['fas', 'user-check']" class="user-check"></fa-icon>
+                                        <div class="svq-optlbl">
+                                            <h2>{{opt.empName}}</h2>
+                                            <div class="ratediv">
+                                                <div class="svona-rates">
+                                                    <!-- <div class="svona-ratesd bk"><div class="svona-ratesdcase"><div class="svona-ratestar" *ngFor="let number of [0,1,2,3,4]"><fa-icon [icon]="['far', 'star']" ></fa-icon></div></div></div> -->
+                                                    <!-- <div class="svona-ratesd fr" [style.width.%]="opt.empRating * 20"><div class="svona-ratesdcase"><div class="svona-ratestar" *ngFor="let number of [0,1,2,3,4]" ><fa-icon [icon]="['fas', 'star']" ></fa-icon></div></div></div> -->
+                                                </div>
+                                                <!-- <div class="svona-rateslbl">{{opt.empRating}}</div> -->
+                                            </div>
+                                        </div>
+                                        <fa-icon class="svg-uoptclose" (click)="onaRemoveUser(opt)" [icon]="['fas', 'times']" title="Remove Option"></fa-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="svq-ofoot">
+                            <div class="svq-uopscount">Total Chosen: {{userAnswers[currentQuestionIndex]?.answers.length}} / 3 Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="svq-body cscroll sveum" *ngIf="currentQuestion?.questionType === 'eum'">
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins">{{currentQuestion?.questionInstruction}}</div>
+                    </div>
+                </div>
+                 <div class="sveum-qbody">
+                     <div class="sveum-opanel">
+                         <div class="sveum-lp">
+                             <div class="sveum-oplist">
+                                <div class="sveum-oplhead">{{currentQuestion?.optionsInstruction}}</div>
+                                <div class="sveum-oplbody cscroll">
+                                    <div class="sveum-optcase" *ngFor="let opt of currentQuestion?.options;  let i = index;">
+                                        <div class="list-group" id="lgv_{{currentQuestionIndex}}_{{i+1}}" data-da="lgv" (click)="eumHighlightOpts(opt.label)">
+                                            <div class="list-group-item-dummy"></div>
+                                            <div class="list-group-item-dummy"></div>
+                                            <div class="list-group-item" title="{{opt.label}}" (click)="eumHighlightOpts(opt.label)">
+                                                <div class="list-group-index"></div><div class="list-group-label">{{opt.label}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                         <div class="sveum-rp  cscroll">
+                             <div class="row">
+
+                                 <div class="sveum-rpcase col-12 col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let optb of currentQuestion?.optBuckets;  let i = index;" >
+                                    <div class="sveum-oplist" >
+                                        <div class="sveum-oplhead">
+                                            <div class="sveum-oplicon" [hidden]="optb.icon === undefined || optb.icon ===''"><img src="{{optb.icon}}" /></div>{{optb.label}}
+                                            <div class="sveum-oplhl" (click)="eumHighlightBktOpts(optb.label)" [ngClass]="{'highlighted': optb.highlighted === true }" title="Highlight options for {{optb.label}}">
+                                                <fa-icon [icon]="['far', 'lightbulb']" [hidden]="optb.highlighted === true"></fa-icon>
+                                                <fa-icon [icon]="['fas', 'lightbulb']" [hidden]="optb.highlighted !== true"></fa-icon>
+                                            </div>
+                                        </div>
+                                        <div class="sveum-oplbody list-group cscroll highlighted_{{optb.highlighted}}"  id="lgo_{{currentQuestionIndex}}_{{i+1}}" data-da="lgo" >
+                                            <div class="list-group-item" *ngFor="let opt of currentQuestion?.optBuckets.options;  let i = index;">
+                                                {{opt.label}}
+                                            </div>
+                                       </div>
+                                    </div>
+                               </div>
+                             </div>
+
+                         </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="svq-body cscroll sveum" *ngIf="currentQuestion?.questionType === 'eum1'">
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins">{{currentQuestion?.questionInstruction}}</div>
+                    </div>
+                </div>
+                <div class="sveum-qbody">
+                    <div class="sveum-opanel">
+                        <div class="sveum-lp" style="display: none;">
+                            <div class="sveum-oplist">
+                                <div class="sveum-oplhead">{{currentQuestion?.optionsInstruction}}</div>
+                                <div class="sveum-oplbody cscroll">
+                                    <div class="sveum-optcase" *ngFor="let opt of currentQuestion?.options;  let i = index;">
+                                        <div class="list-group" id="lgv_{{currentQuestionIndex}}_{{i+1}}" data-da="lgv" (click)="eumHighlightOpts(opt.label)">
+                                            <div class="list-group-item-dummy"></div>
+                                            <div class="list-group-item-dummy"></div>
+                                            <div class="list-group-item" title="{{opt.label}}" (click)="eumHighlightOpts(opt.label)">
+                                                <div class="list-group-index"></div><div class="list-group-label">{{opt.label}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" cscroll">
+                            <div class="row">
+                                <div class="sveum-rpcase col-12 col-lg-4 col-md-6 col-sm-6 col-xs-12 "  *ngFor="let optb of currentQuestion?.optBuckets;  let i = index;"   id="nxt_{{currentQuestionIndex}}_{{i+1}}" [ngClass]="{'displayvisible': optb.active !== true}">
+                                    <div class="sveum-oplist" >
+                                        <div class="sveum-oplhead">
+                                            <div class="sveum-oplicon" [hidden]="optb.icon === undefined || optb.icon ===''"><img src="{{optb.icon}}" /></div>{{optb.label}}
+                                            <div class="sveum-oplhl" (click)="eumHighlightBktOpts(optb.label)" [ngClass]="{'highlighted': optb.highlighted === true }" title="Highlight options for {{optb.label}}">
+                                                <fa-icon [icon]="['far', 'lightbulb']" [hidden]="optb.highlighted === true"></fa-icon>
+                                                <fa-icon [icon]="['fas', 'lightbulb']" [hidden]="optb.highlighted !== true"></fa-icon>
+                                            </div>
+                                        </div>
+                                        <div class="sveum-oplbody list-group cscroll highlighted_{{optb.highlighted}}"  id="lgo_{{currentQuestionIndex}}_{{i+1}}" data-da="lgo" style="height:calc(100% - 58px);">
+                                            <div class="list-group-item" *ngFor="let opt of currentQuestion?.options;  let i = index;" title="{{opt.label}}"  (click)="eumHighlightOpts(opt.label)">
+                                                <div class="list-group-index">{{i+1}}</div><div class="list-group-label">{{opt.label}}</div>
+                                            </div>
+                                        </div>
+                                        <button class="btn s-btn next_{{currentQuestionIndex}}_{{i+1}}" (click)="enablenextoption(i)">CONFIRM </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="svq-body cscroll sveum" *ngIf="currentQuestion?.questionType === 'eum2'">
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins">{{currentQuestion?.questionInstruction}}</div>
+                    </div>
+                </div>
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt ">
+                        <div class="sveum-lpins card p-0">
+                            <div class="card-body p-0 m-0 eum2ins" style="background-color: #d0e2f8;">
+                                <h6 class="card-title p-2 text-white tophead-eumques">Instructions for Test</h6>
+                                <p class="card-text">You have to rank a set of 15 adjectives across three panes - “I AM”, “I ASPIRE TO BE” and “OTHERS ARE”. Please follow the instructions below to complete each pane. For e.g. in the pane “I AM” :</p>
+                                <p class="card-text">1. First choose the adjective that in your view best describes you AS YOU ARE and drag it to the top of the next column.</p>
+                                <p class="card-text">2. Choose another adjective that describes you next best, drag it to the next rank.</p>
+                                <p class="card-text">3. Repeat this process till you have moved all 15 adjectives in sequence from left to right. The word on top being closest to describing you as you see yourself, and the word at the bottom describing you the least in relation to the other words.</p>
+                                <p class="card-text">4. Once you have completed the ordering of all the adjectives, click on 'Forward' button to proceed to the next pane.</p>
+                                 <p class="card-text">Repeat the above process for the panes “I ASPIRE TO BE” and “OTHERS ARE”.</p>
+                                 <p class="card-text">Your responses in each pane are auto saved, should you wish to change your rankings you may do so by shifting the tiles up and down.</p>
+                                 <p class="card-text">Once you have completed rankings across all three panes - submit your response by clicking on the submit key. Your rankings will be visible to you for review before final submission.</p>
+                                 <p class="card-text mb-0 pb-2"><b class="text-danger">IMPORTANT NOTE:</b> Please do move all adjectives from left to right first, then you can move then up and down to rearrange.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="sveum-qbody row">
+
+                     <div class="sveum-opanel w-75 m-auto d-flex">
+                        <div class="d-flex" style="height: 490px;">
+                            <fa-icon class="justify-content-center align-self-center eumque-arow inactive-arow" [hidden]="eum2box != 1" [icon]="['fas', 'caret-left']"></fa-icon>
+                            <fa-icon class="justify-content-center align-self-center eumque-arow active-arow" [hidden]="eum2box === 1" (click)="preveumdiv(eum2box)" [icon]="['fas', 'caret-left']"></fa-icon>
+                        </div>
+                         <div class="sveum-lp " style="width: calc(50% - 45px);height: 490px;">
+                             <div class="sveum-oplist p-0">
+                                <div class="sveum-oplhead tophead-eumques text-light pt-1" style="font-size:14px;">ADJECTIVES SET</div>
+                                <div class="sveum-oplbody cscroll pr-1 leftdiv">
+                                    <div class="sveum-optcase" style="min-height: 28px;" *ngFor="let opt of currentQuestion?.options;  let i = index;" >
+                                        <div class="list-group" id="lgv_{{currentQuestionIndex}}_{{i+1}}" data-da="lgv" (click)="eumHighlightOpts(opt.label)" >
+                                            <div [ngClass]="{'eumques-one': eum2box === 1, 'eumques-two': eum2box === 2,'eumques-three': eum2box === 3 }" class="list-group-item "  style="min-height: 28px;" title="{{opt.label}}" (click)="eumHighlightOpts(opt.label)" >
+                                                <!-- <div class="list-group-index width30 bg-white"></div> -->
+                                                <div [ngClass]="{'eumques-one': eum2box === 1, 'eumques-two': eum2box === 2,'eumques-three': eum2box === 3 }" class="list-group-label text-light text-center width70 text-uppercase">{{opt.label}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                         <div class="sveum-rp  cscroll w-50" style="height: 490px;">
+                             <div class="row">
+                                 <div class="sveum-rpcase col-12 col-lg-12 col-md-6 col-sm-6 col-xs-12" *ngFor="let optb of currentQuestion?.optBuckets;  let i = index;"  [hidden]="eum2box != i+1">
+                                    <div class="sveum-oplist pl-0 pr-1" >
+                                        <div class="sveum-oplhead tophead-eumques text-light">
+                                            <div class="width30 border-right"><p class="mb-0">S.NO.</p></div>
+                                            <div class="width70  text-uppercase" style="width: calc(100% - 45px)">
+                                                <div class="sveum-oplicon" [hidden]="optb.icon === undefined || optb.icon ===''"><img src="{{optb.icon}}" /></div>{{optb.label}}
+                                                <div class="sveum-oplhl" (click)="eumHighlightBktOpts(optb.label)" [ngClass]="{'highlighted': optb.highlighted === true }" title="Highlight options for {{optb.label}}">
+                                                    <fa-icon [icon]="['far', 'lightbulb']" [hidden]="optb.highlighted === true"></fa-icon>
+                                                    <fa-icon [icon]="['fas', 'lightbulb']" [hidden]="optb.highlighted !== true"></fa-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div [ngClass]="{'eumques-one': eum2box === 1, 'eumques-two': eum2box === 2,'eumques-three': eum2box === 3 }" class="sveum-oplbody pr-0 myeum2class list-group cscroll highlighted_{{optb.highlighted}}"  id="lgo_{{currentQuestionIndex}}_{{i+1}}" data-da="lgo" >
+                                            <div class="list-group-index width30 bg-white pt-0 gragindx-div" style=""  ><p class="mb-0 dragindx" style="" *ngFor="let number of [1,2,3,4, 5,6,7,8,9,10,11,12,13,14,15]">{{number}}.</p></div>
+                                            <div class="list-group-item  text-uppercase" *ngFor="let opt of currentQuestion?.optBuckets.options;  let i = index;">
+                                                {{opt.label}}
+                                            </div>
+                                       </div>
+                                    </div>
+                               </div>
+                             </div>
+                         </div>
+                         <div class="d-flex" style="height: 490px;">
+                            <fa-icon class="justify-content-center align-self-center eumque-arow active-arow" [hidden]="eum2box === 3" (click)="nexteumdiv(eum2box)" [icon]="['fas', 'caret-right']"></fa-icon>
+                             <fa-icon class="justify-content-center align-self-center eumque-arow inactive-arow" [hidden]="eum2box != 3" [icon]="['fas', 'caret-right']"></fa-icon>
+                        </div>
+                    </div>
+                    <button style="position: absolute;bottom: 10px;right: 20px;" class="btn s-btn" data-toggle="modal" data-target="#eum2popup" [disabled]="eum2flag !== true">Confirm<fa-icon [icon]="['fas', 'angle-double-right']"></fa-icon></button>
+                 </div>
+                 <p class="eum2ques-btm-txt">Powered by EUM lens</p>
+                 <div class="modal" id="eum2popup">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header pb-1 pt-1">
+                                <h6 class="modal-title" >Test Submit Confirmation</h6>
+                                <button type="button" class="close" id="eum2close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="sveum-rp  cscroll w-100" style="height: 490px;">
+                                     <div class="row">
+                                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0" >
+                                            <h6 class="tophead-eumques text-light mb-0 border-right border-bottom" style="min-height: 28px;">{{this.currentQuestion.optBuckets[0].label}}</h6>
+                                            <p class="eum2alert-div1 text-uppercase text-white border-right" *ngFor="let optb of eum2queone;  let i = index;">{{optb.label}}</p>
+                                       </div>
+                                       <div class="col-12 col-lg-4 col-md-4 col-sm-4 col-xs-12  p-0" >
+                                            <h6 class="tophead-eumques text-light mb-0 border-right border-bottom" style="min-height: 28px;">{{this.currentQuestion.optBuckets[1].label}}</h6>
+                                            <p class="eum2alert-div2 text-uppercase text-white border-right" *ngFor="let optb1 of eum2quetwo;  let i = index;">{{optb1.label}}</p>
+                                       </div>
+                                       <div class="col-12 col-lg-4 col-md-4 col-sm-4 col-xs-12  p-0" >
+                                            <h6 class="tophead-eumques text-light mb-0 border-right border-bottom" style="min-height: 28px;">{{this.currentQuestion.optBuckets[2].label}}</h6>
+                                            <p class="eum2alert-div3 text-uppercase text-white border-right" *ngFor="let optb2 of eum2quethree;  let i = index;">{{optb2.label}}</p>
+                                       </div>
+
+                                     </div>
+                                 </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer pb-1 pt-1">
+                                <button type="button" class="btn btn-danger" (click)="eum2confirmation()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+             <div class="svq-body cscroll sveum" [hidden]="currentQuestion?.questionType !== 'ta'" style="overflow:unset;width:100%;height: calc(100% - 30px);display: inline-block;float: left;border-radius: 10px;background: #fff;">
+                 <div class="sveum-qdiv" style="max-width: 100%;height: 110px;">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins text-center  w-100" [innerHTML]="currentQuestion?.questionText"></div>
+                        <p class="tipeass-counter bold">{{this.userAnswers[this.currentQuestionIndex]?.answers?.length}}</p>
+                    </div>
+                </div>
+                 <div class="sveum-qbody bg-transparent h-auto" style="max-width: 100%;">
+                     <div class="sveum-opanel d-flex row bg-white overflow-auto" style="height: 84%;">
+                        <div class="custom-radio d-flex col-lg-3 col-12 custom-radio taoption-layout" *ngFor="let opt of currentQuestion?.options;  let i = index;"  (click)="taToggleOPtion(opt)">
+                            <div class="text-left svona-qtitle col-12 col-lg-12 col-md-12  padding-left-0 taoption-layout-innr" [ngClass]="{'selected': opt.selected === true }">
+                                <fa-icon [icon]="['fas', 'check-circle']" class="text-success pr-1" *ngIf="opt.selected === true"></fa-icon>
+                                <fa-icon [icon]="['fas', 'circle']" class="text-white pr-1" *ngIf="opt.selected === false"></fa-icon>
+                            {{opt?.label}}
+                            </div>
+                         </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="svq-body cscroll sveum" [hidden]="currentQuestion?.questionType !== 'tb'" style="width:100%;height: calc(100% - 30px);display: inline-block;float: left;border-radius: 10px;background: #fff;">
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins" [innerHTML]="currentQuestion?.questionText"></div>
+                    </div>
+                </div>
+                 <div class="sveum-qbody">
+                     <div class="sveum-opanel d-flex row">
+
+                      <div class="radiobtn_color w-100">
+                       <input type="text" maxlength="25" class="form-control col-12 form-fontsize form-control-sm m-2" placeholder="Enter first competition name" id="" name="" (change)="enableTtSave()" [(ngModel)]="tbdata.tbqanswer1" style="width: 98%;">
+
+                        <input type="text"  maxlength="25" class="form-control col-12 form-fontsize form-control-sm m-2" placeholder="Enter second competition name"  id="" name=""  [(ngModel)]="tbdata.tbqanswer2" style="width: 98%;font-size: 15px;">
+
+                        <input type="text"  maxlength="25" oninput="this.value = this.value;" class="form-control col-12 form-fontsize form-control-sm m-2" placeholder="Enter third competition names"  id="" name="" [(ngModel)]="tbdata.tbqanswer3" style="width: 98%;font-size: 15px;">
+                    </div>
+
+                    </div>
+                 </div>
+            </div>
+
+             <div class="svq-body cscroll sveum" [hidden]="currentQuestion?.questionType !== 'mcq'" style="width:100%;height: calc(100% - 30px);display: inline-block;float: left;border-radius: 10px;background: #fff;">
+            <div class="sveum-qdiv">
+                <div class="sveum-lt">
+                    <div class="sveum-lpins" [innerHTML]="currentQuestion?.questionText"></div>
+                </div>
+            </div>
+            <div class="sveum-qbody h-75">
+                <div class="sveum-opanel d-flex row">
+                    <div class="svq-obox svq-obox-mcq">
+                        <div class="svq-uops  cscroll">
+                            <div class="m-auto pt-3 row" style="width: 80%;">
+                                <div class="svq-optcase svq-optcase-mcq mb-1" *ngFor="let opt of currentQuestion?.options;  let i = index;">
+                                    <div class="svq-opt text-left mcq-opt custom-radio p-0" [ngClass]="{'selected': smilycolor === i }" title="{{opt.label}}">
+                                        <!-- <fa-icon [icon]="['fas', 'check-circle']" *ngIf="opt.selected === true"></fa-icon>
+                                        <div class="svq-optlbl">{{opt.label}}</div>
+                                        <fa-icon class="svg-uoptclose" (click)="taToggleOPtion(opt)" [icon]="['fas', 'times']" title="Remove Option"></fa-icon> -->
+
+                                        <input (change)="setMCQValue(mcqOpt.value,i)" id="option{{i}}" type="radio" name="mcq_opt" #mcqOpt value="{{opt.label}}" style="display: none;" />
+                                        <label for="option{{i}}" class="label pl-3 custom-smily-size" style="cursor: pointer;">
+                                            <!-- <label *ngIf="opt.label === 'Very Happy'">strongly agree</label>
+                                            <label *ngIf="opt.label === 'Happy'">agree</label>
+                                            <label *ngIf="opt.label === 'Just Ok'">neither agree nor disagree</label>
+                                            <label *ngIf="opt.label === 'Sad'">disagree</label>
+                                            <label *ngIf="opt.label === 'strongly disagree'">strongly disagree</label> -->
+
+                                        <img *ngIf="opt.label === 'Very Happy'" src="assets/images/stronglyagree.png">
+                                        <img *ngIf="opt.label === 'Happy'" src="assets/images/agree.png">
+                                        <img *ngIf="opt.label === 'Just Ok'" src="assets/images/neither.png" height="">
+                                        <img *ngIf="opt.label === 'Sad'" src="assets/images/disagree.png">
+                                        <img *ngIf="opt.label === 'Very Sad'" src="assets/images/stronglydisagree.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="svq-body cscroll sveum" [hidden]="currentQuestion?.questionType !== 'gilrate'" style="width:100%;height: calc(100% - 30px);display: inline-block;float: left;border-radius: 10px;background: #fff;">
+                <div class="sveum-qdiv">
+                    <div class="sveum-lt">
+                        <div class="sveum-lpins" [innerHTML]="currentQuestion?.questionText"></div>
+                    </div>
+                </div>
+                 <div class="sveum-qbody">
+                     <div class="sveum-opanel d-flex row">
+                        <div class="svq-obox w-100" >
+                            <div class="svq-uops  cscroll">
+                                <div class="row">
+                                    <div class="custom-radio custom-control-inline col-12 pl-0 pr-0 pt-2 pb-2"  >
+                                        <div class="radiobtn_color w-100 p-4">
+                                            <p class="text-left h5">Note : 0 being the least and 10 being the highest</p>
+                                            <div class="bg-white d-flex p-2 ratingstars w-100">
+                                                <div class="ratinglabel h4">Provide rating</div>
+                                                <div class="m-auto svona-rater w-50">
+                                                    <ng5-slider [(value)]="gilabEmp.gilabratestar"  [options]="gilabEmp.gilabSliderOptions" (valueChange)="ilabSliderEvent(gilabEmp.gilabratestar)"></ng5-slider>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="svq-ofoot">
+                                <div class="svq-uopscount">You Chose: {{gilabEmp.gilabratestar}}</div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+     <div class="svfoot">
+         <div class="svfootdiv">Copyright © {{currentYear}} Culturelytics Pvt. Ltd. </div>
+         <div class="svf-btns" [hidden]="surveyView !== 'survey'">
+            <button *ngIf="currentQuestionIndex < (survey?.questions.length - 1)" class="btn s-btn" (click)="nextQuestion()" [disabled]="this.userAnswers[this.currentQuestionIndex]?.answered !== true">Continue<fa-icon [icon]="['fas', 'angle-double-right']"></fa-icon></button>
+            <button *ngIf="currentQuestionIndex === (survey?.questions.length - 1)" class="btn s-btn" (click)="finishSurvey()" [disabled]="this.userAnswers[this.currentQuestionIndex]?.answered !== true">Finish<fa-icon [icon]="['fas', 'angle-double-right']"></fa-icon></button>
+         </div>
+    </div>
+</div>

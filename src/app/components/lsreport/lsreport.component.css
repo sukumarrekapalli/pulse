@@ -1,0 +1,175 @@
+.main_div{
+    width: 100%;
+    height:100%;
+    padding: 20px 0px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.p_font{
+	font-size: 14px; 
+}
+.bg-light {
+    padding: 5px 0px;
+}
+.main_div .main_container{
+	border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    padding-top: 15px;
+    width: 100%;
+    max-width: 1000px;
+    height:auto;
+    display: inline-table;
+    margin: auto;
+}
+.theme_buttons{
+	padding: 20px 10px !important;
+}
+.logo{
+	height: 35px;
+	padding: 0px 20px 0px 0px;
+    border-right: 1px solid #c0c0c07a;
+    margin-right: 20px;
+}
+.pulse_name{
+    text-align: center;
+    margin: 0px;
+}
+.emp_name {
+    display: block;
+    clear: both;
+    text-align: right;
+    font-size: 16px;
+    margin: 0px;
+    font-weight: 700;
+}
+.rpt_date {
+    display: block;
+    clear: both;
+    text-align: right;
+    font-size: 13px;
+    color:#666;
+}
+.carddiv_height{
+	min-height: 660px;
+	margin-bottom: 10px;
+}
+.lrheading{
+    padding:10px;
+    text-align: center;
+    border-top: dotted 1px #999;
+    border-bottom: dotted 1px #999;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px 0px;
+}
+.list-group-item { border:none; }
+.universediv_height{
+	margin-bottom: 10px;
+}
+.universe_chart{
+	margin-bottom: 10px;
+}
+
+ /*Vijay css End*/
+
+ /*Veena CSS*/
+.lsr {
+    
+}
+.lsr * { transition: all 500ms ease;  }
+.lsr .rightborder{border-right:1pt solid black;}
+.lsr .bottomborder{border-bottom:1pt solid black;}
+.mnrrport ,.slfdeploy,.slfdeployex1,.slfdeployex2{
+    height: calc(100% - 20px);
+    width: calc(100% - 12px);
+    background-color: white;
+    border: solid 1px #d6d4d4;
+    margin: 6px;
+    border-radius: 10px;
+}
+.mnrrport{height: 100%;margin: 5px;}
+.mnrwrapper{height: 100%;}
+.mnrheader,.slf1header,.slf2header, .slfheader{
+    background: rgba(255,255,255,1);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+.mnrfooter,.slffooter,.slf1footer,.slf2footer{
+    height: 40px;width: 100%;text-align: center;border-radius: 10px;
+    background: rgba(255,255,255,1);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+.mnrheader{background-color: #fff;height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.logo img{height: 29px;margin-top: 5px;float: left;margin-left: 10px;}
+.slftext{font-size: 13px;
+    line-height: 2;
+    text-align: left;
+        font-weight: 700;
+}
+.mnrhead{text-align: left;float: left;font-size: 21px;color: #007bff;font-weight: 400;display: inline-block;margin-left: 7px;margin-top: 3px;}
+.mnrbody{background-color: #fff;height: calc(100% - 90px);width: calc(100% - 10px);text-align: center;margin: 5px}
+.mnrldiv{width:calc(40% - 8px);height: 100%;background-color: #fcfcfc;margin: 4px; float: left;padding:5px}
+.ltbox{width: 90%;margin-left: 5%;border-radius: 8px;border: solid 1px #f2f2f2;height: 55%;background-color: #d6d6d6;}
+.ltInnerBox{width: 100%;border-radius: 8px;background-color: #fff;height: calc(100% - 50px);}
+.ltbl{float: left;width: calc(60% - 8px);margin: 4px; height: calc(100% - 8px);}
+.ltbl span{text-align: left;float: left;padding: 5px;font-weight: 400px;font-weight: 700;}
+.ltbr{float: right;width: calc(40% - 8px);margin: 4px; height: calc(100% - 8px);}
+.ltbr img{height: 100%;}
+.ltt table{width:80%; margin-left: 10px;}
+.mnrrdiv{width:calc(60% - 8px);height: 100%;background-color: #fcfcfc;;margin: 4px; float: right}
+.mnrrwrapper{width: calc(100% - 20px);height: 80%;padding: 4px;margin-left: 10px; margin-top: 4%;}
+.mnrrwrapper span{text-align: left;float: left;font-weight: 500;margin: 5px;font-size: 13px;    line-height: 2;}
+.mnrfooter .footerleft{float: left;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.mnrfooter .footerright{float: right;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+/*.lsr .slfdeploy*/ 
+.lsr .slfdeploy .slfwrapper{height: 100%;}
+.lsr .slfdeploy .slfheader{background-color: #fff;height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.lsr .slfdeploy .logo img{height: 29px;margin-top: 5px;float: left;margin-left: 10px;}
+.lsr .slfdeploy .slfheader span{text-align: left;float: left;font-size: 21px;color: #007bff;font-weight: 400;display: inline-block;margin-left: 7px;margin-top: 3px;}
+.lsr .slfdeploy .slfwrapper .slfbody{background-color: #fff;height: calc(100% - 106px);width: calc(100% - 10px);text-align: center;margin: 5px}
+.lsr .slfdeploy .slfwrapper .slfbodywrapper{height: calc(100% - 40px);width: calc(100% - 60px);margin-top: 20px;margin-left: 30px;}
+.lsr .slfdeploy .slfwrapper .slfbodywrapper .slfheading{height: 30px;}
+.lsr .slfdeploy .slfwrapper .slfbodywrapper .slfheading span{text-align: left;float: left;font-size: 15px;color: #007bff;font-weight: 700;display: inline-block;margin-left: 7px;margin-top: 3px;}
+.lsr .slfdeploy .slffooter{height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.lsr .slfdeploy .slffooter .footerleft{float: left;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.lsr .slfdeploy .slffooter .footerright{float: right;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.lsr .slfdeployex1 .slf1wrapper{height: 100%;}
+.lsr .slfdeployex1 .slf1header{background-color: #fff;height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.lsr .slfdeployex1 .slf1header .logo img{height: 29px;margin-top: 5px;float: left;margin-left: 10px;}
+.lsr .slfdeployex1 .slf1header span{text-align: left;float: left;font-size: 21px;color: #007bff;font-weight: 400;display: inline-block;margin-left: 7px;margin-top: 3px;}
+.lsr .slfdeployex1 .slf1wrapper .slf1body{background-color: #fff;height: calc(100% - 90px);width: calc(100% - 10px);text-align: center;margin: 5px}
+.lsr .slfdeployex1 .slf1footer{height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.lsr .slfdeployex1 .slf1footer .footerleft{float: left;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.lsr .slfdeployex1 .slf1footer .footerright{float: right;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.lsr .slfdeployex2 .slf2wrapper{height: 100%;}
+.slf2header{background-color: #fff;height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.slf2header .logo img{height: 29px;margin-top: 5px;float: left;margin-left: 10px;}
+.slf2header span{text-align: left;float: left;font-size: 21px;color: #007bff;font-weight: 400;display: inline-block;margin-left: 7px;margin-top: 3px;}
+.slf2body{background-color: #fff;height: calc(100% - 90px);width: calc(100% - 10px);text-align: center;margin: 5px}
+.slf2footer{height: 40px;width: 100%;text-align: center;border-radius: 10px;}
+.slf2footer .footerleft{float: left;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.slf2footer .footerright {float: right;padding: 5px;font-size: 12px;font-weight: 700px;font-weight: 600;}
+.lsr .slfdeployex1 .slf1bw{height: 100%; padding: 20px 10px 20px 10px;}
+.tablewrapper{padding: 20px; }
+.tablewrapper table{width:100%; }
+.tablewrapper table td {font-size: 13px;font-weight: 700;}
+.tablewrapper table tr.tdb td { width: 25%; height: 160px; font-size: 13px;font-weight: 700;}
+
+.lsr .slfdeployex2 .slf2bw{height: 100%; padding: 20px 10px 20px 10px;}
+.lsr .slfdeployex2 .tablewrapper{padding: 20px;height: calc(100% - 60px);}
+.lsr .slfdeployex2 .tablewrapper table{width:100%;height: 100%;}
+.lsr .slfdeployex2 .tablewrapper table td{min-width: 250px; min-height: 200px; font-size: 13px;font-weight: 700;}
+
+
+
+.ivl .ivl-body .ivl-row:nth-child(1) { background-position: right 20px top 0px }
+.ivl .ivl-body .ivl-row:nth-child(2) { background-position: right 20px top -29px }
+.ivl .ivl-body .ivl-row:nth-child(3) { background-position: right 20px top -58px }
+.ivl .ivl-body .ivl-row:nth-child(4) { background-position: right 20px top -87px }
+.ivl .ivl-body .ivl-row:nth-child(5) { background-position: right 20px top -116px }
+.ivl .ivl-body .ivl-row:nth-child(6)  { background-position: right 20px top -145px }
+.ivl .ivl-body .ivl-row:nth-child(7)  { background-position: right 20px top -174px }

@@ -1,0 +1,59 @@
+.orgs { width: 100%; height: auto; padding: 0px 10px; text-align: center; margin: auto; }
+.orgs .orgrow { width: 100%; height: auto; margin: auto;  }
+.orgs .orgrow .carousel { width: 780px; margin: auto;  }
+.orgs .orgrow .orgitem { 
+    text-align:center;
+}
+.orgs .orgrow .orgitem.p-br {
+    
+}
+.orgs .orgrow .orgitem .orgcard {
+    min-width: 160px;
+    display: inline-block;
+    float: left;
+    align-content: center;
+    background:#ccc;
+    position:relative; 
+    transition: all 500ms ease;
+    cursor: pointer;
+} 
+.orgs .orgrow .orgitem .orgcard:hover {
+    background: #ddd; 
+}
+.orgs .orgrow .orgitem.p-br .orgcard {
+    height: 120px; margin-top: 20px; text-align: center;
+}
+
+.orgs .orgrow .orgitem .orgcard .orgImage {
+    clear:both; height: 120px; width: 100%; display: block; padding: 20px 0px; margin: auto;
+}
+.orgs .orgrow .orgitem .orgcard .orgImage img { height: 80px; margin: auto; }
+.orgs .orgrow .orgitem .orgcard .orgImage .orgplus { width: 40px; height: 40px; border-radius: 20px; background:#dedede; color:#fff; text-align: center; line-height: 40px; font-size:36px; font-weight: 700; margin:auto;  }
+
+.orgs .orgrow .orgitem .orgcard:hover .orgImage .orgplus { background:#efefef; }
+.orgs .orgrow .orgitem .orgcard .orgTitle {
+    clear:both; height: 30px; width: 100%; display: block; background:#fff; color:#666; font-size: 12px; font-weight: 700;  margin-top:5px;  padding: 5px 10px;
+}
+
+.orgs .orgrow .orgitem .orgcard:hover .orgTitle { color:#333; }
+
+.orgs .orgrow .orgitem.p-br .orgcard .orgImage {
+    height: 72px;
+}
+.orgs .orgrow .orgitem .progress { 
+    height: 6px !important; background: #d9d9d9
+}
+.orgs .orgrow .orgitem .progress .progress-bar { 
+    background-color: #2dce70 !important;
+}
+.imgSize{height: 60px;width: 60px;}
+.btnrow { width: 100%; height: auto; padding: 20px 10px 20px 10px; text-align: center; margin: auto; }
+.btnrow .link { width: 100%; height: 30px; padding: 20px 10px 20px 10px; text-align: center; margin: auto; }
+.btnrow .link fa-icon { display: inline-block; margin-right: 10px; }
+.btnrow .link span { display: inline-block; }
+.btnrow fa-icon { margin-right: 10px; display: inline-block; }
+
+.pback { position: absolute; float: right; top: 20px; right: 30px; font-size: 30px; }
+p{
+    font-size: 14px;
+}

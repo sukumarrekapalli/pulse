@@ -1,0 +1,247 @@
+<div class="dbk cul-cs-mbl-view CulGenome"  [hidden]="dashflag === false">
+    <div class="row"  id="companysentiments">
+        <div class="col-lg-12 col-md-12">
+            <div class="dbk-box">
+                <p>A detailed analysis of the networks within an organisation and patterns of influence, collaboration and information exchange, helping leaders understand group dynamics, identify key influencers and plan effective communications.</p>
+                <div class="dbkb-head">
+                    <h6 class="dbkb-title">EXECUTIVE SUMMARY</h6>
+                </div>
+                <div class="dbkb-body">
+                    <p  [innerHTML]="psk?.executiveSummary" style="text-align: left"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 border-right dotted">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title text-center"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>OVERALL RATING</h6>
+                        </div>
+                        <div class="dbkb-body orclass" title="1.25" style=" height: 120px;">
+                           <div id="speedometer">
+                              <span class="barometer" style="background-image: url(assets/images/smilygroup.png);"></span>
+                              <span class="needle"></span>
+                              <span><p class="orvalues text-white bold">1.25</p></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA</h6>
+                        </div>
+                        <div class="dbkb-body text-left">
+                            <div class="rcs">
+                                <div class="rc rting_criteria" *ngFor="let rc of rcs" [ngClass]="{'red': rc.prop < 2, 'yellow':  rc.prop > 2 && rc.prop < 4, 'green':  rc.prop >= 4}" >
+                                    <div class="speech-bubble_vac border speech-bubble w-75 text-left">
+                                        <p>{{rc.pop_desc}}</p>
+                                    </div>
+                                    <div class="rc-val"><div class="rc-num">{{rc.prop}}</div><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div></div>
+                                    <div class="rc-case" >
+                                        <div class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></div>
+                                        <div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>    
+                                    </div>
+                                    <div class="rc-label">{{rc.label}}</div>
+                                </div>
+                                <div class="rc" style="background-color: #e7e5e6;">
+                                    <div class="rc-val"><div class="rc-num"></div><div class="rc-tail"></div></div>
+                                    <div class="rc-case" style="width: 100%;margin: 0 auto;" >
+                                        <div class="" style="color: #9688E0 !important;font-size: 17px;"><span [CountTo]="62" [from]="0" [duration]="10"></span>:<span [CountTo]="1465" [from]="0" [duration]="10"></span></div>   
+                                    </div>
+                                    <div class="rc-label">Influencer ratio</div>
+                                </div>
+                                 <div class="rc" style="background-color: #e7e5e6;">
+                                    <div class="rc-val"><div class="rc-num"></div><div class="rc-tail"></div></div>
+                                    <div class="rc-case" style="width: 100%;margin: 0 auto;">
+                                        <div class="" style="color: #9688E0 !important;font-size: 17px;" [CountTo]="589" [from]="0" [duration]="10"></div>   
+                                    </div>
+                                    <div class="rc-label">Number of Cliques</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+             <div class="widthcls">
+                <a href="#topnetworkleader">
+                    <div class="moodindex border text-center" >
+                        <p class="mi_circle mi-circle-top-network"><img class="w-50" src="assets/images/Network_Leaders.png" style="filter: opacity(0.4);"></p>
+                        <p style="color:black;font-size: 12px;white-space: pre-wrap;font-variant: small-caps;">Top Network Leaders </p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls">
+                <a href="#topinfluencers">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle"><img  class="w-50" src="assets/images/Top_Influencer.png" style="filter: opacity(0.4);"></p>
+                        <p class="net-chart-fnt-style" >Top Influencers </p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls">
+                <a href="#topcliques">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle mi-circle-cliques"><img  class="w-50" src="assets/images/Major_CDiscovered.png" style="filter: opacity(0.4);"></p>
+                        <p class="net-chart-fnt-style">Major Cliques Discovered</p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls ">
+                <a href="#topinforepositories">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle mi-circle-top-leaders"><img  class="w-50" src="assets/images/Top_Local_Leader.png" style="filter: opacity(0.4);"></p>
+                        <p class="net-chart-fnt-style">Top Local Leaders</p>
+                    </div>
+                </a>
+            </div>
+        </div>	
+         <div class="col-lg-12 col-md-12 col-12 mb-0">
+            <div class="card carddiv_height">
+                <div class="card-header cardheader row pt-0 pb-0 text-right" style="background-color: white !important;">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mt-2 mb-2 offset-lg-4 offset-md-4">
+                       <p class="mb-0 pt-2" style="font-size: 15px">Please select Branch</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mt-2 mb-2 p-0 ">
+                        <select class="form-control selcls" id="department"  [(ngModel)]="selectedbranch" (change)="getemployeedata()" [ngModelOptions]="{standalone: true}">
+                            <option value="">Select Branch</option>
+                            <option value="all">All</option>
+                            <option *ngFor="let branchname of branchlist">{{branchname.branch_name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row" id="topnetworkleader"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" >
+                    <div class="card-header cardheader"><span  style="color: white;">Top Network Leaders</span><span class="float-right"><a href="#companysentiments" class="purpleColor" style="color: #fff !important;"><fa-icon [icon]="['fas', 'arrow-circle-up']"></fa-icon>  Go to Top</a></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div id="tnl_networkgraphcontainer" class="" style="width: 100%; float: left;"></div> 
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                            <div id="networkgraphcontainer"  class="border-left bg-white border-bottom shadow-sm mt-4" style="width: 272px;height: 275px; float: left;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                        <tr *ngFor="let dcnl of democut_tnl">
+                                            <td>{{dcnl.employee_name}} ({{dcnl.bank_code}})</td>
+                                            <td>{{dcnl.network_leadership_scores}}</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+       <div class="row" id="topinfluencers"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" >
+                    <div class="card-header cardheader" ><span style="color: white;">Top Influencers</span><span class="float-right"><a href="#companysentiments" class="purpleColor" style="color: #fff !important;"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div id="ti_networkgraphcontainer" class="" style="width: 100%; float: left;"></div> 
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                           <div id="networkgraphcontainer"  class="border-left bg-white border-bottom shadow-sm mt-4" style="width: 272px;height: 275px; float: left;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                        <tr  *ngFor="let dc_topinfluncr of democut_ti">
+                                           <td>{{dc_topinfluncr.employee_name}} ({{dc_topinfluncr.bank_code}})</td>
+                                            <td>{{dc_topinfluncr.influencer_scores}}</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+         <div class="row" id="topcliques"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span style="color: white;">Major Cliques Discovered</span><span class="float-right"><a href="#companysentiments" class="purpleColor" style="color: #fff !important;"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/cd.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="row" id="topinforepositories"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height">
+                    <div class="card-header cardheader"><span  style="color: white;">Top Information Repositories</span><span class="float-right"><a href="#companysentiments" class="purpleColor" style="color: #fff !important;"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div id="tir_networkgraphcontainer" class="" style="width: 100%; float: left;"></div> 
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                            <div id="networkgraphcontainer"  class="border-left bg-white border-bottom shadow-sm mt-4" style="width: 272px;height: 275px; float: left;display: none;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                        <tr *ngFor="let dcnl of democut_tnl">
+                                            <td>{{dcnl.employee_name}} ({{dcnl.bank_code}})</td>
+                                            <td>{{dcnl.network_leadership_scores}}</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        
+    </div>
+    <div class="dbk  CulGenome" [hidden]="dashflag === true"   style="background-image: url('assets/images/influencer_network_blur1.jpg'); background-size: 100% 100%;">
+
+    <div class="row lpBlurDashContent text-center bg-white w-75" style="margin: 20%;">
+        <div class="col-lg-12 col-md-12"> 
+        <div class="row">
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                <h3>Currently analysing the result</h3>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                <!-- <h6>To know more reach out to <a href="mailto:bala@mnagenome.com" target="_top">bala@mnagenome.com</a>  and <a href="mailto:smita@mnagenome.com" target="_top">smita@mnagenome.com</a></h6> -->
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,185 @@
+<block-ui></block-ui>
+<div class="db">
+  <app-header></app-header>
+  <div class="container dbc">
+      <div class="pcontainer">
+          <div class="pdiv">
+            <div class="pback"><a class="p-link" href="/#/admin/projects" title="Back to Projects"><fa-icon [icon]="['fas', 'times']"></fa-icon></a></div>
+            <div class="row prow">
+              <div class="plogo">
+                <div class="plimg">
+                  <img src="{{project?.project_logo}}" title="{{project?.project_title}}" />
+                </div>
+              </div>
+              <div class="pcnt">
+                <div class="phead">
+                  <div class="ptitle">{{project?.project_title}}</div>
+                  <div class="pdate" >
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow=""
+                        [ngClass]="{'bg-success': project?.progress >= 75, 'bg-warning': project?.progress >= 25 && project?.progress < 75, 'bg-danger': project?.progress < 25}"
+                        aria-valuemin="0" aria-valuemax="100" [style.width.%]="project?.progress">
+                        <span>{{project?.progress}}% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row pboxes">
+                  <div class="col col-3 pbox">
+        
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'landmark']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Project For</div>
+                        <div class="psval dlbl" title="{{project?.org_name | nodata}}">{{project?.org_name | nodata}}</div>
+                      </div>
+                    </div>
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'landmark']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Survey On</div>
+                        <div class="psval dlbl" title="{{project?.target_org_name | nodata}}">
+                          {{project?.target_org_name | nodata}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-3 pbox">
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'briefcase']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Project Type</div>
+                        <div class="psval dlbl" title="{{project?.project_type_label | nodata}}">
+                          {{project?.project_type_label | nodata}}</div>
+                      </div>
+                    </div>
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Surveys Used</div>
+                        <div class="psval dlbl" title="{{project?.surveys_label | nodata}}">{{project?.surveys_label | nodata}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-3 pbox">
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'calendar-day']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Start Date</div>
+                        <div class="psval dlbl" title="{{project?.start_date | nodata}}">{{project?.start_date | nodata}}</div>
+                      </div>
+                    </div>
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'calendar-check']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Due Date</div>
+                        <div class="psval dlbl" title="{{project?.end_date | nodata}}">{{project?.end_date | nodata}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-3 pbox">
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'users']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Total Participants</div>
+                        <div class="psval dlbl" title="{{project?.participants?.length | nodata}}">
+                          {{project?.participants?.length | nodata}}</div>
+                      </div>
+                    </div>
+                    <div class="pset">
+                      <div class="psicon">
+                        <fa-icon [icon]="['fas', 'user-check']"></fa-icon>
+                      </div>
+                      <div class="psbody">
+                        <div class="pslbl">Surveys Completed</div>
+                        <div class="psval dlbl" title="{{project?.participants_completed_count | nodata}}">
+                          {{project?.participants_completed_count | nodata}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="pbody">
+                
+              <ngb-tabset class="ptabset">
+                  
+                <ngb-tab>
+                  <ng-template ngbTabTitle><fa-icon [icon]="['fas', 'users']"></fa-icon>Participants</ng-template>
+                  <ng-template ngbTabContent>
+                      <ngx-datatable class="bootstrap" [rows]="project?.participants" [columnMode]="'flex'"
+                      [headerHeight]="34"
+                      [footerHeight]="34"
+                      [rowHeight]="34"
+                      [scrollbarV]="true"
+                      >
+                      <ngx-datatable-column name="Participant Name" [flexGrow]="1">
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                          {{row.first_name}} {{row.last_name}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                        <ngx-datatable-column name="Email Address" [flexGrow]="1">
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                              {{row.company_email}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Survey Code" [flexGrow]="1">
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                              <a href="/#/survey/{{row.survey_link}}">{{row.survey_link}}</a>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Survey Status" [flexGrow]="1">
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                              {{row.survey_status}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                      </ngx-datatable>
+                      <!-- <data-table id="my-table" 
+                        [items]="project?.participants" [itemCount]="project?.participants.length" 
+                        [indexColumn]="true" [indexColumnHeader]="'S.No.'" [header]="false"
+                        [pagination]="true" [pageLimits]="[10, 25, 100,250]"
+                        >
+                        <data-table-column [property]="'first_name'" [header]="'First Name'" ></data-table-column>
+                        <data-table-column [property]="'last_name'" [header]="'Last Name'" ></data-table-column>
+                        <data-table-column [property]="'company_email'" [header]="'Email Address'" ></data-table-column>
+                          <data-table-column></data-table-column>
+                      </data-table> -->
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab *ngFor="let survey of project?.surveys">
+                  <ng-template ngbTabTitle><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>{{survey?.survey_code | uppercase}}</ng-template>
+                  <ng-template ngbTabContent>
+                      <ngx-datatable class="bootstrap" [rows]="survey?.rows" [columns]="survey?.columns" [columnMode]="'forced'"
+                      [headerHeight]="34"
+                      [footerHeight]="34"
+                      [rowHeight]="34"
+                      [scrollbarV]="true"
+                      [scrollbarH]="true"
+                      >
+                      </ngx-datatable>
+                      <button (click)="exportAsXLSX(survey)" class="btn p-btn exportExcel">Excel Download</button> 
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+            </div>
+          </div>
+        
+        
+        </div>
+  </div>
+</div>

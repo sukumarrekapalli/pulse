@@ -1,0 +1,201 @@
+.angular-with-newlines{
+	white-space: pre-wrap;
+}
+.executive-summary-div {
+	margin-bottom: 10px;
+	white-space: pre-wrap;
+}
+.procon-item {
+	border-bottom: 1px dotted #ddd;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-div {
+	max-width: 19.666667%;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: pre-wrap;
+}
+
+.pros-div, .cons-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	padding: 10px;
+	height: 263px;
+}
+
+.pros-title, .cons-title {
+    margin-bottom: 10px;
+    text-align: left; color:#8b79dd;
+    font-weight: 700;
+}
+
+.content-div {
+	padding: 0px 15px;
+}
+
+.company-insights {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.thumbs-up-logo {
+	float: left;
+	border: 1px solid #000;
+	border-radius: 50%;
+	padding: 4px 8px 7px 8px;
+	font-size: 1.25rem;
+	margin-right: 8px;
+}
+
+.company-insights h5 {
+	padding-top: 5px;
+}
+
+.right_border{
+border-right: 1px dotted silver;
+}
+.rating-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	margin: 0 auto;
+    line-height: 50px;
+}
+.rating-div .rating_star_color{
+	color: #808080a3;
+}
+.progress-bar-div .knob{
+	 height: 53px;
+    width: 53px;
+    background-color: white;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #d1d1d1;
+    padding: 7px;
+}
+.progress-bar-div .knob_text{
+	font-size: 10px;
+	    padding: 4px 0px;
+}
+.progress-bar-div .knob_icon{
+	font-size: 24px;
+    color: #8a7adc;
+}
+.opinion_index{
+	background-color: #e7e5e6;
+}
+.circled{
+	 display: inline-block;
+    width: 1.9em;
+    height: 1.9em;
+    padding-left: 0.1em;
+    border: 0.1em solid;
+    border-radius: 100%;
+    box-sizing: border-box; 
+    text-align: center;
+}
+.key_statistics_width{
+    width: calc(100% + 10px);
+    background-color: white;
+    text-align: center;
+}
+
+.key_statistics{
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.key_statistics_lable{
+	color: red;
+    margin-bottom: 5px;
+}
+.key_statistics_main{
+	margin-top: 20px;
+    margin-bottom: 5px;
+}
+.ceo_approval{
+	background-color: white;
+    margin-top: 10px;
+    padding: 10px 7px;
+    font-size: 11px;
+}
+.ptag{
+	margin-bottom: 14px !important;
+}
+.fri_recommend{
+	background-color: white;
+    margin-top: 10px;
+    padding: 10px 7px;
+    font-size: 11px;
+}
+
+%flex-display {
+    display: flex;
+}
+.star-rating {
+    @extend %flex-display;
+    align-items: center;
+    font-size: 1em;
+    justify-content: center;
+}
+.back-stars {
+    @extend %flex-display;
+    color: silver;
+    position: relative;
+    text-shadow: 4px 4px 10px silver;
+    width: 50%;
+    margin:0 auto;
+}
+.front-stars {
+    @extend %flex-display;
+    color: #FFBC0B;
+    overflow: hidden;
+    position: absolute;
+    text-shadow: 2px 2px 5px silver;
+    top: 0;
+    width: 85%;
+}
+.right_margin{
+	    margin-right: 4px
+}
+.ovral_rating{
+	font-size: 10px;
+    color: #f5383c;
+}
+.rtng_criteria{
+	font-size: 10px;
+    color: silver;
+}
+.moodindex{
+    height: 160px;
+    background-color: #e7e5e6;
+}
+.mood_index .mi_circle {
+    border:2px solid #8d7dde;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.moodindex .mi_circle{
+    font-size: 4rem;
+    color: #00000047;
+    margin: 17px 19px;
+    border: 3px solid #8d7dde;
+    border-radius: 50%;
+    background-color: white;
+}
+.moodindex_indicator{
+    float: left;
+    width: 19%;
+    padding: 2px;
+}
+.widthcls{ flex: 0 0 19.666667%;
+    max-width: 19.666667%;
+    padding: 12px 20px;
+}
+
+.rates .ratesd.fr {
+    width: 0px;
+    color: red;
+}

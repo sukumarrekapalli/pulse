@@ -1,0 +1,14 @@
+<div class="dbh">
+  <div class="logo">
+    <img src="assets/images/pulse-logo.png" title="Pulse" />
+  </div>
+  <div class="upanel dropdown" ng-init="showUserPanel = false" >
+    <a class="up-btn userPanelBtn" id="userPanelBtn" (click)="showUserPanel = !showUserPanel" [ngClass]="{'selected': showUserPanel === true}">
+        <div class="up-icon"><fa-icon [icon]="['fas', 'user-tie']"></fa-icon></div><div class="up-label">{{currentUser.first_name}} {{currentUser.last_name}}</div>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" [hidden]="showUserPanel !== true" (mousemove)="showUserPanel = true" (mouseout)="showUserPanel = false">
+      <a class="dropdown-item p-link" href="/#/main" title="Dashboard"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>Dashboard</a>
+      <a class="dropdown-item p-link" href="#." (click)="logout()" title="Logout"><fa-icon [icon]="['fas', 'power-off']"></fa-icon>Logout</a>
+    </div>
+  </div>
+</div>

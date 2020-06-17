@@ -1,0 +1,230 @@
+<block-ui></block-ui>
+<div class="main_div lsr">
+	<div class="container bg-3 text-center main_container ">  
+		<nav class="navbar navbar-expand-lg navbar-light bg-light sb-navbar">
+			<div class="container">
+                <div class="navbar-brand">
+                    <img src="assets/images/pulse-logo.png" class="logo" title="Pulse" />
+                    <span class="pulse_name bold">Leadership Report</span>
+                </div>
+                <div class="navbar-brand float-right" style="margin-right: 0px">
+                    <span class="pulse_name emp_name">{{lsr?.employee.first_name}} {{lsr?.employee.last_name}}</span>
+                    <span class="m1-1 pulse_name rpt_date">{{lsr?.report_date}}</span>
+                </div>
+				
+			</div>
+        </nav> 
+        
+        <div class="lrheading">
+            <strong>Leadership Themes</strong>
+        </div>
+
+		<div class="row">
+			<div class="col-sm-4"  *ngFor="let theme of lsr?.themes; index as i">
+				<div class="card carddiv_height">
+				  <div class="card-header font-weight-bold p_font" [innerHTML]="[theme.theme_name]" ></div>
+
+				  <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-left p_font" [innerHTML]="literature.theme_notes[theme.theme_name] + theme.theme_notes"></li>
+				  </ul>
+				</div>
+			</div>
+        </div>
+        
+        <div class="lrheading">
+            <strong>Universes</strong>
+        </div>
+    
+		<div class="row text-center universe_chart">
+			<div class="col-lg-12">
+                <div id="uni_chart" style="width:100%; height: 360px"></div> 
+			</div>
+        </div>
+        
+		<div class="row">
+                <div class="col-sm-12"  *ngFor="let universe of lsr?.universes; index as i" >
+                    <div class="card universediv_height">
+                        <div class="card-header text-left">
+                            <h6 class="m-0 font-weight-bold">{{literature.universe_names[universe.universe_code]}} ({{universe.universe_code}})</h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-left " style="margin-bottom: 0px; padding-bottom: 0px; "><h6 style="font-weight: 700; margin-bottom: 0px;">Nature of this universe: </h6></li>
+                            <li class="list-group-item text-left p_font" [innerHTML]="literature.universe_notes[universe.universe_code]"></li>
+                            <li class="list-group-item text-left " style="margin-bottom: 0px; padding-bottom: 0px;"><h6 style="font-weight: 700; margin-bottom: 0px;">Your URB scores: </h6></li>
+                            <li class="list-group-item text-left p_font" [innerHTML]="universe.universe_notes"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lrheading">
+                <strong>Adaptability Quotient</strong>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div style="background:#fff; border:solid 1px #f1f1f1; position: relative; border-radius: 10px; padding: 10px; z-index: 2">
+                                <div class="ivl">
+                                    <div class="ivl-body" >
+                                        <div class="ivl-row" *ngFor="let ivl of ivls" style="border-bottom: solid 1px #efefef">
+                                            <div class="ivl-lcell" [style.color]="ivl.color" style="width: calc(100% - 160px); font-weight: 700">{{ivl.level}}:&nbsp;&nbsp;{{ivl.label}}</div>
+                                            <div class="ivl-mcell">
+                                                <div class="ivl-bubble" *ngFor="let bubble of ivl.bubbles" [ngClass]="{'lv': bubble.state === 'LV'}"><div class="speech-bubble">{{bubble.label}}</div></div>
+                                            </div>
+                                            <div class="ivl-rcell">{{ivl.dlabel}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="background:#f1f1f1; border-radius: 10px; padding: 5px 10px; position: relative; margin-top:-10px; padding-top: 15px; z-index: 1;">
+                                <div class="ivl">
+                                    <div class="ivl-footer">
+                                        <div class="ivl-bubble" style="float:left; margin:3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float: left; margin-right: 30px; ">Positive Value</div>
+                                        <div class="ivl-bubble lv" style="float:left; margin: 3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float:left; margin-right: 30px; ">Limiting Value</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-5">
+                                <div class="ivl">
+                                    <div class="ivl-head" style="border-bottom: solid 1px #efefef; ">
+                                        <font class="float-left">Value</font>
+                                        <font class="float-right">Rank</font>
+                                    </div>
+                                    <div class="ivl-body" >
+                                        <div class="ivl-row" *ngFor="let ivl of lsr?.cva_answers" style="border-bottom: solid 1px #efefef; background: none;">
+                                            <div class="ivl-lcell"  style="width: calc(100% - 160px); font-weight: 700">{{ivl.answer}}</div>
+                                            <div class="ivl-mcell" style="text-align: right; padding-right: 10px; font-weight: 700">
+                                                {{ivl.level}}    
+                                            </div>
+                                            <div class="ivl-rcell">{{ivl.dlabel}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p [innerHTML]="adqLiterature[0]" class="text-left p_font"></p>
+                    <ul style="padding-left: 10px; font-size: 13px">
+                        <li style="margin-left: 10px; font-size: 13px; margin-bottom: 10px" class="text-left" *ngFor="let p2 of adqLiterature[1]" [innerHTML]="p2"></li>
+                    </ul>
+                    <p [innerHTML]="adqLiterature[2]" class="text-left p_font"></p>
+                    <ul style="padding-left: 10px; font-size: 13px">
+                        <li style="margin-left: 10px; font-size: 13px; margin-bottom: 10px" class="text-left" *ngFor="let p4 of adqLiterature[3]" [innerHTML]="p4"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lrheading">
+                <strong>Self Development</strong>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p  class="text-left p_font"><b>Self-Reflection</b></p>
+                    <p class="text-left p_font">Now that you have seen your own results take time to reflect upon these and to think about what role these values play in your life. Look also to see if there are any areas in the values chart that have no focus. This can signify either an area that is already covered, a gap in your awareness, or an area for future development. If you have empty areas what do you think this means for you? (See Exercise 2 below to support you with areas you may want to develop.) The successful mastery of each area of awareness involves two steps: first, becoming aware of the emergent need, and second developing the skills that are necessary to satisfy that need. Learning how to manage our needs is a life-long process. Even when we have learned how to become the author of our own lives, we will find situations arising where we discover that we still have fear-based beliefs that keep us anchored in the lower areas of awareness -situations that frustrate us or cause us to feel anxious and bring up our fears. It is vitally important, therefore, to develop a deep understanding of yourself and to learn the skills and techniques that allow you to manage your life and so that you can find personal fulfilment.</p>
+                    
+                    <p  class="text-left p_font"><b>Next Steps</b></p>
+                    <p class="text-left p_font">Now that you have seen your results you may find it useful to discuss the results with your partner, family and friends. It may also be valuable to ask them to complete an assessment for themselves. This will enable you to share results, which will help you to understand your relationships better and lead to a deeper understanding of each other's needs. There are also other ways to better understand your values, for example, reading about self-development, meditation, coaching, asking for feedback and personal reflection. Working with your values is a life-long process; developing a deep understanding of yourself, and learning skills and techniques to help you grow, can help you to find personal fulfilment. The exercises on the following pages are included to help you start to gain a greater awareness of your values. The first exercise looks at those values which are most important to you and helps you see how these values influence your life. The second exercise is to help you think about where you might want to develop or grow, and to help you start to become mindful of what you might do in this regard.
+                        </p>
+                </div>
+            </div>
+
+            <div class="lrheading">
+                    <strong>Self Development - Exercise 1</strong>
+                </div>
+                    
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-left p_font">In this exercise you are asked to choose your top three values from the ten you originally chose above and to start to examine 
+                                why these are so important to you. Completing this will help you think more about how these values influence your actions and 
+                                understand why you may respond in a certain way if someone acts in a manner that goes against one of these values.
+                        </p>
+                        <div class="tablewrapper">
+                            <table>
+                                <tr class="bottomborder">
+                                    <td class="rightborder">From the 10 values chosen above, think about the three that are most important to you? Write them in the spaces below.</td>
+                                    <td class="rightborder">Why do you believe that this value is important to you?</td>
+                                    <td class="rightborder">Recall a moment in your life when you really lived this value. What behaviors did you exhibit that support this value?</td>
+                                    <td>How might you react if this value was not being honored by others? Describe your feelings, thoughts and actions.</td>
+                                </tr>
+    
+                                <tr class="bottomborder tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="bottomborder tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                                <tr class=" tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="lrheading">
+                    <strong>Self Development - Exercise 2</strong>
+                </div>
+                    
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-left p_font">In this second exercise you are asked to think about areas to strengthen or develop, or values you would like to demonstrate more fully in your life. Completing this will allow you to start to build an action plan to support your self-development.
+                            </p>
+                        <div class="tablewrapper">
+                            <table>
+                                <tr class="bottomborder">
+                                    <td class="rightborder">From your selected values or the values listed below, choose up to three that you would like to live more fully.
+                                        </td>
+                                    <td class="rightborder">What behaviors or actions do you already demonstrate which support this intention?
+                                        </td>
+                                    <td class="rightborder">What could you stop doing to better support this value?
+                                        </td>
+                                    <td>What could you start doing to help you demonstrate this value more fully?
+                                </td>
+                                </tr>
+    
+                                <tr class="bottomborder tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="bottomborder tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                                <tr class=" tdb">
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td class="rightborder"></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                        
+    </div>
+    <div class="container bg-3 text-center main_container " style="height: auto; border: none; text-align: right; padding: 15px; ">
+           <span style="float: right"> &copy;&nbsp;Culturelytics</span>
+    </div>  
+
+</div>
+

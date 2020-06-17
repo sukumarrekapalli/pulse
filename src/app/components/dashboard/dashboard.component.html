@@ -1,0 +1,147 @@
+<block-ui></block-ui>
+<div class="container-fluid h-100 db">
+    <div class="row h-100">
+        <div class="h-100 dbp dlp">
+            <div class="dlp-top">
+                <a class="link p-link" href="/#/main"><fa-icon [icon]="['fas', 'home']"></fa-icon>Home</a>
+            </div>
+            <div class="dlp-org">
+                <div class="dlp-ologo"><img src="{{project?.org.logo}}" alt="Logo" title="{{project?.org.org_name}}" /></div>
+                <div class="dlp-oname p-cl">{{project?.org.org_desc}}</div>
+            </div>
+            <div class="dlp-oscore p-bg">
+                <div class="row">
+                    <div class="col-6 dlp-osl">
+                        <div class="dlp-oslogo">{{project?.ces?.ces_score}}</div>
+                        <div class="dlp-osname"><h5>Culture Coherence Quotient</h5></div>
+                    </div>
+                    <div class="col-6 dlp-osr">
+                        <div class="dlp-oslogo" style="padding-top: 12px;font-size: 17px;">
+                            <!-- <fa-icon *ngIf="project?.ces?.go_nogo === 'NO - GO'" [icon]="['far', 'thumbs-down']"></fa-icon>
+                            <fa-icon *ngIf="project?.ces?.go_nogo === 'GO'" [icon]="['far', 'thumbs-up']"></fa-icon> -->
+                            30%
+                        </div>
+                        <div class="dlp-osname"><h5>Value Adjustment Factor</h5></div> 
+                    </div>
+                </div> 
+            </div>
+            <div class="dlp-odata t-br">
+                <div class="dlp-ohead p-cl bold">OVERVIEW</div>
+                <div class="dlp-obody cscroll">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="dlp-od-lbl t-cl">Industry</div>
+                            <div class="dlp-od-val">{{project?.org.industry_name}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-6">
+                            <div class="dlp-od-lbl t-cl">Company Size</div>
+                            <div class="dlp-od-val">{{project?.org.emp_count}}+ Employees</div>
+                        </div>
+                        <div class="col col-6">
+                            <div class="dlp-od-lbl t-cl">Type</div>
+                            <div class="dlp-od-val">{{project?.org.org_type}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-6">
+                            <div class="dlp-od-lbl t-cl">Headquarters</div>
+                            <div class="dlp-od-val">{{project?.org.city}}, {{project?.org.country_name}}</div>
+                        </div>
+                        <div class="col col-6">
+                            <div class="dlp-od-lbl t-cl">Founded</div>
+                            <div class="dlp-od-val">{{project?.org.founded_on}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dlp-omap s-bg"> 
+                <div class="dlp-head  p-cl bold">GLOBAL FOOTPRINT</div>
+                <div class="dlp-obody">
+                    <div id="dlp-map" class="dlp-map">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-100 dbp dcp" [ngClass]="{'expanded': currentDash !== ''}">
+            <div class="accordion {{project?.project_category}}">
+                <ul [ngClass]="{'open': currentDash !== ''}">
+                    <li *ngFor="let kpi of project?.ces.kpis" [ngClass]="{'open': currentDash === kpi.kpi_code, 'kp-pos': kpi.kpi_status === 'positive', 'kp-neg': kpi.kpi_status === 'negative'}" >
+                        <div class="kpidb"> 
+                            <div class="kpidb-head">
+                                <h2>{{kpi.title}}</h2>
+                                <a class="kpidb-close" (click)="currentDash = ''" title="Close"><fa-icon [icon]="['fas', 'times']"></fa-icon></a>
+                            </div>
+                            <div class="kpidb-body">
+                                    <app-peoplespeak #pskComponent *ngIf="kpi.kpi_code === 'psk'" [project]="projObj"></app-peoplespeak>
+                                    <app-leadershippulse #lspComponent *ngIf="kpi.kpi_code === 'lsp'" [project]="projObj"></app-leadershippulse>
+                                    <app-valueassessment #cvaComponent *ngIf="kpi.kpi_code === 'cva'" [project]="projObj"></app-valueassessment>
+                                    <app-inp #inpComponent *ngIf="kpi.kpi_code === 'inp'" [project]="projObj"></app-inp>
+                                    <app-bns #bnsComponent *ngIf="kpi.kpi_code === 'bns'" [project]="projObj"></app-bns>
+                                    <app-adaptq #adqComponent *ngIf="kpi.kpi_code === 'adq'" [project]="projObj"></app-adaptq>
+                                    <app-compsentiment #cstComponent *ngIf="kpi.kpi_code === 'cst'" [project]="projObj"></app-compsentiment>
+                            </div>
+                        </div>
+                        <div class="kpipreview" (click)="openTab(kpi, [pskComponent, lspComponent, cvaComponent, inpComponent, bnsComponent])">
+                            <div class="kpip">
+                                <div class="kpip-border"></div>
+                                <div class="kpip-score t-cl">{{kpi.kpi_score}}{{kpi.kpi_unit}}</div>
+                                <div class="kpip-arrow"><fa-icon [icon]="['fas', 'long-arrow-alt-up']"></fa-icon></div>
+                                <div class="kpip-title t-cl">{{kpi.title}}</div>
+                                <div class="kpip-bell"><div class="kpip-fa"><fa-icon [icon]="['fas', 'bell']"></fa-icon></div></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="h-100 dbp drp p-br" [hidden]="currentDash !== ''">
+            <div class="dboxes cscroll">
+                <div class="dbox s-br">
+                     <div class="dbx-title p-cl bold"><fa-icon [icon]="['far', 'gem']"></fa-icon>FINANCIAL ENTITIES</div>
+                    <div class="dbx-body">
+                        <div class="dbx-item" *ngFor="let sci of project?.org.finanicalEntities">
+                             <div class="dbx-icode">{{sci.code}}</div>
+                             <div class="dbx-idesc">{{sci.desc}}</div>
+                             <div class="dbx-ivalue">{{sci.value}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dbox s-br">
+                     <div class="dbx-title p-cl bold"><fa-icon [icon]="['fas', 'share-alt']"></fa-icon>SOCIAL MEDIA</div>
+                    <div class="dbx-body">
+                        <ngx-slick-carousel class="carousel" 
+                                            #slickModal="slick-carousel" 
+                                            [config]="slideSMConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.socialMedia">
+                                 <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                 <div class="dbx-slidesign">- {{sm.platform}}</div>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div class="dbox s-br">
+                     <div class="dbx-title p-cl bold"><fa-icon [icon]="['far', 'newspaper']"></fa-icon>NEWS UPDATES</div>
+                    <div class="dbx-body">
+                        <ngx-slick-carousel class="carousel" 
+                                            #slickModal="slick-carousel" 
+                                            [config]="slideNUConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.newsUpdates">
+                                 <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                 <div class="dbx-slidesign">- {{sm.platform}}</div>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+            </div>
+            <div class="dbtnset p-br" style="display: none;">
+                <div class="dbtns">
+                    <button class="btn p-btn" title="Request Re-evaluation">Request Re-evaluation</button>
+                    <button class="btn p-btn" title="Export Report">Export Report</button>
+                    <button class="btn p-btn" title="Avail Other Services">Avail Other Services</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

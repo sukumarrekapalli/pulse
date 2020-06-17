@@ -1,0 +1,375 @@
+.angular-with-newlines{
+	white-space: pre-wrap;
+}
+.executive-summary-div {
+	margin-bottom: 10px;
+	white-space: pre-wrap;
+}
+.procon-item {
+	border-bottom: 1px dotted #ddd;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-div {
+	max-width: 19.666667%;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: pre-wrap;
+} 
+
+.pros-div, .cons-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	height: 270px;
+}
+
+.pros-div, .bnsbarchart {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+.pros-title, .cons-title {
+    margin-bottom: 10px;
+    text-align: left; color:#8b79dd;
+    font-weight: 700;
+}
+
+.content-div {
+	padding: 0px 15px;
+}
+
+.company-insights {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.thumbs-up-logo {
+	float: left;
+	border: 1px solid #000;
+	border-radius: 50%;
+	padding: 4px 8px 7px 8px;
+	font-size: 1.25rem;
+	margin-right: 8px;
+}
+
+.company-insights h5 {
+	padding-top: 5px;
+}
+
+.right_border{
+border-right: 1px dotted silver;
+}
+.rating-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	margin: 0 auto;
+    line-height: 50px;
+}
+.rating-div .rating_star_color{
+	color: #808080a3;
+}
+.op-value
+{
+    font-size: 16px; font-weight: 700;
+}
+.progress-bar-div .knob{
+	 height: 53px;
+    width: 53px;
+    background-color: white;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #d1d1d1;
+    padding: 7px;
+}
+.progress-bar-div .knob_text{
+	font-size: 10px;
+	    padding: 4px 0px;
+}
+.progress-bar-div .knob_icon{
+	font-size: 24px;
+    color: #8a7adc;
+}
+.opinion_index{
+	background-color: #e7e5e6;
+}
+.circled{
+	 display: inline-block;
+    width: 1.9em;
+    height: 1.9em;
+    padding-left: 0.1em;
+    border: 0.1em solid;
+    border-radius: 100%;
+    box-sizing: border-box; 
+    text-align: center;
+}
+.key_statistics_width{
+    width: calc(100% + 10px);
+    background-color: white;
+    text-align: center;
+}
+
+.key_statistics{
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.key_statistics_lable{
+	color: red;
+    margin-bottom: 5px;
+}
+.key_statistics_main{
+	margin-top: 20px;
+    margin-bottom: 5px;
+}
+.ceo_approval-bns{
+	background-color: white; 
+    padding: 10px 7px;
+    font-size: 11px;
+    height: 266px;
+}
+.ptag{
+	margin-bottom: 14px !important; 
+}
+.ptag.pth{
+	 font-weight: 700; text-align: center; font-size: 14px;
+}
+.ceo_approval-bns .pbitm {
+    width: 100%; height: 24px; padding: 5px; background: #efefef; border-radius: 5px; 
+    margin-bottom: 5px;
+}
+.fri_recommend{
+	background-color: white; 
+    padding: 10px 7px;
+    font-size: 11px;
+}
+.dbk .rcs .rc { height: 140px; }
+
+.bnstabset { width: 100%; height: 100%; display: table; }
+.bnstabset .bnstabs { width: 100%; height: 60px; background:#fff; }
+.bnstabset .bnstabs .bnstab { width: 50%; cursor: pointer; height: 60px; text-align: center; position: relative; color:#333; border-top:solid 2px #ddd; background: #ddd; float: left; padding: 10px; font-size: 14px; font-weight: 700; }
+.bnstabset .bnstabs .bnstab .tail { 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #8b79dd transparent transparent transparent;
+    line-height: 0px;
+    _border-color: #8b79dd #000000 #000000 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+    visibility: hidden;
+    position: relative;
+    margin:-10px auto 0px auto;
+ }
+ .bnstabset .bnstabs .bnstab:hover { background:#e1e1e1; border-top: solid 2px #e1e1e1; }
+ .bnstabset .bnstabs .bnstab.active { 
+    background:#fff; border-top: solid 2px #8b79dd; color: #8b79dd;
+}
+.bnstabset .bnstabs .bnstab.active .tail { visibility: visible; }
+
+.bnstabset .bnstcontents { width: 100%; height: calc(100% - 60px); display: block; position: relative; padding: 5px; background: #fff }
+.bnstabset .bnstcontents .bnstcontent { width: 100%; height: 100%; display: block; position: relative; }
+.bnstabset .bnstcontents .bnstcontent .bnspie { width: 100%; height: 100%; max-height: 100%; }
+%flex-display {
+    display: flex;
+}
+.star-rating {
+    @extend %flex-display;
+    align-items: center;
+    font-size: 1em;
+    justify-content: center;
+}
+.back-stars {
+    @extend %flex-display;
+    color: silver;
+    position: relative;
+    text-shadow: 4px 4px 10px silver;
+    width: 50%;
+    margin:0 auto;
+}
+.front-stars {
+    @extend %flex-display;
+    color: #FFBC0B;
+    overflow: hidden;
+    position: absolute;
+    text-shadow: 2px 2px 5px silver;
+    top: 0;
+    width: 85%;
+}
+.right_margin{
+	    margin-right: 4px
+}
+.ovral_rating{
+	font-size: 10px;
+    color: #f5383c;
+}
+.rtng_criteria{
+	font-size: 10px;
+    color: silver;
+}
+.orater { position: relative }
+
+.orater .speech-bubble { display: none; position: absolute; margin: auto; width: auto; height: auto; padding: 5px; 
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+}
+.orater: hover { border: solid 1px #de0000 }
+.orater:hover .speech-bubble { display: block;  }
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #D672AE;
+}
+.speech-bubble {
+    color: #fff;
+    text-align: center;
+    background: #D672AE;
+    border-radius: .4em;
+    font-size: 12px;
+}
+.dbk .rcs .rc .rc-val .rc-num, .dbk .rcs .rc .rc-val .rc-tail {
+    display: block;
+    transition: all 500ms ease;
+}
+
+.cs_tbl_td{
+    width: 10.5%;
+    font-size: 10px;
+    padding: 0px;
+}
+.bnsBlurDashContent{
+    top: 30%;
+    width: 90%;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    position: relative;
+    background-color: #fffffff2;
+    height: 30%;
+    padding: 5%;
+}
+.chart-tbl{
+    margin-top:-49px;flex-wrap: nowrap;position: absolute;font-size: 7.5px;z-index:1;width: 87%;white-space: pre-line;border-bottom: 1px solid silver;margin-left:0px;
+}
+
+.bns-tb-td{
+    font-size: 10px;padding: 0;
+}
+
+@media screen and  (min-width: 360px) and (max-width: 420px) {
+    .dbkd-h{
+        height: auto !important;
+    }
+    .mbl-font{
+        font-size: 12px !important;
+    }
+    .participantnumber{
+        font-size: 25px;
+        height: 80px;
+        padding: 20% 0px;
+        background-color: #fff;
+    }
+    .participanttext{
+        width: 100%;
+        height: 40px;
+        background: #ccc;
+        text-align: center;
+        font-weight: 700;
+        font-size: 11px;
+        padding: 0px 0px;
+    }
+    .displayflag-mbl{
+        display: block;
+    }
+    .displayflag-dsktp{
+        display: none;
+    }
+    .displayflag-mbl .nav.nav-tabs .nav-item.nav-link{
+        width: calc(100% / 3);
+        padding: 9px;
+        font-size: 12px;
+
+    }
+    .opactive {
+        background-color: #fff !important;
+        border-top: 3px solid #D672AE !important;
+        border-left: none !important;
+        cursor: pointer;
+    }
+    .ivl-head, .ivl-footer{
+        font-size: 10px;
+    }
+    .ivl-body{
+        font-size: 8px;
+    }
+    .ceo_approval-bns {
+        height: auto;
+        margin-bottom: 10px;
+    }
+}
+@media screen and  (min-width: 320px) and (max-width: 675px) {
+    .dbkd-h{
+        height: auto !important;
+    }
+    .mbl-font{
+        font-size: 12px !important;
+    }
+    .dbk .rcs {
+        min-height: 280px;
+    }
+     .dbk .rcs .rc {
+        width: 28% !important;
+    }
+    
+    .moodindex .mi_circle{
+        width: 75px;
+        height: 75px;
+        font-size: 2.5rem;
+         margin: 10px 15px;
+    }
+    .moodindex.text-center{
+        white-space: pre-wrap;
+    }
+   
+   .widthcls {
+        max-width: 48.666667%; 
+    }
+    .networkgraphtbl{
+        font-size: 10px;
+    }
+    .ceo_approval-bns {
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .cs_tbl_td {
+        width: 8.5%;
+        font-size: 6px;
+        padding: 0px;
+    }
+    .chart-tbl {
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .bns-tb-td {
+        font-size: 6px;
+        padding: 0;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .dbk .rcs {
+        width: 100%;
+        height: 248px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .dbk .rcs {
+        width: 100%;
+        height: 130px;
+    }
+}

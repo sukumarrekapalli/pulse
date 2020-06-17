@@ -1,0 +1,112 @@
+<block-ui></block-ui>
+<div class="rf">
+    <div class="rfhead">
+         <div class="dlp-ologo" [hidden]="project?.project_logo === undefined || project?.project_logo === '' || project?.project_logo === null"><img src="{{project?.project_logo}}" alt="{{project?.project_title}}" title="{{project?.project_title}}" /></div>
+        <!--<h3 [hidden]="registerResponse === ''"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>{{project.project_title}}</h3>-->
+    </div>
+    <div class="rfbody">
+        <div class="rfq noproj" [hidden]="registerResponse === ''">
+            <div class="alert alert-danger" role="alert" [hidden]="registerResponse === 'success' || registerResponse === 'already'">
+                <h4 class="alert-heading">Sorry!</h4>
+                <p>Failed to register you for the assessment. Please try again later.</p>
+            </div>
+            <div class="alert alert-success" role="alert" [hidden]="registerResponse !== 'success' && registerResponse !== 'already'">
+                <h4 class="alert-heading">You have been successfully registered.</h4>
+                <br />
+                <p><a class="btn p-btn" href="/#/survey/{{user.survey_link}}" title="Start">Start Assessment</a></p>
+            </div>
+        </div>
+        <div class="rfq" [hidden]="project?.id === undefined || project?.id === '' || registerResponse !== ''">
+            <!--<div class="rfq-head"><h5>Thank You for participating in this sample survey, please provide the following details and continue.</h5></div>-->
+            <div class="rfq-body">
+                <div class="rfq-form cscroll">
+                    <form class="form">
+                        <div class="rfq-div">
+                            <div class="rfq-lpanel">
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[0] !== undefined && errors[0] !== ''">First Name</label>
+                                        <label class="errlabl" [hidden]="errors[0] === undefined || errors[0] === ''">{{errors[0]}}</label>
+                                        <input type="text" placeholder="Enter First Name Here.." class="form-control" [(ngModel)]="user.first_name" value="" [ngModelOptions]="{standalone: true}" maxlength="20">
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[1] !== undefined && errors[1] !== ''">Last Name</label>
+                                        <label class="errlabl" [hidden]="errors[1] === undefined || errors[1] === ''">{{errors[1]}}</label>
+                                        <input type="text" placeholder="Enter Last Name Here.." class="form-control" value="" [(ngModel)]="user.last_name" [ngModelOptions]="{standalone: true}" maxlength="20">
+                                    </div>
+                               		
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[2] !== undefined && errors[2] !== ''">Company Email</label>
+                                        <label class="errlabl" [hidden]="errors[2] === undefined || errors[2] === ''">{{errors[2]}}</label>
+                                        <input type="text" placeholder="Enter Company Email Here.." class="form-control" value="" [(ngModel)]="user.company_email" [ngModelOptions]="{standalone: true}"  maxlength="100">
+                                    </div>		
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[3] !== undefined && errors[3] !== ''">LinkedIn Profile</label>
+                                        <label class="errlabl" [hidden]="errors[3] === undefined || errors[3] === ''">{{errors[3]}}</label>
+                                        <input type="text" placeholder="Enter LinkedIn Profile Here.." class="form-control" value="" [(ngModel)]="user.linkedin_profile" [ngModelOptions]="{standalone: true}" maxlength="255">
+                                    </div>
+                                		
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[4] !== undefined && errors[4] !== ''">Number of Years with Company</label>
+                                        <label class="errlabl" [hidden]="errors[4] === undefined || errors[4] === ''">{{errors[4]}}</label>
+                                        <input type="text" placeholder="Enter Number of Years with Company Here.." class="form-control" value="" [(ngModel)]="user.org_tenure" [ngModelOptions]="{standalone: true}"  maxlength="20">
+                                    </div>		
+                                    <div class="col-sm-12 form-group">
+                                        <label [hidden]="errors[5] !== undefined && errors[5] !== ''">Which Generation do you belong to?</label>
+                                        <label class="errlabl" [hidden]="errors[5] === undefined || errors[5] === ''">{{errors[5]}}</label>
+                                        <select id="inputState" class="form-control" [(ngModel)]="user.generation" [ngModelOptions]="{standalone: true}">
+                                            <option value="-" selected="selected">Choose ...</option>
+                                            <option value="Gen Z">Gen Z, Born after 1996</option>
+                                            <option value="Gen Y">Gen Y, Born 1977 - 1995</option>
+                                            <option value="Gen X">Gen X, born 1965 -1976</option>
+                                            <option value="Baby Boomers">Baby Boomers: Born 1946 to 1964</option>
+                                        </select>
+                                    </div>
+                            </div>
+                           
+                            <div class="rfq-rpanel">
+                                <div class="rfq-rpbg">
+                                    <div class="form-group" style="margin-bottom: 5px;">
+                                        <label>In your view what would be the <font class="s-cl bold">most relatable definition of culture?</font></label>
+                                        <label class="errlabl" [hidden]="errors[6] === undefined || errors[6] === ''">{{errors[6]}}</label>
+                                    </div>                              
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="def_1" [(ngModel)]="user.culture_definition" [ngModelOptions]="{standalone: true}" required="" name="definition" value="Employee experience, as hosted on open platforms like Glassdoor where employers can be rated and reviewed based on compensation, benefits, management, and organizational culture.">
+                                        <label class="form-check-label" for="def_1">
+                                            <font class="s-cl bold">Employee experience</font>, as hosted on open platforms like Glassdoor where employers can be rated and reviewed based on compensation, benefits, management, and organizational culture.
+                                        </label>
+                                    </div>           
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="def_2" name="definition" [(ngModel)]="user.culture_definition" [ngModelOptions]="{standalone: true}" required="" value="Working relationships, the manner in which information flows, how important every employee feels and the overall social dynamics in the team and the overall organization.">
+                                        <label class="form-check-label" for="def_2">
+                                            <font class="s-cl bold">Working relationships</font>, the manner in which information flows, how important every employee feels and the overall social dynamics in the team and the overall organization.
+                                        </label>
+                                    </div>           
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="def_3" name="definition" [(ngModel)]="user.culture_definition" [ngModelOptions]="{standalone: true}" required="" value="Leadership Vision and Values, individual thoughts/actions/behaviors of leaders in teams. Their approach towards handling a team, striving towards a goal and setting the example.">
+                                        <label class="form-check-label" for="def_3">
+                                            <font class="s-cl bold">Leadership Vision and Values</font>, individual thoughts/actions/behaviors of leaders in teams. Their approach towards handling a team, striving towards a goal and setting the example.
+                                        </label>
+                                    </div>
+                                    <div class="submitBtn">
+                                        <div class="alert alert-danger" [hidden]="errors.length === 0">The highlighted inputs are empty or not valid!</div>
+                                        <button type="button" class="btn s-btn" (click)="formSubmit()" title="Submit & Continue">Submit & Continue</button>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            
+
+        </div>
+        <div class="rfq noproj" [hidden]="projectValid === true">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Sorry!</h4>
+                <p>The assessment link is either not valid or has expired. Please contact support team.</p>
+            </div>
+        </div>
+    </div>
+    <div class="rffoot"><div class="rffootdiv">Copyright © {{currentYear}} Culturelytics Pvt. Ltd. </div></div>
+</div>

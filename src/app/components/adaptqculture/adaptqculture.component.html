@@ -1,0 +1,601 @@
+<div class="dbk adqc CulGenome">
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<div class="dbk-box">
+				<p>A measure of individual employees’ attitudes towards change, along with insights about how the overall organisation can be made more adaptable</p>
+				<div class="dbkb-head">
+					<h6 class="dbkb-title">EXECUTIVE SUMMARY</h6>
+				</div>
+				<div class="dbkb-body">
+					<p  [innerHTML]="adaptqdash.executiveSummary" style="text-align: left"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 border-right dotted">
+			<div class="row" style="margin-bottom: 10px;">
+				<div class="col-12">
+					<div class="dbk-box">
+						<div class="dbkb-head">
+							<h6 class="dbkb-title text-center"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>OVERALL RATING</h6>
+						</div>
+						<div class="dbkb-body orclass" title="{{adaptqdash.opinion_index}}" style=" height: 120px;">
+                           <div id="speedometer">
+							  <span class="barometer" style="background-image: url(assets/images/smilygroup.png);"></span>
+							  <span class="needle"></span>
+							  <span><p class="orvalues text-white bold">3.71</p></span>
+							</div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+			<div class="row" style="margin-bottom: 10px;">
+				<div class="col-12">
+					<div class="dbk-box">
+						<div class="dbkb-head">
+							<h6 class="dbkb-title" >Pulse Organization Score </h6>
+						</div>
+						<div class="dbkb-body">
+							<div class="pplorgscore">
+								<div class="orgscore1" >
+									<p class="text-center" style="font-size: 10px;margin-bottom: 0px;">Score</p>
+									<div class=" orgscore_startdiv" style="height: 120px;">
+										
+									</div>
+									<p class="text-center" style="font-size: 10px;margin-bottom: 0px;">Employee</p>
+								</div>
+								<div class="orgscore" >
+									<p class="text-center orgscore_lbl" style="color: #deb525;">Highly Resistive</p>
+									<div class=" orgscorediv border">
+										<div class="position-relative text-center" style="height:100%;box-shadow: inset 0 0 10px #cccccc;">
+											<p class="pos_text_bottom position-absolute"><span [CountTo]="0" [from]="0" [duration]="1"></span>%</p>
+										</div>
+										<div class="" style="height: 0%;background-color: #f9cf3d;"></div>
+									</div>
+									<p class="text-center orgscore_lbl" style="color: #000;"><span [CountTo]="0" [from]="0" [duration]="10"></span></p>
+								</div>
+								<div class="orgscore" >
+									<p class="text-center orgscore_lbl" style="color:#deb525;">LMore Resistive</p>
+									<div class=" orgscorediv border">
+										<div class="position-relative text-center" style="height:100%;box-shadow: inset 0 0 10px #cccccc;">
+											<p class="pos_text_bottom position-absolute"><span [CountTo]="0" [from]="0" [duration]="1"></span>%</p>
+										</div>
+										<div class="" style="height: 0%;background-color: #f9cf3d;"></div>
+									</div>
+									<p class="text-center orgscore_lbl" style="color: #000;"><span [CountTo]="0" [from]="0" [duration]="10"></span></p>
+								</div>
+								<div class="orgscore " >
+									<p class="text-center orgscore_lbl" style="color: #deb525;">Neutral</p>
+									<div class=" orgscorediv border">
+										<div class="position-relative text-center" style="height:79%;box-shadow: inset 0 0 10px #cccccc;">
+											<p class="pos_text_bottom position-absolute"><span [CountTo]="21.43" [from]="0" [duration]="1"></span>%</p>
+										</div>
+										<div class="" style="height: 21%;background-color: #f9cf3d;"></div>
+									</div>
+									<p class="text-center orgscore_lbl" style="color: #000;"><span [CountTo]="6" [from]="0" [duration]="1"></span></p>
+								</div>
+								<div class="orgscore" > 
+									<p class="text-center orgscore_lbl" style="color: #deb525;">More Adaptive</p>
+									<div class="orgscorediv border">
+										<div class="position-relative text-center" style="height:50%;box-shadow: inset 0 0 10px #cccccc;">
+											<p class="pos_text_bottom position-absolute"><span [CountTo]="50" [from]="0" [duration]="1"></span>%</p>
+										</div>
+										<div class="" style="height: 50%;background-color: green;"></div>
+									</div>
+									<p class="text-center orgscore_lbl" style="color: #000;"><span [CountTo]="14" [from]="0" [duration]="10"></span></p>
+								</div>
+								<div class="orgscore " >
+									<p class="text-center orgscore_lbl" style="color:green;">Highly Adaptive</p>
+									<div class=" orgscorediv border">
+										<div class="position-relative text-center" style="height:71%;box-shadow: inset 0 0 10px #cccccc;">
+											<p class="pos_text_bottom position-absolute"><span [CountTo]="28.57" [from]="0" [duration]="10"></span>%</p>
+										</div>
+										<div class="" style="height:29%;background-color: #f9cf3d;"></div>
+									</div>
+									<p class="text-center orgscore_lbl" style="color: #000;"><span [CountTo]="8" [from]="0" [duration]="10"></span></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<h6 style="font-size: 12px;font-weight: 700;"><fa-icon [icon]="['far', 'smile']" ></fa-icon> MOOD INDEX</h6>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ipad-view">
+			<div class="border mibox m-auto" > 
+				<div class="dbkb-body orclass dbkb-ipad " title="3.71">
+                   <div id="speedometer_mi">
+					  <span class="barometer_mi" style="background-image: url(assets/images/migraph.png);"></span>
+					  <span class="needle_mi"></span>
+					</div>
+                </div>
+               <!--  <div  class="mood-mbl"style="">
+					<span class="float-left moodindex-top-text" style="background-color:#188a34;">VERY HAPPY
+						<div class="moodindex-no moodindex-no-first">25.8%</div>
+					 </span>
+					<span class="float-left moodindex-top-text" style="background-color: #90b240;">HAPPY
+						<div class="moodindex-no">48.4%</div> 
+					</span>
+					<span class="float-left moodindex-top-text" style="background-color:#ffc02e;">JUST OK
+						<div class="moodindex-no">16.1%</div> 
+					</span>
+					<span class="float-left moodindex-top-text" style="background-color:#ff622b;">SAD
+						<div class="moodindex-no">6.5%</div> 
+					</span>
+					<span class="float-left moodindex-top-text" style="background-color: #d94334;">VERY SAD
+						<div class="moodindex-no">3.2%</div>
+					</span>
+				</div> -->
+			</div>
+			<!-- <div style="position: relative; width: 200px; height: 150px; border: 1px solid black;">
+				<div style="position: absolute;bottom: 0; width: 100%; height: 50px; border: 1px solid red;"></div>
+			</div> -->
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-4 row-padding ipad-padding">
+			<a href="#age">
+				<div class="moodindex border text-center">
+					<p class="mi_circle"><fa-icon [icon]="['fas', 'users']" ></fa-icon></p>
+					<p style="color:black;white-space: pre-wrap">Age-wise demographics</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-4 row-padding">
+			<a href="#tenure">
+				<div class="moodindex border text-center">
+					<p class="mi_circle"><fa-icon [icon]="['fas', 'user-cog']" ></fa-icon></p>
+					<p style="color:black;white-space: pre-wrap">Tenure-wise demographics</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 col-4 row-padding">
+			<a href="#gender">
+				<div class="moodindex border text-center">
+					<p class="mi_circle"><fa-icon [icon]="['fas', 'user-friends']" ></fa-icon></p>
+					<p style="color:black;white-space: pre-wrap">Gender-wise demographics</p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="row" style="padding: 0px 15px;">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="background-color: #e7e5e6;border-right: 1px solid white;">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-12"><h6 class="md-indx-head"><fa-icon [icon]="['far', 'smile']" ></fa-icon> MOOD INDEX</h6></div>
+						<div class="col-lg-9 col-md-9 col-lg-12 col-sm-12 col-12">
+							<div  class="moodindex_indicator text-center" *ngFor="let modindx of mdindex"  [style.color]="modindx.color">
+								<p class=""> <fa-icon  [icon]="['fas', modindx.icon]" [style.color]="modindx.color" style="font-size: 25px;"></fa-icon> </p>
+								<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+								<p>{{modindx.label}}</p>
+								<p class="bold">{{modindx.modindex}}%</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 bold" style="background-color:#e7e5e6;padding-top: 3%;text-align: center;">
+					<p class="" style="margin-bottom: 0px;white-space: pre-wrap;">OVERALL ADABTABILITY SCORE</p>
+					<p style="color:red;"><span [CountTo]="18.45" [from]="0" [duration]="1"></span>%</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" id="age">
+		<h4  class="col-lg-12 col-md-12 col-12 age-mbl"> Age-wise demographics </h4>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>20-25 Years</span><span class="float-right"> 4 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong> 19.5</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#90b240;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Friendship | Trust | Balance(Work/Life)</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>26-30 Years</span><span class="float-right">14 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>18</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#ffc02e;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Leadership | Family | Commitment</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Low recognition | Personal Image | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>31-35 Years</span><span class="float-right">7 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>16.86</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#ffc02e;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Forgiveness | Family | Commitment</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>36-40</span><span class="float-right">3 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>18</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#90b240;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Efficiency | Competence | Self Discipline</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="tenure"> 
+		<h4 class="col-lg-12 col-md-12 col-12 age-mbl "> Tenure-wise demographics </h4>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>0-1 Years</span><span class="float-right">18 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>19</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#90b240;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Friendship | Trust | Balance(Work/Life)</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>2-3 Years</span><span class="float-right">5 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>17.2</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#ffc02e;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Leadership | Family | Commitment</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Low recognition | Personal Image | POwer</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>4-5 Years</span><span class="float-right">3 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>14.67</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#ffc02e;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Forgiveness | Family | Commitment</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>6 Years and Above</span><span class="float-right">2 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>15</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#90b240;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Efficiency | Competence | Self Discipline</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="gender">
+		<h4  class="col-lg-12 col-md-12 col-12 age-mbl">Gender-wise demographics </h4>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>Male</span><span class="float-right">24 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong> 18.08</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#90b240;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Friendship | Trust | Balance(Work/Life)</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Control | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-12 age-mbl" style="margin-bottom: 20px;">
+			<div class="card carddiv_height" style="background-color: #e7e5e6;">
+				<div class="card-header cardheader"><span>Female</span><span class="float-right">4 Participants</span></div>
+				<div class="">
+					<div class="text-center demographics_mi_parent">
+						<p  style="color:rgb(255, 192, 46);">Adaptability to Change Score -<strong>17</strong></p>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #188a34;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #90b240;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:#ffc02e;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ffc02e;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #ff622b;"></p>
+						</div>
+						<div  class="demographics_mi text-center">
+							<p class=""> <fa-icon  [icon]="['fas', 'smile-beam']" style="font-size: 25px;color:silver;"></fa-icon> </p>
+							<p style="width: 100%;height: 3px;background-color: #d94334;"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-lg-6 col-md-6 col-6" style="padding-right: 1px;border-right: 1px solid white;">
+						<p class="cardheader" style="background-color:#6bc96b;">Positive Value</p>
+						<p class="md-in-footer">Leadership | Family | Commitment</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-6" style="padding-left: 1px;">
+						<p class="cardheader"  style="background-color:#face3d;">Potentially Limiting</p>
+						<p class="md-in-footer">Low recognition | Personal Image | Power</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

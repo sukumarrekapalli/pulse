@@ -1,0 +1,59 @@
+.container { height: 100%; }
+.container > row { height: 100%; }
+.navs { width: 100%; height: 100%; max-height: 400px; display:flex; align-content: center; align-items: center; padding: 20px 10% 80px 10%; text-align: center; }
+.navs .navrow { width: 100%; margin: auto;  }
+.navhead { width: 100%; padding: 10px 20px; margin-bottom: 10px; border-bottom: solid 1px #ddd;  }
+.navs .navrow .navitem { 
+    text-align:center;
+}
+.navs .navrow .navitem.p-br {
+    
+}
+.navs .navrow .navitem .navcard {
+    height: 160px;
+    max-width: 160px; margin: auto; display: block; align-content: center;
+    position:relative; 
+    transition: all 500ms ease;
+    cursor: pointer;
+} 
+.navs .navrow .navitem .navcard:hover {
+    
+}
+.navs .navrow .navitem.p-br .navcard {
+    height: 120px; margin-top: 20px;
+}
+
+.navs .navrow .navitem .navcard .navImage {
+    clear:both; height: 82px; width: 100%; display: block; padding: 0px 0px;
+}
+.navs .navrow .navitem .navcard .navImage img { height: 80px }
+.navs .navrow .navitem .navcard .navImage .navicon 
+{ width: 80px; height: 80px; border-radius: 50%; background:#ddd; color:#fff; text-align: center; line-height: 70px; font-size:36px; font-weight: 700; margin:auto; 
+    -webkit-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.navs .navrow .navitem .navcard:hover .navImage .navicon { background:#efefef; }
+.navs .navrow .navitem .navcard .navTitle {
+    clear:both; height: 40px; width: 100%; display: block; color:#666; font-size: 16px; font-weight: 700;  margin-top:5px; 
+    -webkit-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.navs .navrow .navitem .navcard:hover .navTitle { color:#333; }
+
+.navs .navrow .navitem .progress { 
+    height: 3px !important; 
+}
+.navs .navrow .navitem .progress .progress-bar { 
+    background-color: #686c6f !important;
+}
+.imgSize{height: 60px;width: 60px;}
+
+.navs .navrow .navitem .navcard:hover  .navImage .navicon  {
+    background: #8b79dd
+}
+.navs .navrow .navitem .navcard:hover .navTitle  {
+    color: #8b79dd
+}
+.pback { position: absolute; float: right; top: 20px; right: 30px; font-size: 30px; }

@@ -1,0 +1,9 @@
+<block-ui></block-ui>
+<div class="db">
+    <app-header></app-header>
+    <div class="container dbc">
+            <app-lmain *ngIf="currentUser.role_code === 'org_leader'"></app-lmain>
+            <app-lmain *ngIf="currentUser.role_code === 'gravityilab'"></app-lmain>
+            <app-amain *ngIf="currentUser.role_code === 'admin'"></app-amain>
+    </div>
+</div>

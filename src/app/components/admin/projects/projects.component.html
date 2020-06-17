@@ -1,0 +1,84 @@
+<block-ui></block-ui>
+<div class="db">
+    <app-header></app-header>
+    <div class="container dbc">
+        <div class="pcontainer">
+            <div class="" style="height: auto; margin: auto; text-align: right; width: calc(100% - 100px); max-width: 1000px; position: relative; ">
+                <div class="pback"><a class="p-link" href="/#/main" title="Back to Dashboard"><fa-icon [icon]="['fas', 'times']"></fa-icon></a></div>
+            </div>
+            <div class="pdiv cscroll">    
+                <div class="row prow" *ngFor="let project of projects">
+                    <div class="plogo">
+                        <div class="plimg">
+                            <img src="{{project?.project_logo}}" title="{{project?.project_title}}" />
+                        </div>
+                    </div>
+                    <div class="pcnt">
+                        <div class="phead">
+                            <div class="ptitle">{{project?.project_title}}</div>
+                            <div class="pdate">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow=""
+                                     [ngClass]="{'bg-success': project?.progress >= 75, 'bg-warning': project?.progress >= 25 && project?.progress < 75, 'bg-danger': project?.progress < 25}" 
+                                    aria-valuemin="0" aria-valuemax="100" [style.width.%]="project?.progress">
+                                      <span>{{project?.progress}}% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pboxes">
+                            <div class="col col-3 pbox">
+                                
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'landmark']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Project For</div><div class="psval dlbl" title="{{project?.org_name | nodata}}">{{project?.org_name | nodata}}</div></div>
+                                </div>
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'landmark']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Survey On</div><div class="psval dlbl" title="{{project?.target_org_name | nodata}}">{{project?.target_org_name | nodata}}</div></div>
+                                </div>
+                            </div>
+                            <div class="col col-3 pbox">
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'briefcase']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Project Type</div><div class="psval dlbl" title="{{project?.project_type_label | nodata}}">{{project?.project_type_label | nodata}}</div></div>
+                                </div>
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Surveys Used</div><div class="psval dlbl" title="{{project?.surveys_label | nodata | uppercase}}">{{project?.surveys_label | nodata}}</div></div>
+                                </div>
+                            </div>
+                            <div class="col col-3 pbox">
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'calendar-day']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Start Date</div><div class="psval dlbl" title="{{project?.start_date | nodata}}">{{project?.start_date | nodata}}</div></div>
+                                </div>
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'calendar-check']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Due Date</div><div class="psval dlbl" title="{{project?.end_date | nodata}}">{{project?.end_date | nodata}}</div></div>
+                                </div>
+                            </div>
+                            <div class="col col-3 pbox">
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'users']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Total Participants</div><div class="psval dlbl" title="{{project?.participants.length | nodata}}">{{project?.participants.length | nodata}}</div></div>
+                                </div>
+                                <div class="pset">
+                                    <div class="psicon"><fa-icon [icon]="['fas', 'user-check']"></fa-icon></div>
+                                    <div class="psbody"><div class="pslbl">Surveys Completed</div><div class="psval dlbl" title="{{project?.participants_completed_count | nodata}}">{{project?.participants_completed_count | nodata}}</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pfoot">
+                            <div class="plinks">
+                                    <a href="/#/dashboard/{{project?.id}}" target="_blank" class="link p-link" title="View Dashboard"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>View Dashboard</a>
+                                    <a href="/#/admin/project/{{project?.id}}" class="link p-link" title="View Data"><fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon>View Data</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

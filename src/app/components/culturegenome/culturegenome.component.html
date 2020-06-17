@@ -1,0 +1,640 @@
+<block-ui></block-ui>
+<div class="container-fluid h-100 db">
+    <div class="row h-100 bg-dash-panel">
+        <div class="h-100 dbp dlp p-3 "> 
+            <div class="dlp-top">
+                <a class="link p-link" href="/#/main"><fa-icon [icon]="['fas', 'home']"></fa-icon>Home</a>
+            </div> 
+            <div class="dlp-oscore bg-white ml-1 shadow-sm" style="border-radius: 3%;height: 58%;">
+                <div class="row">
+                    <div class="variation-logo text-center w-100 h-50 p-2">
+                        <img class="img-fluid mt-3 variation-logo-size" src="{{project?.org.logo}}"  title="{{project?.org.org_name}}">
+                        <!-- <img class="img-fluid mt-3" src="assets/images/culturelyticslogo-msoffice.png" style="width: 150px" title="{{project?.org.org_name}}"> -->
+                    </div>  
+                    <div class="col-6 dlp-osl h-50">
+                        <circle-progress
+                        [percent]="0"
+                        [radius] = "40"
+                        [space] = "-5"
+                        [showTitle] = "true"
+                        [toFixed] = "1"
+                        [outerStrokeWidth] = "5"
+                        [outerStrokeColor]="'#fd576b'"
+                        [innerStrokeColor] = "'#dddddd'"
+                        [innerStrokeWidth] = "5"
+                        [titleColor] = "'#fd576b'"
+                        [unitsColor] = "'#fd576b'"
+                        [titleFontSize] = "17"
+                        [showSubtitle] = "false"
+                        [showUnits]="false"
+                        [showSubtitle] = "false"
+                        [animationDuration]="3000"
+                        ></circle-progress>
+                        <div class="dlp-osname"><h5>Culture Coherence Quotient</h5></div>
+                    </div>
+                    <div class="col-6 dlp-osr h-50">
+                        <circle-progress
+                        [percent]="0"
+                        [radius]="40"
+                        [space] = "-5"
+                        [maxPercent]="300"
+                         [titleColor] = "'#fd576b'"
+                        [unitsColor] = "'#fd576b'"
+                        [outerStrokeWidth] = "5"
+                        [outerStrokeColor]="'#fd576b'"
+                        [innerStrokeColor] = "'#dddddd'"
+                        [innerStrokeWidth] = "5"
+                        [animation]="true"
+                        [showSubtitle]="false"
+                        [animationDuration]="3000"
+                        ></circle-progress>
+                        <div class="dlp-osname"><h5>Culture Risk Indicator</h5></div> 
+                    </div> 
+                </div> 
+            </div>  
+
+                <div class="dlp-odata t-br bg-white mt-4 ml-1 shadow-sm" style="border-radius: 3%;height: 32%;">
+                    <div class="dlp-ohead p-cl bold">OVERVIEW</div>
+                    <div class="dlp-obody cscroll">
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="dlp-od-lbl t-cl">Industry</div>
+                                <div class="dlp-od-val">Consulting Services | Strategy implementation platform</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Company Size</div>
+                                <div class="dlp-od-val">-</div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Type</div>
+                                <div class="dlp-od-val">Private</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Headquarters</div>
+                                <div class="dlp-od-val">Kingston, South Australia (Australia)</div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Founded</div>
+                                <div class="dlp-od-val">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="overflow-auto h-100 dbp dcp culmiddle-dash-panel" [ngClass]="{'expanded': currentDash !== ''}" style="">
+                <div class="accordion {{project?.project_category}}" style="">
+                    <ul *ngIf="currentDash !==''" [ngClass]="{'open': currentDash !== '', 'dash_ulli_dash': currentDash !== ''}">
+                        <div *ngIf="currentDash === 'psk'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="pskc-bg comicon-line"></div>
+                             <div class="dash-or bg-white border pskc-txt bold">8.54</div>
+                             <span class="dash-title text-center pskc-txt">PEOPLE SPEAK</span>
+                            <div class="comp-icon text-center pt-2 pskc"><img class="pskc-bg rounded-circle w-75 p-2 h-75" src="assets/images/ps-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'cva'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="cvac-bg comicon-line"></div>
+                             <div class="dash-or bg-white border cvac-txt bold">7.36</div>
+                             <span class="dash-title text-center cvac-txt">VALUE ASSESSMENT</span>
+                            <div class="comp-icon text-center pt-2 cvac"><img class="cvac-bg rounded-circle w-75 p-2 h-75" src="assets/images/mask-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'cst'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="cstc-bg comicon-line"></div>
+                             <div class="dash-or bg-white border cstc-txt bold" style="font-size: 14px;">-</div>
+                             <span class="dash-title text-center cstc-txt">INFLUENCER NETWORKS</span>
+                            <div class="comp-icon text-center pt-2 cstc"><img class="cstc-bg rounded-circle w-75 p-2 h-75" src="assets/images/cs-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'adq'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="adqc-bg comicon-line"></div>
+                             <div class="dash-or bg-white border adqc-txt bold">7.38</div>
+                             <span class="dash-title text-center adqc-txt">ADAPTABILITY QUOTIENT</span>
+                            <div class="comp-icon text-center pt-2 adqc"><img class="adqc-bg rounded-circle w-75 p-2 h-75" src="assets/images/adq-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'lsp'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="lsp-bg comicon-line"></div>
+                             <div class="dash-or bg-white border lsp-txt bold">-</div>
+                             <span class="dash-title text-center lsp-txt">LEADERSHIP PULSE</span>
+                            <div class="comp-icon text-center pt-2 lsp"><img class="lsp-bg rounded-circle w-75 p-2 h-75" src="assets/images/leadership-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'inp'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="inp-bg comicon-line"></div>
+                             <div class="dash-or bg-white border inp-txt bold">13%</div>
+                             <span class="dash-title text-center inp-txt">INPRESSION</span>
+                            <div class="comp-icon text-center pt-2 inp"><img class="inp-bg rounded-circle w-75 p-2 h-75" src="assets/images/impression-icon.png"></div>
+                        </div>
+                        <div *ngIf="currentDash === 'bns'" [ngClass]="{'open': currentDash !== ''}" class="subarea float-left ml-1 bg-white tablet-hide">
+                             <div class="bns-bg comicon-line"></div>
+                             <div class="dash-or bg-white border bns-txt bold" style="font-size: 11px;padding-top: 3px;">-</div>
+                             <span class="dash-title text-center bns-txt">CULTURE NEEDS SCORECARD</span>
+                            <div class="comp-icon text-center pt-2 bns"><img class="bns-bg rounded-circle w-75 p-2 h-75" src="assets/images/bns-icon.png"></div>
+                        </div>
+
+                        <li *ngFor="let kpi of project?.ces.kpis"  [ngClass]="{'open': currentDash === kpi.kpi_code, 'kp-pos': kpi.kpi_status === 'positive', 'kp-neg': kpi.kpi_status === 'negative'}">
+                            <div class="kpidb"> 
+                             <div class="kpidb-head">
+                                    <h2 class="">{{kpi.title}}</h2>
+                                    <a class="kpidb-close">
+                                    
+                                        <fa-icon title="Close" (click)="showmianscreenfunc(); currentDash = ''" [icon]="['fas', 'times']"></fa-icon>
+                                    </a>
+                                </div>
+                                <div class="kpidb-body">
+                                    <app-peoplespeakculture #pskcComponent *ngIf="kpi.kpi_code === 'psk'" ></app-peoplespeakculture>
+                                    <app-leadershippulseculture #lspComponent *ngIf="kpi.kpi_code === 'lsp'" ></app-leadershippulseculture>
+                                   <app-valueassessmentculture #cvacComponent *ngIf="kpi.kpi_code === 'cva'" ></app-valueassessmentculture>
+                                    <app-inp #inpComponent *ngIf="kpi.kpi_code === 'inp'" ></app-inp>
+                                    <app-bnsculture #bnsComponent *ngIf="kpi.kpi_code === 'bns'"  ></app-bnsculture>
+                                    <app-adaptqculture #adqcComponent *ngIf="kpi.kpi_code === 'adq'"></app-adaptqculture>
+                                    <app-compsentimentculture #cstcComponent *ngIf="kpi.kpi_code === 'cst'"  ></app-compsentimentculture>
+                                </div>
+                            </div>
+                          </li>
+                        <div  [ngClass]="{'open ': currentDash !== ''}" class="subarea-right float-right tablet-hide">
+                            <div [ngClass]="{'active': currentDash === 'cva'}" class="rounded-pill bg-white text-center pt-2 cvac itemheight"  (click)="openDashTab('cva', cvacComponent)">
+                                <img class="cvac-bg rounded-circle w-75 p-1" src="assets/images/mask-icon.png">
+                                <p class="bold pt-2 mt-2 cvac-txt">VA</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'cst'}" class="rounded-pill bg-white text-center pt-2 cstc itemheight" (click)="openDashTab('cst', cstcComponent)">
+                                <img class="cstc-bg rounded-circle w-75 p-1" src="assets/images/cs-icon.png">
+                                <p class="bold pt-2 mt-2 cstc-txt">IN</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'psk'}" class=" rounded-pill bg-white text-center pt-2 pskc itemheight" (click)="openDashTab('psk', pskcComponent)">
+                                <img class="pskc-bg rounded-circle w-75 p-1" src="assets/images/ps-icon.png">
+                                <p class="bold pt-2 mt-2 pskc-txt">PS</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'adq'}" class="rounded-pill  bg-white text-center pt-2 adqc itemheight" (click)="openDashTab('adq', adqcComponent)">
+                                <img class="adqc-bg rounded-circle w-75 p-1" src="assets/images/adq-icon.png">
+                                <p class="bold pt-2 mt-2 adqc-txt">ADQ</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'lsp'}" class="rounded-pill  bg-white text-center pt-2 lsp itemheight" (click)="openDashTab('lsp', lspComponent)">
+                                <img class="lsp-bg rounded-circle w-75 p-1" src="assets/images/leadership-icon.png">
+                                <p class="bold pt-2 mt-2 lsp-txt">LSP</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'inp'}" class="rounded-pill  bg-white text-center pt-2 inp itemheight" (click)="openDashTab('inp', inpComponent)">
+                                <img class="inp-bg rounded-circle w-75 p-1" src="assets/images/impression-icon.png">
+                                <p class="bold pt-2 mt-2 inp-txt">INP</p>
+                            </div>
+                            <div  [ngClass]="{'active': currentDash === 'bns'}" class="rounded-pill  bg-white text-center pt-2 bns itemheight" (click)="openDashTab('bns', bnsComponent)">
+                                <img class="bns-bg rounded-circle w-75 p-1" src="assets/images/bns-icon.png">
+                                <p class="bold pt-2 mt-2 bns-txt">CNS</p>
+                            </div>
+                        </div>
+                    </ul>
+                    <div [hidden]="showmianscreen !== true" class="culture-dash-style" id="culture-dash"></div>
+                    <div [hidden]="showmianscreen !== true" class="dlp-omap globlmapposition" > 
+                        <div class="dlp-head  p-cl bold text-center w-100 gfootprint-txt">FOOTPRINT</div>
+                        <div class="dlp-obody">
+                            <div id="dlp-map" class="dlp-map glb-map-size"></div>
+                         </div>
+                    </div>
+                     <div class="row mbl-dvc">
+                        <div class="col-12 row" style="margin-top: 15px;">
+                            <div class="col-4 p-0 ">
+                                <div class="border icon rounded-circle va-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('cva')">
+                                    <img class="" style="width:40%;" src="assets/images/mask-icon.png">
+                                    <p class="m-0 mbl-text">VALUE ASSESSMENT </p>
+                                    <p class="m-0 text-white">22</p>
+                                </div>
+                            </div>
+                            <div class="col-4 offset-4 p-0">
+                                <div class="border icon rounded-circle in-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('cst')">
+                                    <img class="" style="width:40%;" src="assets/images/cs-icon.png">
+                                    <p class="m-0 mbl-text">INFLUENCER NETWORKS</p>
+                                    <p class="m-0 text-white">24.75</p>
+                                </div>
+                            </div>
+                            <p class="foot">GLOBAL FOOTPRINT</p>
+                        </div>
+                        <div class="col-12 row" style="margin-top: -35px;">
+                            <div class="col-1"></div>
+                            <div class="col-10" id="dlp-map-mbl">map</div>
+                            <div class="col-1"></div>
+                            
+
+                        </div>
+                        <div class="col-12 row" style="margin-top: -35px;">
+                            <div class="col-4 offset-4 p-0">
+                                <div class="border icon rounded-circle ps-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('psk')">
+                                    <img class="" style="width:40%;" src="assets/images/bns-icon.png">
+                                    <p class="m-0 mbl-text">PEOPLE SPEAK</p>
+                                    <p class="m-0 text-white">3.98</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 row" style="margin-top: 10px;">
+                            <div class="col-4 offset-4 p-0">
+                                <div class="border icon rounded-circle aq-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('adq')">
+                                    <img class="" style="width:40%;" src="assets/images/adq-icon.png">
+                                    <p class="m-0 mbl-text">ADAPTABILITY QUOTIENT</p>
+                                    <p class="m-0 text-white">48%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 row" style="margin-top: 10px;">
+                            <div class="col-4 offset-4 p-0">
+                                <div class="border icon rounded-circle lp-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('lsp')">
+                                    <img class="" style="width:40%;" src="assets/images/leadership-icon.png">
+                                    <p class="m-0 mbl-text">LEADERSHIP PULSE</p>
+                                    <p class="m-0 text-white">3.93</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 row">
+                            <div class="col-4 p-0 ">
+                                <div class="border icon rounded-circle im-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('inp')">
+                                    <img class="" style="width:40%;" src="assets/images/impression-icon.png">
+                                    <p class="m-0 mbl-text">INPRESSION</p>
+                                    <p class="m-0 text-white">13%</p>
+                                </div>
+                            </div>
+                            <div class="col-4 offset-4 p-0">
+                                <div class="border icon rounded-circle bn-bg text-center p-2 mbl-dash-layout" (click)="openTabMob('bns')">
+                                    <img class="" style="width:40%;" src="assets/images/ps-icon.png">
+                                    <p class="m-0 mbl-text" style="white-space: pre;">CULTURE NEEDS <br> SCORECARD</p>
+                                    <p class="m-0 text-white">324</p>
+                                </div>
+                            </div>   
+                        </div>
+
+                     </div>
+                    <div [hidden]="showmianscreen !== true" class="row mt-2 col bottom-bar" style="">
+                        <div class="col-lg-4 col-md-4 col-sm-4 d-flex h-100"> 
+                            <div class="w-25 text-center p-1 border-right" style="background-color: #fd576b;"><img class="p-2" src="assets/images/Icon-Request.png"></div>
+                            <div class=" text-center botom-pnl w-100" style="padding-top: 12px;">Request DeepDive</div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4  d-flex h-100 req-mbl">
+                           <div class="w-25 text-center p-1 border-right" style="background-color: #b046ae;"><img class="p-1"  src="assets/images/Icon-Export.png"></div>
+                            <div class="text-center  botom-pnl w-100" style="padding-top: 12px;">Export Report</div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 d-flex h-100 req-mbl">
+                           <div class="w-25 text-center p-1 border-right" style="background-color: #fd576b;"><img class="p-1" src="assets/images/Icon-Avail.png"></div>
+                            <div class="text-center botom-pnl w-100" style="padding-top: 12px;">Avail Other Services</div>
+                        </div>
+                    </div>
+                    <!-- <p id="culture-dash1"></p> -->
+
+                </div>
+            </div>
+        <div class=" h-100 dbp drp p-br color-ipad {{project?.project_variation_type}}" [hidden]="currentDash !== ''" >
+            <div class="dboxes cscroll">
+                <div class="dbox s-br bg-white mt-3 shadow-sm">
+                    <div class="dbx-title p-cl bold"><!-- <fa-icon [icon]="['far', 'gem']"></fa-icon>FINANCIAL ENTITIES -->
+                        <span class="right-panel-icons"><img class="img-fluid" src="assets/images/financial-entities-icon.png" /></span>
+                        <span class="right-panel-titles">FINANCIAL ENTITIES</span>
+                    </div>
+                    <div class="dbx-body">
+                        <!-- <div class="dbx-item" *ngFor="let sci of project?.org.finanicalEntities">
+                            <div class="dbx-icode">{{sci.code}}</div>
+                            <div class="dbx-idesc">{{sci.desc}}</div>
+                            <div class="dbx-ivalue">{{sci.value}}</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="dbox s-br bg-white mt-3 shadow-sm">
+                    <div class="dbx-title p-cl bold"><!-- <fa-icon [icon]="['fas', 'share-alt']"></fa-icon>SOCIAL MEDIA -->
+                        <span class="right-panel-icons"><img class="img-fluid" src="assets/images/social-media-icon.png" /></span>
+                        <span class="right-panel-titles">SOCIAL MEDIA</span>
+                    </div>
+                        <div class="dbx-body">
+                           <!--  <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideSMConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.socialMedia">
+                                <a href="{{sm.medialink}}" class="media-link" target="_blank">
+                                    <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                    <div class="dbx-slidesign">- {{sm.platform}}</div>
+                                </a>
+                            </div>
+                        </ngx-slick-carousel> -->
+                    </div>
+                </div>
+                <div class="dbox s-br bg-white mt-3 shadow-sm">
+                    <div class="dbx-title p-cl bold"><!-- <fa-icon [icon]="['far', 'newspaper']"></fa-icon>NEWS UPDATES -->
+                        <span class="right-panel-icons"><img class="img-fluid" src="assets/images/news-update-icon.png" /></span>
+                        <span class="right-panel-titles">NEWS UPDATES</span>
+                    </div>
+                    <div class="dbx-body">
+                        <!-- <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideNUConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.newsUpdates">
+                                <a href="{{sm.newslink}}" class="news-link" target="_blank">
+                                    <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                    <div class="dbx-slidesign">- {{sm.platform}}</div>
+                                </a>
+                            </div>
+                        </ngx-slick-carousel> -->
+                    </div>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="http://culturelytics.ai/" target="_blank">
+                     <div><img title="{{project?.org.org_name}}" class="img-fluid img-desk" src="assets/images/culturelytics_logo.png"></div>
+                     <p class="powered-by">Powered by Culturelytics</p>
+                 </a>
+                </div>
+            </div>
+   <!--  <div class="dbtnset p-br">
+        <div class="dbtns">
+            <button class="btn p-btn" title="Explore More" data-toggle="modal" data-target="#exampleModalLong">Explore More</button>
+            <button  style="display: none;" class="btn p-btn" title="Export Report">Export Report</button>
+            <button  style="display: none;" class="btn p-btn" title="Avail Other Services">Avail Other Services</button>
+        </div>
+    </div> -->
+</div>
+
+<div id="pskc" class="modal fade recommendations" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header card-header recomndtn_title" style="padding: 0.5rem 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="font-variant: small-caps;">Final Recommendations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body recomndtn_text p-2">
+                    <h5 class="card-title text-center">People Speak</h5>
+                    <div class='circle-container'>
+                        Content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cstc" class="modal fade recommendations" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header card-header recomndtn_title" style="padding: 0.5rem 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="font-variant: small-caps;">Final Recommendations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-2 recomndtn_text">
+                    <h5 class="card-title text-center">Influencer Networks</h5>
+                     <div class='circle-container'>
+                        Content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cvac" class="modal fade recommendations" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header card-header recomndtn_title" style="padding: 0.5rem 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="font-variant: small-caps;">Final Recommendations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-2 recomndtn_text">
+                    <h5 class="card-title text-center">Value Assessment</h5>
+                    <div class='circle-container'>
+                        Content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="adqc" class="modal fade recommendations" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header card-header recomndtn_title" style="padding: 0.5rem 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="font-variant: small-caps;">Final Recommendations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-2 recomndtn_text">
+                     <h5 class="card-title text-center">Adaptability Quotient</h5>
+                     <div class='circle-container'>
+                        Content
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+     <div id="inp" class="modal fade recommendations" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header card-header recomndtn_title" style="padding: 0.5rem 1rem;">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="font-variant: small-caps;">Final Recommendations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-2 recomndtn_text">
+                     <h5 class="card-title text-center">InPression</h5>
+                      <div class='circle-container'>
+                       Content
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="modal  fade " id="worldmyModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Demographics</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="map_content_main">
+                    <div class="row">
+                        
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bottom">
+                            <div class="row"></div>
+                        </div>
+                          <div class="col-12 col-lg-3 col-md-3 col-sm-3 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Gender Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="gblMapChart" style="height: 200px;margin:0 auto;padding-top: 12px;" id="malefemalechart"></div>
+                            </div>
+                         </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Department Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="gblMapChart" style="height:200px;margin:0 auto;padding-top: 12px;" id="designationchart"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Age Group Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="gblMapChart" style="height: 200px;margin:0 auto;padding-top: 12px;" id="associategeochart"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Hierarchy Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="gblMapChart" style="height: 200px;margin:0 auto;padding-top: 12px;" id="hierarchyid"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            <!-- Modal footer -->
+                <div class="modal-footer" style="padding: 0.5rem 1rem;">
+                    <button type="button" class="btn btn-info p-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal  fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">South Indian Overview</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="map_content_main">
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom">
+                            <div class="row gblMapRow ">
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">4375</strong></p>
+                                        <p class="key_statistics_lable ">Employees</p>
+                                    </span>
+                                </div>
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class=" map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">15</strong></p>
+                                        <p class="key_statistics_lable ">Departments</p>
+                                    </span>
+                                </div>
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">24</strong></p>
+                                        <p class="key_statistics_lable ">Designations</p>
+                                    </span>
+                                </div>
+                             
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bottom">
+                            <div class="row"></div>
+                        </div>
+                          <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Gender Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="" style="height: 200px;margin:0 auto;padding-top: 12px;" id="malefemalechart"></div>
+                            </div>
+                         </div>
+                        <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Designation Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="" style="height:200px;margin:0 auto;padding-top: 12px;" id="designationchart"></div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12  border-bottom">
+                            <h5 class="text-center slick-list">Entity Wise</h5>
+                            <div class="row gblMapRow text-center">
+                                <div class="" style="height: 200px;margin:0 auto;padding-top: 12px;" id="associatebankchart"></div>
+                            </div>
+                        </div>
+                        <div class="row gblMapRow" style="width: 90%; margin:0 auto;">
+                           <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
+                                <div class="row border-bottom align-items-center">
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics "><strong _ngcontent-dxn-c2=""></strong></p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Mean</strong></p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
+                                <div class="row border-bottom align-items-center">
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics  pt-3"><strong _ngcontent-dxn-c2="">Duration at SBI:</strong></p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics_lable indMapPara ">14 Years 7 Months </p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics_lable indMapPara">8 Years 8 Months</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="row border-bottom align-items-center">
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics  pt-3"><strong _ngcontent-dxn-c2="">Age at the time of joining: </strong></p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <!-- <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong>Mean</strong></p> -->
+                                            <p class="key_statistics_lable indMapPara ">25 Years 9 Months </p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <!-- <p class="key_statistics" style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p> -->
+                                            <p class="key_statistics_lable indMapPara">24 Years 10 Months</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="row border-bottom align-items-center">
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                        <span class="map_statistics_width">
+                                            <p class="key_statistics pt-3"><strong _ngcontent-dxn-c2="">Age of Employees: </strong></p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <!-- <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong>Mean</strong></p> -->
+                                            <p class="key_statistics_lable indMapPara ">40 Years 5 Months </p>
+                                        </span>
+                                    </div>
+                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                        <span class="map_statistics_width">
+                                            <!-- <p class="key_statistics" style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p> -->
+                                            <p class="key_statistics_lable indMapPara">36 Years 1 Month</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>
+                    </div>
+                </div>
+            <!-- Modal footer -->
+                <div class="modal-footer" style="padding: 0.5rem 1rem;">
+                    <button type="button" class="btn btn-info p-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="dbk CulGenome">
+	<div class="row">
+		  <div class="col-lg-12 col-md-12">
+			  <div class="dbk-box">
+			  	<p>A comprehensive scan of what employee are saying about your organisation on social media.</p>
+				  <div class="dbkb-head">
+					  <h6 class="dbkb-title">EXECUTIVE SUMMARY</h6>
+				  </div>
+				  <div class="dbkb-body">
+					  <p  [innerHTML]="psk.executiveSummary" style="text-align: left"></p>
+				  </div>
+			  </div>
+		  </div>
+	  </div> 
+	      
+	  <div class="row">
+		  <div class="col-lg-3 col-md-3 col-sm-3 col-12 border-right dotted">
+				<div class="row" style="margin-bottom: 10px;">
+					<div class="col-12">
+						<div class="dbk-box">
+							<div class="dbkb-head">
+								<h6 class="dbkb-title text-center"><fa-icon [icon]="['fas', 'tachometer-alt']"></fa-icon>OVERALL RATING</h6>
+							</div>
+							<div class="dbkb-body orclass" title="{{psk.opinion_index}}" style="    height: 120px;">
+	                           <div id="speedometer">
+								  <span class="barometer" style="background-image: url(assets/images/smilygroup.png);"></span>
+								  <span class="needle"></span>
+								  <span><p class="orvalues text-white bold">{{psk.opinion_index}}</p></span>
+								</div>
+	                         </div>
+	                         <p>Receptiveness to change</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12" >
+						<div class="dbk-box">
+							<div class="dbkb-head">
+								<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'signal']"></fa-icon>KEY STATISTICS</h6>
+							</div>
+							<div class="dbkb-body">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-6">
+											<span class=" float-left key_statistics_width"><p class="key_statistics"><strong [CountTo]="psk.review" [from]="0" [duration]="1"></strong></p><p class="key_statistics_lable ">Rewiews</p></span>
+										</div>
+										<div class="col-lg-6 col-md-6 col-6">
+											<span class="float-left key_statistics_width" style="margin-left: -10px;"><p class="key_statistics"><strong [CountTo]="psk.interview" [from]="0" [duration]="1"></strong></p><p class="key_statistics_lable">Interviews</p></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<div class="ceo_approval-ppk">
+												<p class="ptag pros-title"><fa-icon [icon]="['far', 'clipboard']"></fa-icon> Leadership Sentiment</p>
+												<p class="angular-with-newlines ptag"><span [CountTo]="psk.ceo_approval" [from]="0" [duration]="1"></span>% of employees approve of the CEO's performance</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-12 col-md-12" >
+											<div class="fri_recommend">
+												<p class="ptag pros-title"><fa-icon [icon]="['far', 'thumbs-up']"></fa-icon> Recommend to a Friend</p>
+												<p class="angular-with-newlines ptag"><span [CountTo]="81" [from]="0" [duration]="1"></span>%  of people are likely to recommend to a friend</p>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+		  </div>
+		  <div class="col-lg-9 col-md-9 col-sm-9 col-12">
+			<div class="row inner-dash-right-panel" >
+				<div class="col-12">
+					<div class="dbk-box">
+						<div class="dbkb-head">
+							<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA</h6>
+						</div>
+						<div class="dbkb-body">
+							<div class="rcs">
+								<div class="rc" *ngFor="let rc of rcs" [ngClass]="{'red': rc.prop < 2, 'yellow':  rc.prop >= 2 && rc.prop < 4, 'green':  rc.prop >= 4}" >
+									<div class="rc-val"><div class="rc-num">{{rc.prop}}</div><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div></div>
+									<div class="rc-case" >
+											<div class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></div>
+											<div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>
+									</div>
+									<div class="rc-label">{{rc.label}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mbl-ipad">
+					<div class="col-12">
+						<div class="dbk-box">
+							<div class="dbkb-head">
+								<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'thumbs-up']"></fa-icon>COMPANY INSIGHTS</h6>
+							</div>
+							<div class="dbkb-body">
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<div class="pros-div text-left" >
+											<div class="pros-title">PROS</div>
+											<div class="procon-item">The work environment challenges you to get out of comfort zone and challenge yourself.</div>
+											<div class="procon-item">Ownership is given if you show the attitude and aptitude.</div>
+											<div class="procon-item">Supporting seniors.</div>
+											<div class="procon-item">You get to move around projects</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="cons-div text-left">
+											<div class="cons-title">CONS</div>
+											<div class="procon-item">Sometimes it feels you are not adequately equipped for what is expected from you.</div>
+											<div class="procon-item"> You're expected to deliver as soon as you get in. </div>
+											<div class="procon-item"> The word "innovation" is thrown at you where ever there is a lack of clarity of process or objective.</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		  </div>
+	  </div>
+  </div>

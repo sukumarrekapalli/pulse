@@ -1,0 +1,230 @@
+<div class="dbk">
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="col-6">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title">SECTOR TREND / INSIGHTS</h6>
+				</div>
+				<div class="dbkb-body" >
+					<p style="text-align: left; padding: 10px;background: #fff; text-align: left;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-6">
+			<angular-tag-cloud *ngIf="initLoaded === true" 
+			[data]="data"
+			[width]="options.width"
+			[height]="options.height"
+			[overflow]="options.overflow">
+		</angular-tag-cloud>
+	</div>
+</div>
+
+<div class="row" style="margin-bottom: 0px;">
+	<div class="col-3">
+		<div class="dbk-box">
+			<div class="dbkb-head">
+				<h6 class="dbkb-title">Recommendation Trends</h6>
+			</div>
+			<div class="dbkb-body" style="padding: 5px; background: #fff; text-align: left;">
+				<div class="inprtrends">
+					<div class="inpstackchart" id="inpstackchart1">
+
+					</div>
+				</div>
+				<div class="inpatp" style="padding: 10px;">
+					<p style="font-weight: 700; font-size: 12px; text-align: left; margin: 0px;">Analyst Price Targets (>16) ></p>
+					<div class="cmeter">
+						<div class="cmline">
+							<div class="cmblip left"></div><div class="cmblip right"></div><div class="cmlabel left">Low 58.00</div><div class="cmlabel right">High 88.00</div>
+							<div class="cmpos" style="margin-left: calc(60% - 40px);">
+								<div class="cmp">
+									<div class="lbl">Average 76.44</div>
+									<div class="line"></div>
+									<div class="knob"></div>
+								</div>
+							</div>
+							<div class="cmpos btm" style="margin-left: calc(58% - 40px);">
+								<div class="cmp">
+									<div class="knob"></div>
+									<div class="line"></div>
+									<div class="lbl">Current 74.33</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-9">
+		<div class="dbk-box">
+			<div class="dbkb-head">
+				<h6 class="dbkb-title">Growth Patterns of Competitors</h6>
+			</div>
+			<div class="dbkb-body" style="padding: 5px; background: #fff; text-align: left;">
+				<div class="inpgpc">
+					<div class="inpg-title">Environment, Social and Governance (ESG) Ratings <div class="info-btn" title="Info"><fa-icon [icon]="['far', 'question-circle']"></fa-icon></div></div>
+					<div class="inpg-iboxes">
+						<div class="inpg-ibox">
+							<div class="inpgi-lbl">Total ESG Score</div>
+							<div class="inpgi-val">
+								<div class="inpgi-num">83</div>
+								<div class="inpgi-txt">93rd Percentile</div>
+							</div>
+							<div class="inpgi-lbl">Leader</div>
+						</div>
+						<div class="inpg-ibox">
+							<div class="inpgi-lbl">Environment</div>
+							<div class="inpgi-val">
+								<div class="inpgi-num">87</div>
+								<div class="inpgi-txt">90th Percentile</div>
+							</div>
+						</div>
+						<div class="inpg-ibox">
+							<div class="inpgi-lbl">Social</div>
+							<div class="inpgi-val">
+								<div class="inpgi-num">84</div>
+								<div class="inpgi-txt">98th Percentile</div>
+							</div>
+						</div>
+						<div class="inpg-ibox">
+							<div class="inpgi-lbl">Governance</div>
+							<div class="inpgi-val">
+								<div class="inpgi-num">76</div>
+								<div class="inpgi-txt">85th Percentile</div>
+							</div>
+						</div>
+					</div>
+					<div class="inpg-title">
+						ENG Performance vs 23 Peer Companies 
+						<div class="inpg-legend">
+							<div class="inpgl-itm">
+								<div class="inpgl-icn"><div class="ingpl-supa"></div></div>
+								<div class="inpgl-txt">SU.PA</div>
+							</div>
+							<div class="inpgl-itm">
+								<div class="inpgl-icn"><div class="ingpl-peers"></div></div>
+								<div class="inpgl-txt">Peers</div>
+							</div>
+							<div class="inpgl-itm">
+								<div class="inpgl-icn"><div class="ingpl-catav"><fa-icon [icon]="['fas', 'caret-down']"></fa-icon></div></div>
+								<div class="inpgl-txt">Category Average</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="inpg-title" style="text-align: center; height: 16px; font-size: 11px; margin-bottom: 5px;">ESG PERFORMANCE</div>
+							<div class="inpg-bars">
+								<div class="ibar">
+									<div class="lpnl">Environment</div>
+									<div class="rpnl">
+										<div class="tail"><div class="ingpl-catav" style="margin-left: 56%"><fa-icon [icon]="['fas', 'caret-down']"></fa-icon></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope" style="width: 62%; margin-left: 23%; ">
+												<div class="knob" style="margin-left: 76%"><div class="ingpl-supa"></div></div>
+												<div class="lbl left">37</div>
+												<div class="lbl right">96</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="ibar">
+									<div class="lpnl">Social</div>
+									<div class="rpnl">
+										<div class="tail"><div class="ingpl-catav" style="margin-left: 52%"><fa-icon [icon]="['fas', 'caret-down']"></fa-icon></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope" style="width: 42%; margin-left: 36%; ">
+												<div class="knob" style="margin-left: 76%"><div class="ingpl-supa"></div></div>
+												<div class="lbl left">37</div>
+												<div class="lbl right">91</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="ibar">
+									<div class="lpnl">Governance</div>
+									<div class="rpnl">
+										<div class="tail"><div class="ingpl-catav" style="margin-left: 48%"><fa-icon [icon]="['fas', 'caret-down']"></fa-icon></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope" style="width: 28%; margin-left: 42%; ">
+												<div class="knob" style="margin-left: 76%"><div class="ingpl-supa"></div></div>
+												<div class="lbl left">52</div>
+												<div class="lbl right">81</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="ibar marker">
+									<div class="lpnl"></div>
+									<div class="rpnl">
+										<div class="tail"><div class="lbl left"></div><div class="lbl right"></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope">
+												<div class="lbl left">0</div>
+												<div class="lbl right">100</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="inpg-fnote">
+								ESG data provided by Sustainalytics, Inc. Las updated on 6/2019.
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="inpg-title" style="text-align: center; height: 16px; font-size: 11px; margin-bottom: 5px;">CONTROVERSY LEVEL</div>
+							<div class="inpg-bars">
+								<div class="ibar">
+									
+								</div>
+
+								<div class="ibar" style="text-align: center">
+									<div class="ibvl" style="width: auto; display:inline-block; padding-right: 10px; margin-right: 10px; border-right: solid 1px #333; color:#333; font-weight: 700; font-size: 14px;">2</div>
+									<div class="ibvl" style="width: auto; display:inline-block; color:#333; font-weight: 100; font-size: 12px;">Moderate Controversy Level</div>
+								</div>
+
+								<div class="ibar">
+									<div class="rpnl" style="width: 100%">
+										<div class="tail"><div class="ingpl-catav" style="margin-left: 48%"><fa-icon [icon]="['fas', 'caret-down']"></fa-icon></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope" style="width: 28%; margin-left: 42%; ">
+												<div class="knob" style="margin-left: 76%"><div class="ingpl-supa"></div></div>
+												<div class="lbl left">52</div>
+												<div class="lbl right">81</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="ibar marker">
+									<div class="rpnl" style="width: 100%">
+										<div class="tail"><div class="lbl left"></div><div class="lbl right"></div></div>
+										<div class="bar">
+											<div class="ingpl-peers scope">
+												<div class="lbl left">None</div>
+												<div class="lbl right">Severe</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="inpg-fnote">
+								<a class="link s-link" href="https://finance.yahoo.com/quote/ITC.NS/sustainability?p=ITC.NS" target="_blank">https://finance.yahoo.com/quote/ITC.NS/sustainability?p=ITC.NS</a>
+							</div>
+						</div>
+					</div>							
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

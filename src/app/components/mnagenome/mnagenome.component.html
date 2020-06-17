@@ -1,0 +1,908 @@
+<block-ui></block-ui>
+<div class="container-fluid h-100 db">
+    <div class="row h-100">
+        <div class="h-100 dbp dlp">
+            <div class="dlp-top">
+                <a class="link p-link" href="/#/main"><fa-icon [icon]="['fas', 'home']"></fa-icon>Home</a>
+            </div>
+            <div class="dlp-org">
+                <div class="dlp-ologo"><img src="{{project?.org.logo}}" alt="Logo" title="{{project?.org.org_name}}" /></div>
+                <div class="dlp-oname p-cl">{{project?.org.org_desc}}</div>
+            </div>
+            <div class="dlp-oscore p-bg">
+                <div class="row">
+                    <div class="col-6 dlp-osl">
+                        <!-- <div class="dlp-oslogo">{{project?.ces?.ces_score}}</div> -->
+                        <div class="rc-val"><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']" style="font-size: 11px;"></fa-icon></div></div>
+                        <div class="ldBar ccq-oslogo" data-preset="circle"  id="ccq"></div>
+                        <div class="ccq-value " >{{project?.ces?.ces_score}}</div>
+                        <div class="dlp-osname"><h5>Culture Coherence Quotient</h5></div>
+                    </div>
+                    <div class="col-6 dlp-osr">
+                        <div class="dlp-oslogo" style="padding-top: 12px;font-size: 17px;">
+                            <!-- <fa-icon *ngIf="project?.ces?.go_nogo === 'NO - GO'" [icon]="['far', 'thumbs-down']"></fa-icon>
+                                <fa-icon *ngIf="project?.ces?.go_nogo === 'GO'" [icon]="['far', 'thumbs-up']"></fa-icon> -->
+                                30% 
+                            </div>
+                            <div class="dlp-osname"><h5>Value Adjustment Factor</h5></div> 
+                        </div> 
+                    </div> 
+                </div>  
+                <div class="dlp-odata t-br">
+                    <div class="dlp-ohead p-cl bold">OVERVIEW</div>
+                    <div class="dlp-obody cscroll">
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="dlp-od-lbl t-cl">Industry</div>
+                                <div class="dlp-od-val">{{project?.org.industry_name}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Company Size</div>
+                                <div class="dlp-od-val">{{project?.org.emp_count}}+ Employees</div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Type</div>
+                                <div class="dlp-od-val">{{project?.org.org_type}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Headquarters</div>
+                                <div class="dlp-od-val">{{project?.org.city}}, {{project?.org.country_name}}</div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="dlp-od-lbl t-cl">Founded</div>
+                                <div class="dlp-od-val">{{project?.org.founded_on}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dlp-omap s-bg"> 
+                    <div class="dlp-head  p-cl bold">FOOTPRINT</div>
+                    <div class="dlp-obody">
+                        <div id="indmap" class="indmap"></div>
+                        <div id="dlp-map" class="dlp-map" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-100 dbp dcp" [ngClass]="{'expanded': currentDash !== ''}">
+                <div class="accordion {{project?.project_category}}">
+                    <!-- <div class="bnstabset">
+                        <div class="bnstabs">
+                            <span class="bnstab" *ngFor="let dashkpis of project?.ces.kpis" [hidden]="currentDash === ''"  [ngClass]="{'active bnstab_active': currentDash === dashkpis.kpi_code, 'dash_ulli_tab': currentDash !== '', 'bnstab_inactive': currentDash !== dashkpis.kpi_code }" title="{{dashkpis.title}}">
+                                <span class="float-left" (click)="openTab(dashkpis, [pskComponent, lspComponent, cvaComponent, inpComponent, bnsComponent])" style="width: 100%;">
+                                    <div class="tail"></div><b>{{dashkpis.shortTitle}}</b> 
+                                </span>
+                                <a class="kpidb-close float-left" (click)="currentDash = ''" title="Close" style="font-size: 10px;width: 20px;    margin-left: 0px;position: absolute;top: 8px;right: 5px;">
+                                    <fa-icon [icon]="['fas', 'times']" [hidden]="currentDash !== dashkpis.kpi_code" ></fa-icon>
+                                </a>
+                            </span> 
+                        </div>
+                    </div> -->
+                    <ul [ngClass]="{'open': currentDash !== '', 'dash_ulli_dash': currentDash !== ''}">
+
+                        <li *ngFor="let kpi of project?.ces.kpis"  [ngClass]="{'open': currentDash === kpi.kpi_code, 'kp-pos': kpi.kpi_status === 'positive', 'kp-neg': kpi.kpi_status === 'negative'}">
+                            <div class="kpidb"> 
+                                <div class="kpidb-head">
+                                    <h2>{{kpi.title}}</h2>
+                                    <a class="kpidb-close" (click)="currentDash = ''" title="Close"><fa-icon [icon]="['fas', 'times']"></fa-icon></a>
+
+                                <!--  <ul class="nav nav-tabs">
+                                    <li *ngFor="let dashkpis of project?.ces.kpis" class="active" (click)="openTab(dashkpis, [pskComponent, lspComponent, cvaComponent, inpComponent, bnsComponent])"  style="width:12.40%;font-size: 10px;">{{dashkpis.title}} <a class="kpidb-close" (click)="currentDash = ''" title="Close" style="font-size: 10px;"><fa-icon [icon]="['fas', 'times']"></fa-icon></a></li>
+                                </ul> -->
+
+
+                            </div>
+                            <div class="kpidb-body">
+                                <app-peoplespeak #pskComponent *ngIf="kpi.kpi_code === 'psk'" [project]="projObj"></app-peoplespeak>
+                                <app-leadershippulse #lspComponent *ngIf="kpi.kpi_code === 'lsp'" [project]="projObj"></app-leadershippulse>
+                                <app-valueassessment #cvaComponent *ngIf="kpi.kpi_code === 'cva'" [project]="projObj"></app-valueassessment>
+                                <app-valueassessmentemp #evaComponent *ngIf="kpi.kpi_code === 'eva'" [project]="projObj"></app-valueassessmentemp>
+                                <app-inp #inpComponent *ngIf="kpi.kpi_code === 'inp'" [project]="projObj"></app-inp>
+                                <app-bns #bnsComponent *ngIf="kpi.kpi_code === 'bns'" [project]="projObj"></app-bns>
+                                <app-adaptq #adqComponent *ngIf="kpi.kpi_code === 'adq'" [project]="projObj"></app-adaptq>
+                                <app-compsentiment #cstComponent *ngIf="kpi.kpi_code === 'cst'" [project]="projObj"></app-compsentiment>
+                            </div>
+                        </div>
+                        <div class="kpipreview" (click)="openTab(kpi, [pskComponent, lspComponent, cvaComponent, inpComponent, bnsComponent])">
+                            <div class="kpip">
+                                <div class="kpip-border"></div>
+                                <div class="kpip-score t-cl">{{kpi.kpi_score}}{{kpi.kpi_unit}}</div>
+                                <div class="kpip-arrow"><fa-icon [icon]="['fas', 'long-arrow-alt-up']"></fa-icon></div>
+                                <div class="kpip-title t-cl">{{kpi.title}}</div>
+                                <div class="kpip-bell"><div class="kpip-fa"><fa-icon [icon]="['fas', 'bell']"></fa-icon></div></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="h-100 dbp drp p-br  {{project?.project_variation_type}}" [hidden]="currentDash !== ''">
+            <div class="dboxes cscroll">
+                <div class="dbox s-br">
+                    <div class="dbx-title p-cl bold"><fa-icon [icon]="['far', 'gem']"></fa-icon>FINANCIAL ENTITIES</div>
+                    <div class="dbx-body">
+                        <div class="dbx-item" *ngFor="let sci of project?.org.finanicalEntities">
+                            <div class="dbx-icode">{{sci.code}}</div>
+                            <div class="dbx-idesc">{{sci.desc}}</div>
+                            <div class="dbx-ivalue">{{sci.value}}</div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="dbox s-br">
+                    <div class="dbx-title p-cl bold"><fa-icon [icon]="['fas', 'share-alt']"></fa-icon>SOCIAL MEDIA</div>
+                        <div class="dbx-body">
+                            <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideSMConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.socialMedia">
+                                <a href="{{sm.medialink}}" class="media-link" target="_blank">
+                                    <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                    <div class="dbx-slidesign">- {{sm.platform}}</div>
+                                </a>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div class="dbox s-br">
+                    <div class="dbx-title p-cl bold"><fa-icon [icon]="['far', 'newspaper']"></fa-icon>NEWS UPDATES</div>
+                    <div class="dbx-body">
+                        <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideNUConfig" >
+                            <div class="slide dbx-slide" ngxSlickItem *ngFor="let sm of project?.org.newsUpdates">
+                                <a href="{{sm.newslink}}" class="news-link" target="_blank">
+                                    <div class="dbx-slidecontent">{{sm.desc}}</div>
+                                    <div class="dbx-slidesign">- {{sm.platform}}</div>
+                                </a>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+    </div>
+    <div class="dbtnset p-br">
+        <div class="dbtns">
+            <button class="btn p-btn" title="Explore More" data-toggle="modal" data-target="#exampleModalLong">Explore More</button>
+            <button  style="display: none;" class="btn p-btn" title="Export Report">Export Report</button>
+            <button  style="display: none;" class="btn p-btn" title="Avail Other Services">Avail Other Services</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 0.5rem 1rem;">
+                <h6 class="modal-title" id="exampleModalLongTitle">Demographic Report</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            <div class="modal-body"  style="padding: 1rem 1rem 0rem 1rem;">
+                <div class="row">
+                    <div class="col-12 col-lg-12 col-md-12">
+                        <div class="moreexploretabset">
+                            <div class="metabs">
+                                <a class="metab" [ngClass]="{'active': custEmpTab === 'cusVemp'}" (click)="switchcustEmpTab('cusVemp')"><div class="tail"></div>Customer vis a vis Employee</a>
+                                <a class="metab" [ngClass]="{'active': custEmpTab === 'empDemo'}" (click)="switchcustEmpTab('empDemo')"><div class="tail"></div>Employee Demographics</a>
+                                <a class="metab" [ngClass]="{'active': custEmpTab === 'cusDemo'}" (click)="switchcustEmpTab('cusDemo')"><div class="tail"></div>Customer Demographics</a>
+                            </div>
+                        </div>
+                    </div>       
+                    <div class="col-12 col-lg-12 col-md-12" style="    height: 425px;"> 
+                        <div class="bnstcontents">
+                            <div class="bnstcontent" [hidden]="custEmpTab !== 'cusVemp'">
+                                <div class="bnspie" style="    margin-top: 10px;">
+                                     <div class="moreexploretabset" style="height: 31px;margin-bottom: 20px;">
+                                        <div class="metabs"></div>
+                                    </div>
+                                    <form style="width: 95%; margin: 0 auto; text-align: center;">
+                                        <div class="form-group row">
+                                            <div class="col-lg-3 p-0">
+                                                <select class="form-control" id="network_dropdown" name="network_dropdown" [(ngModel)]="selectedNetwork" [ngModelOptions]="{standalone: true}">
+                                                    <option value="all">ALL NETWORK</option>
+                                                    <option *ngFor="let ntwrk of projObj.filters?.network">{{ntwrk}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <select class="form-control" id="module_dropdown" name="module_dropdown" [(ngModel)]="selectedModule" [ngModelOptions]="{standalone: true}">
+                                                    <option value="all">ALL MODULE</option>
+                                                    <option *ngFor="let mdl of projObj.filters?.module">{{mdl}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3 p-0">
+                                                <select class="form-control" id="branch_dropdown" name="branch_dropdown" [(ngModel)]="selectedBranch" [ngModelOptions]="{standalone: true}">
+                                                    <option value="all">ALL BRANCH</option>
+                                                    <option *ngFor="let brnch of projObj.filters?.branch">{{brnch}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <button type="button" class="btn btn-sm p-btn  w-100" style="font-size: 12px;" (click)="getFilterDetails('empvscust')">Compare</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="col-12 col-lg-12 col-md-12 col-xs-12" style="padding: 20px 0px;margin-top: 20px;">
+                                        <div class="row">
+                                            <div class="col-6 col-lg-6 col-sm-12 col-md-6 border-right">
+                                                
+                                                <div class="ivl">
+                                                    <div class="row" style="height: 260px;">
+                                                        <div class="col-3 opdiv">
+                                                            <div class="row op1" [ngClass]="{'opactive': ivop == 'op1'}" (click)="ivopChange('op1');"><div [hidden]="ivop !== 'op1'" class= "arrow-right"></div><div class="txtd align-self-center">Personal Values</div></div>
+                                                            <div class="row op2" [ngClass]="{'opactive': ivop == 'op2'}" (click)="ivopChange('op2');"><div [hidden]="ivop !== 'op2'" class= "arrow-right"></div><div class="txtd align-self-center">Current Organizational Values</div></div>
+                                                            <div class="row op3" [ngClass]="{'opactive': ivop == 'op3'}" (click)="ivopChange('op3');"><div [hidden]="ivop !== 'op3'" class= "arrow-right"></div><div class="txtd align-self-center">Desired Organizational Values</div></div>
+                                                        </div>
+                                                        <div class="col-9 dbkd-h lft_padding">
+                                                            <div  class="dbkd-hb">
+                                                                <div class="dbkb-body">
+                                                                    <div class="cvl" [hidden]="ivop !== 'op1'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.a?.personal.length === 0" *ngFor="let cvl of allchartresponse?.a?.personal">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.a?.personal.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop !== 'op2'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.a?.current.length === 0" *ngFor="let cvl of allchartresponse?.a?.current">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div>
+                                                                                    <div class="cvl-fc">
+                                                                                        <div class="cvl-num">{{cvl.id}}</div>
+                                                                                    </div>
+                                                                                    <div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.a?.current.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop !== 'op3'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.a?.desired.length === 0" *ngFor="let cvl of allchartresponse?.a?.desired">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.a?.desired.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-sm-12 col-md-6">
+                                                
+                                                <div class="ivl">
+                                                    <div class="row" style="height: 260px;">
+                                                        <div class="col-3 opdiv">
+                                                            <div class="row op4" [ngClass]="{'opactive': ivop1 == 'op4'}" (click)="ivopCustChange('op4');">
+                                                                <div [hidden]="ivop1 !== 'op4'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Personal Values</div>
+                                                            </div>
+                                                            <div class="row op5" [ngClass]="{'opactive': ivop1 == 'op5'}" (click)="ivopCustChange('op5');">
+                                                                <div [hidden]="ivop1 !== 'op5'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Current Organizational Values</div>
+                                                            </div>
+                                                            <div class="row op6" [ngClass]="{'opactive': ivop1 == 'op6'}" (click)="ivopCustChange('op6');">
+                                                                <div [hidden]="ivop1 !== 'op6'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Desired Organizational Values</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-9 dbkd-h lft_padding">
+                                                            <div  class="dbkd-hb">
+                                                                <div class="dbkb-body">
+                                                                    <div class="cvl" [hidden]="ivop1 !== 'op4'" >
+                                                                        <div class="cvl-item"  [hidden]="allchartresponse?.b?.personal.length === 0" *ngFor="let cvl of allchartresponse?.b?.personal">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                         <div class=""  [hidden]="allchartresponse?.b?.personal.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop1 !== 'op5'" >
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.b?.current.length === 0" *ngFor="let cvl of allchartresponse?.b?.current">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                         <div class=""  [hidden]="allchartresponse?.b?.current.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl"  [hidden]="ivop1 !== 'op6'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.b?.desired.length === 0" *ngFor="let cvl of allchartresponse?.b?.desired">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.b?.desired.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bnstcontent"  [hidden]="custEmpTab !== 'empDemo'">
+                                <div class="bnspie" style="margin-top: 20px;">
+                                    <!-- Customer Demographics -->
+                                    <div class="moreexploretabset" style="height: 31px;margin-bottom:20px;">
+                                        <div class="metabs" style="width: 95%;margin: 0 auto;">
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'networktab'}" (click)="switchCategoriesTab('networktab')"><div class="tail"></div>Network</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'agegrouptab'}" (click)="switchCategoriesTab('agegrouptab')"><div class="tail"></div>Age</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'durationtab'}" (click)="switchCategoriesTab('durationtab')"><div class="tail"></div>Duration at SBI</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'joiningagetab'}" (click)="switchCategoriesTab('joiningagetab')"><div class="tail"></div>Age at joining SBI</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'designationtab'}" (click)="switchCategoriesTab('designationtab')"><div class="tail"></div>Designation</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'scaletab'}" (click)="switchCategoriesTab('scaletab')"><div class="tail"></div>Scale</a>
+                                            <a class="metab custdemo-categoriestab" [ngClass]="{'active': categoriesTab === 'payslabtab'}" (click)="switchCategoriesTab('payslabtab')"><div class="tail"></div>Pay Slab</a>
+                                        </div>
+                                    </div>
+                                    <div class="categoriestcontents" >    
+                                        <div class="col-12 col-lg-12 col-md-12 col-xs-12">
+                                           <div class="row">
+                                            <div class="col-lg-6 col-md-6 border-right" >
+                                               <div class="category-dropdown">
+                                                <form>
+                                                    <div class="form-group row">
+                                                        <div class="col-lg-12 col-md-12 p-0" >
+                                                            <select class="form-control" id="empdemo_category1" name="empdemo_category1" [(ngModel)]="selectedCategoryDropDown1" (change)="getFilterDetails('empdemo')" [ngModelOptions]="{standalone: true}">
+                                                                <option value="all">ALL</option>
+                                                                <option *ngFor="let elemnt of cust_dropdn">{{elemnt}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                                <div class="ivl">
+                                                    <div class="row" style="height: 260px;">
+                                                        <div class="col-3 opdiv">
+                                                            <div class="row op7" [ngClass]="{'opactive': ivop2 == 'op7'}" (click)="ivopCustInsChange1('op7');">
+                                                                <div [hidden]="ivop2 !== 'op7'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Personal Values</div>
+                                                            </div>
+                                                            <div class="row op8" [ngClass]="{'opactive': ivop2 == 'op8'}" (click)="ivopCustInsChange1('op8');">
+                                                                <div [hidden]="ivop2 !== 'op8'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Current Organizational Values</div>
+                                                            </div>
+                                                            <div class="row op9" [ngClass]="{'opactive': ivop2 == 'op9'}" (click)="ivopCustInsChange1('op9');">
+                                                                <div [hidden]="ivop2 !== 'op9'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Desired Organizational Values</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-9 dbkd-h lft_padding">
+                                                            <div  class="dbkd-hb">
+                                                                <div class="dbkb-body">
+                                                                    <div class="cvl" [hidden]="ivop2 !== 'op7'" >
+                                                                        <div class="cvl-item"  [hidden]="allchartresponse?.c?.personal.length === 0" *ngFor="let cvl of allchartresponse?.c?.personal">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.c?.personal.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop2 !== 'op8'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.c?.current.length === 0" *ngFor="let cvl of allchartresponse?.c?.current">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.c?.current.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop2 !== 'op9'" >
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.c?.desired.length === 0" *ngFor="let cvl of allchartresponse?.c?.desired">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.c?.desired.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="category-dropdown">
+                                                    <form>
+                                                        <div class="form-group row">
+                                                            <div class="col-lg-12 col-md-12 p-0">
+                                                                <select class="form-control" id="empdemo_category2" name="empdemo_category2" [(ngModel)]="selectedCategoryDropDown2" (change)="getFilterDetails('empdemo')" [ngModelOptions]="{standalone: true}">
+                                                                <option value="all">ALL</option>
+                                                                <option *ngFor="let elemnt of cust_dropdn">{{elemnt}}</option>
+                                                            </select>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="ivl">
+                                                    <div class="row" style="height: 260px;">
+                                                        <div class="col-3 opdiv">
+                                                            <div class="row op10" [ngClass]="{'opactive': ivop3 == 'op10'}" (click)="ivopCustInsChange2('op10');">
+                                                                <div [hidden]="ivop3 !== 'op10'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Personal Values</div>
+                                                            </div>
+                                                            <div class="row op11" [ngClass]="{'opactive': ivop3 == 'op11'}" (click)="ivopCustInsChange2('op11');">
+                                                                <div [hidden]="ivop3 !== 'op11'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Current Organizational Values</div>
+                                                            </div>
+                                                            <div class="row op12" [ngClass]="{'opactive': ivop3 == 'op12'}" (click)="ivopCustInsChange2('op12');">
+                                                                <div [hidden]="ivop3 !== 'op12'" class= "arrow-right"></div>
+                                                                <div class="txtd align-self-center">Desired Organizational Values</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-9 dbkd-h lft_padding">
+                                                            <div  class="dbkd-hb">
+                                                                <div class="dbkb-body">
+                                                                    <div class="cvl" [hidden]="ivop3 !== 'op10'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.d?.personal.length === 0" *ngFor="let cvl of allchartresponse?.d?.personal">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.d?.personal.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop3 !== 'op11'">
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.d?.current.length === 0" *ngFor="let cvl of allchartresponse?.d?.current">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.d?.current.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cvl" [hidden]="ivop3 !== 'op12'" >
+                                                                        <div class="cvl-item" [hidden]="allchartresponse?.d?.desired.length === 0" *ngFor="let cvl of allchartresponse?.d?.desired">
+                                                                            <div class="cvl-case">
+                                                                                <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                <div class="cvl-footer">
+                                                                                    <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class=""  [hidden]="allchartresponse?.d?.desired.length > 0">
+                                                                            <div class="cvl-case">
+                                                                                <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bnstcontent"  [hidden]="custEmpTab !== 'cusDemo'">
+                                    <div class="bnspie" style="margin-top: 20px;">
+                                        <!-- Customer Demographics -->
+                                        <div class="moreexploretabset" style="height: 31px;margin-bottom: 20px;">
+                                            <div class="metabs" style="width: 95%; margin:0 auto;">
+                                                <a class="metab empdemo-categoriestab" [ngClass]="{'active': empcategoriesTab === 'empbranchtab'}" (click)="switchCustCategoriesTab('empbranchtab')"><div class="tail"></div>Branch</a>
+                                                <a class="metab empdemo-categoriestab" [ngClass]="{'active': empcategoriesTab === 'empmergerbanktab'}" (click)="switchCustCategoriesTab('empmergerbanktab')"><div class="tail"></div>Name of Merger Bank</a>
+                                                <a class="metab empdemo-categoriestab" [ngClass]="{'active': empcategoriesTab === 'empdurationsbitab'}" (click)="switchCustCategoriesTab('empdurationsbitab')"><div class="tail"></div>Duration of banking with SBI</a>
+                                            </div>
+                                        </div>
+                                        <div class="categoriestcontents">
+                                             <div class="col-12 col-lg-12 col-md-12 col-xs-12">
+                                                <div class="row">
+                                                <div class="col-lg-6 col-md-6 border-right">
+                                                   <div class="category-dropdown">
+                                                        <form>
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-12 col-md-12 p-0">
+                                                                    <select class="form-control" id="custdemo_category1" name="custdemo_category1" [(ngModel)]="selectedCustCategoryDropDown1" (change)="getFilterDetails('custdemo')" [ngModelOptions]="{standalone: true}">
+                                                                        <option value="all">ALL</option>
+                                                                        <option *ngFor="let elmnt of emp_dropdn">{{elmnt}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="ivl">
+                                                        <div class="row" style="height: 260px;">
+                                                            <div class="col-3 opdiv">
+                                                                <div class="row op7" [ngClass]="{'opactive': empdem1 == 'op16'}" (click)="ivopEmpInsChange1('op16');">
+                                                                    <div [hidden]="empdem1 !== 'op7'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Personal Values</div>
+                                                                </div>
+                                                                <div class="row op8" [ngClass]="{'opactive': empdem1 == 'op17'}" (click)="ivopEmpInsChange1('op17');">
+                                                                    <div [hidden]="empdem1 !== 'op8'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Current Organizational Values</div>
+                                                                </div>
+                                                                <div class="row op9" [ngClass]="{'opactive': empdem1 == 'op18'}" (click)="ivopEmpInsChange1('op18');">
+                                                                    <div [hidden]="empdem1 !== 'op9'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Desired Organizational Values</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-9 dbkd-h lft_padding">
+                                                                <div  class="dbkd-hb">
+                                                                    <div class="dbkb-body">
+                                                                        <div class="cvl" [hidden]="empdem1 !== 'op16'" >
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.e?.personal.length === 0"  *ngFor="let cvl of allchartresponse?.e?.personal">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=""  [hidden]="allchartresponse?.e?.personal.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cvl" [hidden]="empdem1 !== 'op17'">
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.e?.current.length === 0"  *ngFor="let cvl of allchartresponse?.e?.current">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                             <div class=""  [hidden]="allchartresponse?.e?.current.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cvl" [hidden]="empdem1 !== 'op18'" >
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.e?.desired.length === 0"  *ngFor="let cvl of allchartresponse?.e?.desired">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=""  [hidden]="allchartresponse?.e?.desired.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                     <div class="category-dropdown">
+                                                        <form>
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-12 col-md-12 p-0">
+                                                                    <select class="form-control" id="custdemo_category2" name="custdemo_category2" [(ngModel)]="selectedCustCategoryDropDown2" (change)="getFilterDetails('custdemo')" [ngModelOptions]="{standalone: true}">
+                                                                        <option value="all">ALL</option>
+                                                                        <option *ngFor="let elmnt of emp_dropdn">{{elmnt}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="ivl">
+                                                        <div class="row" style="height: 260px;">
+                                                            <div class="col-3 opdiv">
+                                                                <div class="row op13" [ngClass]="{'opactive': empdem2 == 'op13'}" (click)="ivopEmpInsChange2('op13');">
+                                                                    <div [hidden]="empdem2 !== 'op13'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Personal Values</div>
+                                                                </div>
+                                                                <div class="row op14" [ngClass]="{'opactive': empdem2 == 'op14'}" (click)="ivopEmpInsChange2('op14');">
+                                                                    <div [hidden]="empdem2 !== 'op14'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Current Organizational Values</div>
+                                                                </div>
+                                                                <div class="row op15" [ngClass]="{'opactive': empdem2 == 'op15'}" (click)="ivopEmpInsChange2('op15');">
+                                                                    <div [hidden]="empdem2 !== 'op15'" class= "arrow-right"></div>
+                                                                    <div class="txtd align-self-center">Desired Organizational Values</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-9 dbkd-h lft_padding">
+                                                                <div  class="dbkd-hb">
+                                                                    <div class="dbkb-body">
+                                                                        <div class="cvl" [hidden]="empdem2 !== 'op13'">
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.f?.personal.length === 0" *ngFor="let cvl of allchartresponse?.f?.personal">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=""  [hidden]="allchartresponse?.f?.personal.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cvl" [hidden]="empdem2 !== 'op14'">
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.f?.current.length === 0" *ngFor="let cvl of allchartresponse?.f?.current">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=""  [hidden]="allchartresponse?.f?.current.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cvl" [hidden]="empdem2 !== 'op15'" >
+                                                                            <div class="cvl-item" [hidden]="allchartresponse?.f?.desired.length === 0" *ngFor="let cvl of allchartresponse?.f?.desired">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="speech-bubble">{{cvl.count}}</div>
+                                                                                    <div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+                                                                                    <div class="cvl-footer">
+                                                                                        <div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=""  [hidden]="allchartresponse?.f?.desired.length > 0">
+                                                                                <div class="cvl-case">
+                                                                                    <div class="" style="margin-top: 33%;text-align: center;color: red;">Data not available</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer" style="padding: 0.5rem 1rem;"><button _ngcontent-yde-c1="" class="btn btn-info p-btn" data-dismiss="modal" type="button">Close</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal  fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">SBI Karnataka Overview</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="map_content_main">
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom">
+                            <div class="row gblMapRow ">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">14,439</strong></p>
+                                        <p class="key_statistics_lable ">Employees</p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class=" map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">1,539</strong></p>
+                                        <p class="key_statistics_lable ">Branches</p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics indMapPara"><strong _ngcontent-dxn-c2="">41</strong></p>
+                                        <p class="key_statistics_lable ">Designations</p>
+                                    </span>
+                                </div>
+                             
+                            </div>
+                        </div>
+                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bottom">
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bottom">
+                            <div class="row gblMapRow text-center">
+                                <div class="" style="height: 200px;margin:0 auto;padding-top: 12px;" id="malefemalechart">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gblMapRow">
+                       <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
+                            <div class="row border-bottom align-items-center">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics "><strong _ngcontent-dxn-c2=""></strong></p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Mean</strong></p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
+                            <div class="row border-bottom align-items-center">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics  pt-3"><strong _ngcontent-dxn-c2="">Duration at SBI:</strong></p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics_lable indMapPara ">14 Years 7 Months </p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics_lable indMapPara">8 Years 8 Months</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row border-bottom align-items-center">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics  pt-3"><strong _ngcontent-dxn-c2="">Age at the time of joining: </strong></p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <!-- <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong>Mean</strong></p> -->
+                                        <p class="key_statistics_lable indMapPara ">25 Years 9 Months </p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <!-- <p class="key_statistics" style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p> -->
+                                        <p class="key_statistics_lable indMapPara">24 Years 10 Months</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row border-bottom align-items-center">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <span class="map_statistics_width">
+                                        <p class="key_statistics pt-3"><strong _ngcontent-dxn-c2="">Age of Employees: </strong></p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <!-- <p class="key_statistics "  style="margin-bottom: 0.1rem;"><strong>Mean</strong></p> -->
+                                        <p class="key_statistics_lable indMapPara ">40 Years 5 Months </p>
+                                    </span>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4 text-center">
+                                    <span class="map_statistics_width">
+                                        <!-- <p class="key_statistics" style="margin-bottom: 0.1rem;"><strong _ngcontent-dxn-c2="">Median</strong></p> -->
+                                        <p class="key_statistics_lable indMapPara">36 Years 1 Month</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" style="padding: 0.5rem 1rem;">
+                <button type="button" class="btn btn-info p-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

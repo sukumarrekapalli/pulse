@@ -1,0 +1,128 @@
+<div class="dbk">
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<div class="dbk-box">
+				<div class="dbkb-head" style="height: 22px;">
+					<h6 class="dbkb-title float-left col-8">EXECUTIVE SUMMARY</h6>
+					<h6 class="dbkb-title float-right col-4 text-right" *ngIf="project?.lsreport !== '' && currentView === 'ilsp'"><a class="s-link float-right" style="float:right;" href="/#/lsreport/{{project?.lsreport.id}}" target="_new">Leadership Report</a></h6>
+					<h6 class="dbkb-title float-right col-4 text-right" *ngIf="project?.lsreport !== '' && currentView !== 'ilsp'">
+						 &nbsp;</h6>
+				</div>
+				<div class="dbkb-body col-12">
+					<p style="text-align: left"  [innerHTML]="project.lsp.executive_summary" ></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="project?.ilsp !== ''" style="margin-top: -20px; margin-bottom: 10px"> 
+		<div class="col-lg-12 col-md-12">
+			<ul class="nav nav-pills float-right">
+				<li class="nav-item">
+					<a class="nav-link btn btn-sm" [ngClass]="{'active': currentView === 'ilsp'}" (click)="switchView('ilsp')">Individual</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-sm" [ngClass]="{'active': currentView === 'lsp'}" (click)="switchView('lsp')">Combined</a>
+				</li>
+			</ul>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="col-3 border-right dotted">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'star-half-alt']"></fa-icon>OVERALL RATING</h6>
+				</div>
+				<div class="dbkb-body">
+					<div class="orater" title="3.93">
+						<div class="ratediv">
+							<div class="rates">
+								<div class="ratesd bk"><div class="ratesdcase"><div class="ratestar" *ngFor="let number of [0,1,2,3,4]"><fa-icon [icon]="['far', 'star']" ></fa-icon></div></div></div>
+								<div class="ratesd fr" [style.width.%]="lsp.competency_alignment * 20"><div class="ratesdcase"><div class="ratestar" *ngFor="let number of [0,1,2,3,4]" ><fa-icon [icon]="['fas', 'star']" ></fa-icon></div></div></div>
+							</div>
+						</div>
+						<div class="ratelbl"><span>COMPETENCY ALIGNMENT</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-9">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA</h6>
+				</div>
+				<div class="dbkb-body">
+					<div class="rcs">
+						<div class="rc" *ngFor="let rc of rcs" [ngClass]="{'red': lsp[rc.prop] < 2, 'yellow':  lsp[rc.prop] >= 2 && lsp[rc.prop] < 4, 'green':  lsp[rc.prop] >= 4}" (mouseover)="showKnob(rc.code, rc.prop)" (mouseout)="hideKnob(rc.code, rc.prop)">
+							<div class="rc-val"><div class="rc-num">{{lsp[rc.prop]}}</div><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div></div>
+							<div class="rc-case" >
+								<div class="rc-icon" ><fa-icon [icon]="['fas', rc.icon]" [style.color]="rc.color"></fa-icon></div>
+								<div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>
+								<!--div class="kprogress-bar {{rc.code}}" data-percent="0" [ngClass]="{'red': lsp[rc.prop] < 3, 'yellow':  lsp[rc.prop] > 3 && lsp[rc.prop] < 6, 'green':  lsp[rc.prop] >= 6}">
+									<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></span></div>
+								</div-->	
+							</div>
+							<div class="rc-label">{{rc.label}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-5 col-md-5">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'clipboard-check']"></fa-icon>COMPETENCIES</h6>
+				</div>
+				<div class="dbkb-body">
+					<div id="comp_chart" style="width: 100%; min-width: 260px; margin: auto; height: 260px; text-align: center; "></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-7 col-md-7">
+			<div class="dbk-box">
+				<div class="dbkb-head">
+					<h6 class="dbkb-title"><fa-icon [icon]="['fas', 'user-check']"></fa-icon>PERSONAL VALUES</h6>
+				</div>
+				<div class="dbkb-body">
+					<div class="ivl" [hidden]="currentView === 'lsp'">
+						<div class="ivl-head">
+							<font class="float-left">Level of Consciousness</font>
+							<font class="float-right">Stages of Development</font>
+						</div>
+						<div class="ivl-body">
+							<div class="ivl-row" *ngFor="let ivl of ivls">
+								<div class="ivl-lcell">{{ivl.label}}</div>
+								<div class="ivl-mcell">
+									<div class="ivl-bubble" *ngFor="let bubble of ivl.bubbles" [ngClass]="{'lv': bubble.state === 'LV'}"><div class="speech-bubble">{{bubble.label}}</div></div>
+								</div>
+								<div class="ivl-rcell">{{ivl.dlabel}}</div>
+							</div>
+						</div>
+						<div class="ivl-footer">
+							<div class="ivl-bubble" style="float:left; margin:3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float: left; margin-right: 30px; ">Positive Value</div>
+							<div class="ivl-bubble lv" style="float:left; margin: 3px 10px 0px 0px "></div>&nbsp;&nbsp;<div style="display: inline-block; float:left; margin-right: 30px; ">Limiting Value</div>
+						</div>
+					</div>
+					<div class="cvl" [hidden]="currentView !== 'lsp'">
+						<div class="cvl-item" *ngFor="let cvl of cvls">
+							<div class="cvl-case">
+								<div class="speech-bubble">{{cvl.count}}</div>
+								<div class="cvl-label"><div class="cvl-text">{{cvl.value}}</div></div>
+								<div class="cvl-footer">
+									<div class="cvl-fl"></div><div class="cvl-fc"><div class="cvl-num">{{cvl.id}}</div></div><div class="cvl-fr"></div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="row" style="margin: 0px; margin-top: -10px; position: absolute; right: 20px" *ngIf="project?.lsreport !== '' && currentView === 'ilsp'" >
+		<a class="s-link float-right" style="float:right;" href="/#/lsreport/{{project?.lsreport.id}}" target="_new">Leadership Report</a>
+	</div> -->
+</div>

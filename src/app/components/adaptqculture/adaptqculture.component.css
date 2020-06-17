@@ -1,0 +1,673 @@
+.angular-with-newlines{
+	white-space: pre-wrap;
+}
+.dbk{
+	padding: 0px 30px;
+}
+.executive-summary-div {
+	margin-bottom: 10px;
+	white-space: pre-wrap;
+}
+.procon-item {
+	border-bottom: 1px dotted #ddd;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+.progress-bar-div {
+	max-width: 19.666667%;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: pre-wrap; 
+}
+
+.pros-div, .cons-div {
+	white-space: pre-wrap;
+	background-color: #fff;
+	padding: 10px;
+	height: 263px;
+}
+
+.pros-title, .cons-title {
+	margin-bottom: 10px;
+	text-align: left; color:#8b79dd;
+	font-weight: 700;
+}
+
+.content-div {
+	padding: 0px 15px;
+}
+
+
+.pplorgscore{
+	width: auto;
+	margin: auto; 
+	height: 120px;
+	display: inline-block;
+}
+.pplorgscore .orgscore1{
+	width: 65px;
+	margin: auto 5px;
+	height: 120px;
+	display: inline-block;
+	float: left;
+}
+.pplorgscore .orgscore{
+	width: 80px;
+	margin: auto 5px;
+	height: 120px;
+	display: inline-block;
+	float: left;
+}
+.orgscore .orgscore_lbl{
+	font-size: 10px;margin-bottom: 0px;
+}
+.pplorgscore .orgscore .orgscorediv{
+	width: 100%;
+	margin: auto 5px;
+	height: 120px;
+	cursor: pointer;
+	background: #fff;
+}
+.pplorgscore .orgscore .orgscore_startdiv{
+	width: 100%;
+	margin: auto 5px;
+	height: 120px;
+}
+.pos_text_bottom{
+	bottom: 0;
+	left: 35%;
+	margin-bottom: 0px;
+}
+
+.mood_index{
+	height: 200px;
+	padding: 23px 40px;
+	background-color: #e7e5e6;
+}
+.moodindex{
+	height: 200px;
+	background-color: #e7e5e6;
+}
+.mood_index .mi_circle {
+	border:2px solid #8d7dde;
+	height: 130px;
+	border-radius: 50%;
+}
+
+.moodindex .mi_circle{
+	font-size: 60px;
+	padding: 6%;
+	color: #00000047;
+	margin: 20px auto;
+	border: 3px solid #8d7dde;
+	border-radius: 50%;
+	width: 130px;
+	height: 130px;
+	background-color: white;
+}
+.moodindex_indicator{
+	float: left;
+	width: 19%;
+	padding: 2px;
+}
+.demographics_mi_parent{
+	width: 60%;
+	margin: 0 auto;
+	padding: 15px 0px;
+}
+.demographics_mi{
+	float: left;
+	width: 19%;
+	padding: 2px;
+}
+
+
+.moodindex_indicator p{
+	margin-bottom: 1px;
+}
+.cardheader{
+	padding: .2rem 1rem;
+	background-color: #8b79dd;
+	color: #fff;
+}
+
+.ndlimg {
+	animation: rotation 8s infinite linear;
+	transform-origin: bottom right; 
+	transform: rotate(45deg);
+}
+.moodindex-no{
+	font-size: 12px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.moodindex-top-text{
+	height: 50px;width:20%;white-space: pre-wrap;font-size: 9px;text-align: center;color: white;position: relative;
+}
+
+
+#speedometer {
+	display: inline-block;
+	position: relative;
+}
+
+#speedometer .barometer {
+	/*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: #e5dede;
+	width: 110px;
+	height: 110px;
+	margin-bottom: -10px;
+	display: inline-block;
+	border-radius: 51%;
+}
+.orvalues{
+	position: absolute;
+	bottom: -21px;
+	left: 41px;
+	background-color: darkgray;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	padding: 4px 0px;
+}
+.mood-mbl{
+	width: 96%;margin: 8px auto;
+}
+.dbkb-ipad{
+	height: 120px;
+}
+#speedometer .needle {
+	background-image: url("../../../assets/images/GBP.svg");
+	background-repeat: no-repeat;
+	z-index: 999999;
+	width: 110px;
+	height: 110px;
+	display: inline-block;
+	left: 0px;
+	top: 17px;
+	position: absolute;
+	bottom: 5px;
+	animation:
+	change 5s linear,
+	loop 1s linear 5s infinite alternate;
+	transform-origin:50% calc(56% - 8px) ;
+}
+@keyframes change {
+	0% {
+		transform:rotate(-45deg);
+	}
+	50% {
+		transform:rotate(-15deg);
+	}
+	70% {
+		transform:rotate(0deg);
+	}
+	100% {
+		transform:rotate(20deg);
+	}
+}
+@keyframes loop {
+	0% {
+		transform:rotate(15deg);
+	}
+	100% {
+		transform:rotate(20deg);
+	}
+}
+
+
+#speedometer_mi {
+	display: inline-block;
+	position: relative;
+}
+
+#speedometer_mi .barometer_mi {
+	/*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 235px;
+	height: 200px;
+	margin-bottom: -10px;
+	display: inline-block;
+	border-radius: 51%;
+}
+.orvalues_mi{
+	position: absolute;
+	bottom: -18px;
+	left: 41px;
+	background-color: darkgray;
+	border-radius: 50%;
+	width: 27px;
+	height: 27px;
+	padding: 3px;
+}
+#speedometer_mi .needle_mi {
+	background-image: url("../../../assets/images/GBP.svg");
+	background-repeat: no-repeat;
+	z-index: 999999;
+	width: 235px;
+	height: 235px;
+	display: inline-block;
+	left: 0px;
+	top: -3px;
+	position: absolute;
+	bottom: 5px;
+	animation: change_mi 5s linear,
+	loop_mi 1s linear 5s infinite alternate;
+	transform-origin:50% calc(56% - 8px) ;
+}
+@keyframes change_mi {
+	0% {
+		transform:rotate(-90deg);
+	}
+	50% {
+		transform:rotate(-65deg);
+	}
+	70% {
+		transform:rotate(-45deg);
+	}
+	100% {
+		transform:rotate(-5deg);
+	}
+}
+@keyframes loop_mi {
+	0% {
+		transform:rotate(-10deg);
+	}
+	100% {
+		transform:rotate(-5deg);
+	}
+}
+
+@media screen and  (min-width: 360px) and (max-width: 420px) {
+	.dbkb-body .pplorgscore .orgscore1,.orgscore{
+		width: 28% !important;
+		margin-bottom: 3rem!important;
+	}
+	.age-mbl{
+		padding: 0px;
+	}
+	.mbl-font{
+		font-size: 12px !important;
+	}
+	.dbkb-body .pplorgscore{
+		min-height: 315px;
+	}
+	.moodindex .mi_circle{
+		width: 87px;
+		height: 87px;
+		font-size: 2.5rem;
+	}
+	.moodindex.text-center{
+		white-space: pre-wrap;
+	}
+	.row-padding{
+		padding: 3px !important;
+	}
+	.md-indx-head{
+		margin-top: 0%;
+	}
+	.moodindex_indicator {
+		font-size: 8px;
+	}
+	.md-in-footer{
+		font-size: 8px;
+		white-space: pre-wrap;
+	}
+	.demographics_mi_parent {
+		width: 95%;
+		font-size: 12px;
+	}
+	.orgscore .orgscore_lbl{
+		font-size: 8px;
+	}
+	.cardheader {
+		padding: .2rem 0.1rem;
+	}
+	.mibox{
+		height:200px;
+		width: 285px;
+	}
+	#speedometer_mi {
+		display: inline-block;
+		position: relative;
+	}
+
+	#speedometer_mi .barometer_mi {
+		/*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+		background-repeat: no-repeat;
+		background-size: 100%;
+		width: 280px;
+		height: 200px;
+		margin-bottom: -10px;
+		display: inline-block;
+		border-radius: 51%;
+	}
+	.orvalues_mi{
+		position: absolute;
+		bottom: -18px;
+		left: 41px;
+		background-color: darkgray;
+		border-radius: 50%;
+		width: 27px;
+		height: 27px;
+		padding: 3px;
+	}
+	#speedometer_mi .needle_mi {
+		background-image: url("../../../assets/images/GBP.svg");
+		background-repeat: no-repeat;
+		z-index: 999999;
+		width: 280px;
+		height: 280px;
+		display: inline-block;
+		left: 0px;
+		top: -3px;
+		position: absolute;
+		bottom: 5px;
+		animation: change_mi 5s linear,
+		loop_mi 1s linear 5s infinite alternate;
+		transform-origin:50% calc(56% - 8px) ;
+	}
+	@keyframes change_mi {
+		0% {
+			transform:rotate(-90deg);
+		}
+		50% {
+			transform:rotate(-65deg);
+		}
+		70% {
+			transform:rotate(-45deg);
+		}
+		100% {
+			transform:rotate(-30deg);
+		}
+	}
+	@keyframes loop_mi {
+		0% {
+			transform:rotate(-25deg);
+		}
+		100% {
+			transform:rotate(-30deg);
+		}
+	}
+}
+@media screen and  (min-width: 320px) and (max-width: 675px) {
+	.dbkb-body .pplorgscore .orgscore1,.orgscore{
+		width: 28% !important;
+		margin-bottom: 3rem!important;
+	}
+	.age-mbl{
+		padding: 0px;
+	}
+	.mbl-font{
+		font-size: 12px !important;
+	}
+	.dbkb-body .pplorgscore{
+		min-height: 315px;
+	}
+	.moodindex .mi_circle{
+		width: 75px;
+		height: 75px;
+		font-size: 2.5rem;
+	}
+	.moodindex.text-center{
+		white-space: pre-wrap;
+	}
+	.row-padding{
+		padding: 3px !important;
+	}
+	.md-indx-head{
+		margin-top: 0%;
+	}
+	.moodindex_indicator {
+		font-size: 8px;
+	}
+	.md-in-footer{
+		font-size: 8px;
+		white-space: pre-wrap;
+	}
+	.demographics_mi_parent {
+		width: 95%;
+		font-size: 12px;
+	}
+	.orgscore .orgscore_lbl{
+		font-size: 8px;
+	}
+	.cardheader {
+		padding: .2rem 0.1rem;
+	}
+	.mibox{
+		height:200px;
+		width: 245px;
+	}
+	#speedometer_mi {
+		display: inline-block;
+		position: relative;
+	}
+
+	#speedometer_mi .barometer_mi {
+		/*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+		background-repeat: no-repeat;
+		background-size: 100%;
+		width: 240px;
+		height: 200px;
+		margin-bottom: -10px;
+		display: inline-block;
+		border-radius: 51%;
+	}
+	.orvalues_mi{
+		position: absolute;
+		bottom: -18px;
+		left: 41px;
+		background-color: darkgray;
+		border-radius: 50%;
+		width: 27px;
+		height: 27px;
+		padding: 3px;
+	}
+	#speedometer_mi .needle_mi {
+		background-image: url("../../../assets/images/GBP.svg");
+		background-repeat: no-repeat;
+		z-index: 999999;
+		width: 240px;
+		height: 240px;
+		display: inline-block;
+		left: 0px;
+		top: -3px;
+		position: absolute;
+		bottom: 5px;
+		animation: change_mi 5s linear,
+		loop_mi 1s linear 5s infinite alternate;
+		transform-origin:50% calc(56% - 8px) ;
+	}
+	@keyframes change_mi {
+		0% {
+			transform:rotate(-90deg);
+		}
+		50% {
+			transform:rotate(-65deg);
+		}
+		70% {
+			transform:rotate(-45deg);
+		}
+		100% {
+			transform:rotate(-30deg);
+		}
+	}
+	@keyframes loop_mi {
+		0% {
+			transform:rotate(-25deg);
+		}
+		100% {
+			transform:rotate(-30deg);
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.moodindex .mi_circle {
+		width: 68%;
+		height: 46%;
+	}
+
+	.md-in-footer {
+		white-space: pre-wrap;
+	}
+
+	.md-indx-head {
+		margin-top: 40%;
+		font-size: 0.8rem;
+	}
+
+	.moodindex_indicator {
+		width: 20%;
+	}
+	.ipad-view{
+		padding: 0px !important;
+	}
+	.ipad-padding{
+		padding-right: 10px;
+		padding-left: 25px;
+	}
+	#speedometer_mi .barometer_mi {
+		/*background-image: url("https://svgshare.com/i/GAZ.svg");*/
+		background-repeat: no-repeat;
+		background-size: 100%;
+		width: 190px;
+		height: 200px;
+		margin-bottom: -10px;
+		display: inline-block;
+		border-radius: 51%;
+	}
+	#speedometer_mi .needle_mi {
+		background-image: url("../../../assets/images/GBP.svg");
+		background-repeat: no-repeat;
+		z-index: 999999;
+		width: 190px;
+		height: 190px;
+		display: inline-block;
+		left: 0px;
+		top: -3px;
+		position: absolute;
+		bottom: 5px;
+		animation: change_mi 5s linear,
+		loop_mi 1s linear 5s infinite alternate;
+		transform-origin:50% calc(56% - 8px) ;
+	}
+	.mood-mbl{
+	width: 87%;margin: 3px;
+}
+.dbkb-ipad{
+	height: 100px;
+}
+	.moodindex .mi_circle {
+		font-size: 3rem;
+	}
+	.pplorgscore .orgscore1 {
+		width: 40px;
+	}
+
+	#speedometer_mi .barometer_mi {
+		width: 160px;
+		height: 160px;
+	}
+	#speedometer_mi .needle_mi {
+		width: 160px;
+		height: 160px;
+		top: -1px;
+	}
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	.md-indx-head {
+		margin-top: 26%;
+	}
+	.pplorgscore .orgscore1 {
+		width: 40px;
+	}
+
+	.moodindex .mi_circle {
+		width: 68%;
+		height: 46%;
+		font-size: 3rem;
+	}
+	.pplorgscore .orgscore {
+    width: 74px;
+    margin: auto 5px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+}
+	.mood-mbl{
+	width: 91% !important;margin: 3px;
+}
+
+}
+
+
+@media screen and  (min-width: 1280px) and (max-width: 1400px) {
+	.moodindex { width : 100%; }
+	.moodindex .mi_circle {width: 140px;height: 140px; font-size: 4rem;}
+
+	.moodindex-no-first {
+		margin-top: 2.5px !important;
+	}
+	.pplorgscore .orgscore1 {
+		width: 40px; 
+	}
+	.orgscore .orgscore_lbl {
+		font-size: 7px;
+		margin-bottom: 0px;
+	}
+	.pplorgscore .orgscore {
+		width: 60px;
+		margin: auto 5px;
+		height: 120px;
+		display: inline-block;
+		float: left;
+	}
+
+	#speedometer_mi .barometer_mi {
+		width: 195px;
+	}
+
+	#speedometer_mi .needle_mi {
+		width: 209px;
+	}
+
+	.md-in-footer {
+		white-space: pre-wrap;
+	}
+}
+@media screen and  (min-width: 1367px) and (max-width: 1440px) {
+	
+	#speedometer_mi .barometer_mi {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 215px;
+        height: 200px;
+        margin-bottom: -10px;
+        display: inline-block;
+        border-radius: 51%;
+    }
+    #speedometer_mi .needle_mi {
+      background-image: url("../../../assets/images/GBP.svg");
+      background-repeat: no-repeat;
+      z-index: 999999;
+      width: 215px;
+      height: 215px;
+      display: inline-block;
+      left: 0px;
+      top: -3px;
+      position: absolute;
+      bottom: 5px;
+      animation: change_mi 5s linear,
+        loop_mi 1s linear 5s infinite alternate;
+      transform-origin:50% calc(56% - 8px) ;
+    }
+}

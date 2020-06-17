@@ -1,0 +1,164 @@
+<div class="dbk" >
+    <div class="row"  id="companysentiments">
+        <div class="col-lg-12 col-md-12">
+            <div class="dbk-box">
+                <div class="dbkb-head">
+                    <h6 class="dbkb-title">EXECUTIVE SUMMARY</h6>
+                </div>
+                <div class="dbkb-body">
+                    <p  [innerHTML]="project?.pskcs.executiveSummary" style="text-align: left"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 border-right dotted">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'star-half-alt']"></fa-icon>OVERALL RATING</h6>
+                        </div>
+                        <div class="dbkb-body">
+                            <div class="orater" title="{{project?.pskcs.opinion_index}}">
+                                <div class="ratediv">
+                                    <div class="rates">
+                                        <div class="ratesd bk"><div class="ratesdcase"><div class="ratestar" *ngFor="let number of [0,1,2,3,4]"><fa-icon [icon]="['far', 'star']" ></fa-icon></div></div></div>
+                                        <div class="ratesd fr" [style.width.%]="project?.pskcs.opinion_index * 20"><div class="ratesdcase"><div class="ratestar" *ngFor="let number of [0,1,2,3,4]" ><fa-icon [icon]="['fas', 'star']" ></fa-icon></div></div></div>
+                                    </div>
+                                </div>
+                                <div class="ratelbl"><span>OPINION INDEX</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-9">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="dbk-box">
+                        <div class="dbkb-head">
+                            <h6 class="dbkb-title"><fa-icon [icon]="['fas', 'asterisk']"></fa-icon>RATING CRITERIA</h6>
+                        </div>
+                        <div class="dbkb-body">
+                            <div class="rcs">
+                                <div class="rc" *ngFor="let rc of rcs" [ngClass]="{'red': project?.pskcs[rc.prop] < 3, 'yellow':  project?.pskcs[rc.prop] > 3 && project?.pskcs[rc.prop] < 6, 'green':  project?.pskcs[rc.prop] >= 6}" (mouseover)="showKnob(rc.code, rc.prop)" (mouseout)="hideKnob(rc.code, rc.prop)">
+                                 <div class="rc-val"><div class="rc-num">{{project?.pskcs[rc.prop]}}</div><div class="rc-tail"><fa-icon [icon]="['fas', 'circle']"></fa-icon></div></div>
+                                 <div class="rc-case" >
+                                    <div class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></div>
+                                    <div class="ldBar {{rc.code}}" id="{{rc.code}}" data-preset="circle" ></div>
+                                        <!--div class="kprogress-bar {{rc.code}}" data-percent="0" [ngClass]="{'red': project?.pskcs[rc.prop] < 3, 'yellow':  project?.pskcs[rc.prop] > 3 && project?.pskcs[rc.prop] < 6, 'green':  project?.pskcs[rc.prop] >= 6}">
+                                                <div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span class="rc-icon"><fa-icon [icon]="['fas', rc.icon]"></fa-icon></span></div>
+                                            </div-->	
+                                        </div>
+                                        <div class="rc-label">{{rc.label}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" >
+            <div class="widthcls">
+                <a href="#topnetworkleader">
+                    <div class="moodindex border text-center" data-toggle="modal" data-target="#myModal">
+                        <p class="mi_circle"><fa-icon [icon]="['fas', 'handshake']" ></fa-icon></p>
+                        <p style="color:black;font-size: 10px;white-space: pre-wrap;">Top Network Leaders </p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls">
+                <a href="#topinfluencers">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle"><fa-icon [icon]="['fas', 'user-friends']" ></fa-icon></p>
+                        <p style="color:black;font-size: 10px;white-space: pre-wrap;">Top Influencers </p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls">
+                <a href="#topcliques">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle"><fa-icon [icon]="['fas', 'users']" ></fa-icon></p>
+                        <p style="color:black;font-size: 10px;white-space: pre-wrap;">Major Cliques Discovered</p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls ">
+                <a href="#topinforepositories">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle"><fa-icon [icon]="['fas', 'database']" ></fa-icon></p>
+                        <p style="color:black;font-size: 10px;white-space: pre-wrap;">Top Information Repositories</p>
+                    </div>
+                </a>
+            </div>
+            <div class="widthcls"> 
+                <a href="#topfunhangout">
+                    <div class="moodindex border text-center">
+                        <p class="mi_circle"><fa-icon [icon]="['fas', 'child']" ></fa-icon></p>
+                        <p style="color:black;font-size: 10px;white-space: pre-wrap;;">Top Fun Hangout</p>
+                    </div>
+                </a>
+            </div>
+        </div>	
+        <div class="row" id="topnetworkleader"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span>Top Network Leader</span><span class="float-right"><a href="#companysentiments"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span>
+                    </div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/tnl.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+         <div class="row" id="topinfluencers"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span>Top Influencers</span><span class="float-right"><a href="#companysentiments"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/ti.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+         <div class="row" id="topcliques"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span>Major Cliques Discovered</span><span class="float-right"><a href="#companysentiments"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/cd.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+         <div class="row" id="topinforepositories"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span>Top Information Repositories</span><span class="float-right"><a href="#companysentiments"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/tir.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="row" id="topfunhangout"> 
+            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom: 20px;">
+                <div class="card carddiv_height" style="background-color: #e7e5e6;">
+                    <div class="card-header cardheader"><span>Top Fun Hangout</span><span class="float-right"><a href="#companysentiments"><fa-icon [icon]="['fas', 'arrow-circle-up']" ></fa-icon>  Go to Top</a></span></div>
+                    <div class="">
+                        <div class="text-center demographics_mi_parent"><img src="assets/images/tfh.jpg" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
